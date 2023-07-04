@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+@keyframes animation-pages {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: animation-pages 1.5s ease;
+    opacity: 1;
+}
+
+/* Estilo para la barra de scroll vertical */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    /* Color del fondo de la barra */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #504f4f;
+    border-radius: 3px;
+    border: solid 1px;
+    /* Color del thumb (barra móvil) */
+}
+
+/* Estilo para la barra de scroll horizontal */
+::-webkit-scrollbar-horizontal {
+    height: 10px;
+    /* Altura de la barra */
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: #504f4f;
+    /* Color del thumb (barra móvil) horizontal */
+}

@@ -1,0 +1,132 @@
+.contenedor {
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-contenedor {
+    width: 100%;
+    display: flex;
+}
+
+.contenido-slider {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.contenido-slider:nth-child(2) {
+    background: #2155e4;
+    color: #fff;
+}
+
+.contenido-slider:nth-child(3) {
+    background: #9b8a8a;
+}
+
+.contenido-slider>img {
+    width: 700px;
+}
+
+.contenido-slider>div {
+    width: 40%;
+}
+
+.contenido-slider h2 {
+    font-weight: 300;
+    font-size: 80px;
+    text-align: justify;
+    line-height: 90px;
+}
+
+.contenido-slider a {
+    color: #fff;
+    background: #2155e4;
+    width: 70px;
+    display: block;
+    padding: 9px 0;
+    justify-content: center;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.contenido-slider:nth-child(2) a {
+    background: #fff;
+    color: #2155e4;
+}
+
+.contenido-slider:nth-child(3) a {
+    background: #000000;
+    color: #9b8a8a;
+}
+
+@media screen and (max-width:1400px) {
+    .contenido-slider h2 {
+        font-size: 70px;
+    }
+}
+
+@media screen and (max-width:1200px) {
+
+    .contenido-slider>img {
+        width: 60%;
+    }
+
+    .contenido-slider>div {
+        width: 30%;
+    }
+
+    .contenido-slider h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .contenido-slider {
+        flex-direction: column-reverse;
+    }
+
+    .contenido-slider>img {
+        width: 65%;
+    }
+
+    .contenido-slider>div {
+        width: 80%;
+    }
+
+    .contenido-slider h2 {
+        font-size: 40px;
+        line-height: 70px;
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    .contenido-slider {
+        height: auto;
+    }
+
+    .contenido-slider>img {
+        width: 100%;
+    }
+
+    .contenido-slider>div {
+        width: 80%;
+    }
+}
+
+
+
+@media screen and (max-width:400px) {
+    .contenido-slider {
+        flex-direction: column-reverse;
+    }
+
+    .contenido-slider>div {
+        width: 80%;
+    }
+
+}
