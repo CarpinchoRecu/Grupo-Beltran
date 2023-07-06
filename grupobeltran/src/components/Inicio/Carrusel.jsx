@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import img1 from "./assetsInicio/imgInicio1.jpg";
 import img2 from "./assetsInicio/imgInicio2.jpg";
 import img3 from "./assetsInicio/imgInicio3.jpg";
+import { Link } from "react-router-dom";
 
 const Carrusel = () => {
   const [contador, setContador] = useState(0);
@@ -11,17 +12,14 @@ const Carrusel = () => {
     {
       image: img1,
       content: "Nuestras Coberturas",
-      link: "/Coberturas",
     },
     {
       image: img2,
       content: "Para Vos y tu Familia",
-      link: "/Coberturas",
     },
     {
       image: img3,
       content: "Inverti en tu Salud",
-      link: "/Coberturas",
     },
     // Agrega más objetos para más slides
   ];
@@ -65,7 +63,7 @@ const Carrusel = () => {
           <section className="contenido-slider" key={index}>
             <div>
               <h2>{slide.content}</h2>
-              <a href={slide.link}>Toca Aqui</a>
+              <Link className="linkInicio" to="/Coberturas">Toca Aqui</Link>
             </div>
             <img src={slide.image} alt={`Slide ${index + 1}`} />
           </section>

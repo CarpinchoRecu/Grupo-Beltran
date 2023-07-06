@@ -6,7 +6,7 @@ import Coberturas from "./components/Coberturas/Coberturas.jsx";
 import Trabajo from "./components/Trabajo/Trabajo.jsx";
 import Contactanos from "./components/contactanos/Contactanos";
 import Nosotros from "./components/Nosotros/Nosotros";
-import Error from "./components/Error404/Error404.jsx";
+import Error404 from "./components/Error404/Error404.jsx";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/Trabajo" element={<Trabajo />} />
         <Route path="/Contactanos" element={<Contactanos />} />
         <Route path="/Nosotros" element={<Nosotros />} />
-        <Route path="*" element={<Error />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );

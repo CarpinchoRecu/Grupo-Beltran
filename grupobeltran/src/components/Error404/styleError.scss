@@ -1,0 +1,32 @@
+#error {
+    background-color: #2155e4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 50rem;
+
+    .titleError1 {
+        font-size: 50px;
+        border-bottom: #000 solid;
+
+    }
+    .titleError2 {
+        font-size: 30px;
+    }
+
+    .linkError{
+        text-decoration: none;
+        color: #2155e4;
+        background-color: #fff;
+        padding: 3px;
+        border-radius: 4px;
+
+        &:hover{
+            color: #fff;
+            background-color: #000;
+            transition: 0.31s;
+        }
+    }
+}
