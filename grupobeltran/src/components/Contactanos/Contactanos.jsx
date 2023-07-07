@@ -13,14 +13,30 @@ const Contactanos = () => {
     });
 
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Realizar acciones con los datos del formulario
-        console.log(formData);
+        // Enviar los datos del formulario al servidor Express
+        fetch("http://localhost:5173/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Respuesta del servidor:", data);
+                // Realizar acciones adicionales según sea necesario
+            })
+            .catch((error) => {
+                console.error("El error es:", error);
+                // Manejar el error de alguna forma
+            });
 
         // Restablecer el estado del formulario
         setFormData({
