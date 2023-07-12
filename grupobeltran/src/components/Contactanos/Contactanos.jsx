@@ -21,7 +21,7 @@ const Contactanos = () => {
         e.preventDefault();
 
         // Enviar los datos del formulario al servidor Express
-        fetch("http://localhost:5173/", {
+        fetch("/api/enviar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,11 +30,11 @@ const Contactanos = () => {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log("Respuesta del servidor:", data);
+                console.log("Respuesta del servidor: ", data);
                 // Realizar acciones adicionales según sea necesario
             })
             .catch((error) => {
-                console.error("El error es:", error);
+                console.error("El error es: ", error);
                 // Manejar el error de alguna forma
             });
 
@@ -83,7 +83,7 @@ const Contactanos = () => {
                 <label>
                     Teléfono:
                     <input
-                        type="tel"
+                        type="text"
                         name="telefono"
                         value={formData.telefono}
                         onChange={handleChange}

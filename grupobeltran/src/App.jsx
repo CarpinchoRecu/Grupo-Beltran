@@ -21,6 +21,7 @@ function App() {
         <Route path="/Trabajo" element={<Trabajo />} />
         <Route path="/Contactanos" element={<Contactanos />} />
         <Route path="/Nosotros" element={<Nosotros />} />
+        <Route path="*" element={<Inicio />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>

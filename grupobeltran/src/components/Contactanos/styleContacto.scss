@@ -2,9 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50rem;
+    height: 47rem;
     background-color: #f6f6f6;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 
 
     form {
@@ -15,7 +15,7 @@
         padding: 2rem;
         background-color: #fff;
         border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
         gap: 10px;
 
 
@@ -50,4 +50,36 @@
         }
     }
 
+}
+
+@media (max-width: 500px) {
+    .form-container {
+        height: 34rem;
+
+
+        form {
+            width: 300px;
+            padding: 2rem;
+            gap: 10px;
+
+
+            label {
+                font-size: 15px;
+
+                input {
+                    padding: 0.1rem;
+                    margin-left: 0;
+                    font-size: 15px;
+                    width: 250px;
+                }
+            }
+
+
+            button {
+                padding: 0.3rem;
+                font-size: 15px;
+            }
+        }
+
+    }
 }
