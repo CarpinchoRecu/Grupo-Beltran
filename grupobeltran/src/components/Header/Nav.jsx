@@ -51,7 +51,7 @@ const Nav = () => {
                 <a onClick={click}>
                     <animated.img style={animationLogo} src={logo} alt="Logo" />
                 </a>
-                <h2>Grupo Beltran</h2>
+                <h2>AsesSalud SRL</h2>
             </div>
         </nav>
     );

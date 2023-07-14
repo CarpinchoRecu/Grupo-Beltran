@@ -1,7 +1,7 @@
 /*color de nav*/
 
 header {
-    background-color: #2155e4;
+    background-color: #9b8a8a;
     max-width: 100%;
 }
 
@@ -26,13 +26,12 @@ nav {
         border-top: solid #d8d8d8 2px;
 
         h2 {
-            font-size: 65px;
+            font-size: 75px;
             grid-area: title;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 100;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
         /*Animacion del Logo*/
@@ -52,10 +51,15 @@ nav {
         }
 
         img {
-            width: 6rem;
-            height: 6rem;
-            margin: 3px 3rem;
+            width: 8rem;
+            height: 8rem;
+            margin: -13px 20px -30px;
             grid-area: logo;
+            transition: 0.3s;
+
+            &:hover{
+                scale: 1.1;
+            }
         }
     }
 
@@ -71,9 +75,9 @@ nav {
             justify-content: center;
             text-decoration: none;
             font-size: 25px;
-            color: #ffffff;
+            color: #000;
             transition: 0.08s ease-in-out;
-            border-bottom: solid 3px #2155e4;
+            border-bottom: solid 3px #9b8a8a;
 
             /*Animacion de Botones*/
             &:hover {
@@ -153,9 +157,9 @@ nav {
             }
 
             img {
-                width: 5rem;
-                height: 5rem;
-                margin: 5px 3.6rem;
+                width: 6rem;
+                height: 6rem;
+                margin: -5px 1rem -10px;
             }
         }
 
@@ -343,7 +347,8 @@ nav {
             }
 
             img {
-                margin: 0.2rem 1.3rem;
+                height: 6rem;
+                width: 6rem;
             }
         }
     }
@@ -423,7 +428,6 @@ nav {
     nav {
         .title-logo {
             img {
-                margin: 0.1rem 1rem;
             }
         }
     }
@@ -464,9 +468,8 @@ nav {
             }
 
             img {
-                width: 4.3rem;
-                height: 4.3rem;
-                margin: 0.2rem 1rem;
+                width: 5.5rem;
+                height: 5.5rem;
             }
         }
     }
@@ -490,8 +493,8 @@ nav {
             }
 
             img {
-                width: 3.8rem;
-                height: 3.8rem;
+                width: 5rem;
+                height: 5rem;
             }
         }
     }
