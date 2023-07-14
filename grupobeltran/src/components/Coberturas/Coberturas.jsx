@@ -45,10 +45,8 @@ const Coberturas = () => {
             </div>
 
             <Parallax speed={0.4} offset={10} image={img2}>
-                <h2>Contenido dentro del Parallax</h2>
-                <p>
-                    Este es el contenido que se mostrará dentro del componente Parallax.
-                </p>
+                <h2>Vamos a elegir la cobertura que necesites</h2>
+                <p>Llevamos tu salud a donde vayas</p>
             </Parallax>
         </div>
     );

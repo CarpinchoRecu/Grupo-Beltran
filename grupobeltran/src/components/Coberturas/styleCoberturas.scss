@@ -1,6 +1,5 @@
 .parallax {
     height: 500px;
-    /* Ajusta la altura según tus necesidades */
     position: relative;
     overflow: hidden;
     border-bottom: #000 solid 3px;
@@ -18,7 +17,7 @@
 }
 
 .content {
-    height: 460px;
+    height: 500px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -52,6 +51,68 @@
                     mix-blend-mode: darken;
                     height: 100%;
                     width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .parallax {
+        height: 500px;
+        position: relative;
+        overflow: hidden;
+        border-bottom: #000 solid 3px;
+        border-top: #000 solid 3px;        
+    }
+    
+    .parallax-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 20px;
+        z-index: 1;
+
+    }
+
+    .content {
+        height: 500px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        h1 {
+            font-size: 37px;
+            border-bottom: #000 solid 4px;
+        }
+    
+        .imgContent {
+            display: flex;
+            flex-wrap: wrap;
+    
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+    
+                h2 {
+                    font-size: 30px;
+                }
+    
+                .imgsimg {
+                    width: 150px;
+                    height: 150px;
+    
+                    img {
+                        object-fit: contain;
+                        mix-blend-mode: darken;
+                        height: 100%;
+                        width: 100%;
+                    }
                 }
             }
         }
