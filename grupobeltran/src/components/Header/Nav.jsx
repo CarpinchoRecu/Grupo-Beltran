@@ -51,7 +51,7 @@ const Nav = () => {
                 <a onClick={click}>
                     <animated.img style={animationLogo} src={logo} alt="Logo" />
                 </a>
-                <h2>AsesSalud SRL</h2>
+                <h2>AsesSalud S.R.L.</h2>
             </div>
         </nav>
     );

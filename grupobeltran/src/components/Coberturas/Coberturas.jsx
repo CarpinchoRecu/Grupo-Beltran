@@ -5,6 +5,7 @@ import img2 from "./assetsCoberturas/imgCobertura2.jpg";
 import ospida from "./assetsCoberturas/ospida.jpeg";
 import sancor from "./assetsCoberturas/sancor.jpeg";
 import conexionsalud from "./assetsCoberturas/conexionsalud.jpeg";
+import chaco from "./assetsCoberturas/chaco.png"
 
 const Coberturas = () => {
     return (
@@ -27,10 +28,17 @@ const Coberturas = () => {
                         </div>
                     </div>
                     <div>
-                        <h2>Sancor</h2>
+                        <h2>Sancor Salud</h2>
                         <div className="imgsimg">
                             {" "}
                             <img src={sancor} alt="sancor, Cobertuta medica" />
+                        </div>
+                    </div>
+                    <div>
+                        <h2>FemeChaco</h2>
+                        <div className="imgsimg">
+                            {" "}
+                            <img src={chaco} alt="FemeChaco, Cobertuta medica" />
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@ function App() {
         <Route path="/Coberturas" element={<Coberturas />} />
         <Route path="/Trabajo" element={<Trabajo />} />
         <Route path="/Contactanos" element={<Contactanos />} />
-        <Route path="/Nosotros" element={<Nosotros />} />
+        <Route path="/Nosotros" element={<Inicio />} />
         <Route path="*" element={<Inicio />} />
       </Routes>
     </BrowserRouter>
