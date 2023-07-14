@@ -1,13 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 const mysql = require('mysql');
+const port = 80
 
 const app = express();
 app.use(express.json());
 
 // Configuración de la conexión con la base de datos
 const connection = mysql.createConnection({
-  host: '154.49.247.1',
+  host: 'srv952.hstgr.io',
   user: 'u352676213_francisco',
   password: 'Jh:7$RWb=M',
   database: 'u352676213_form_contactos',
@@ -49,6 +50,6 @@ app.post('/api/enviar', (request, response) => {
 
 // Resto de tu configuración de Express
 
-app.listen(3306, () => {
-  console.log('Servidor Express funcionando en el puerto 3306');
+app.listen(port, () => {
+  console.log(`el servidor esta en el puerto ${port}`);
 });
