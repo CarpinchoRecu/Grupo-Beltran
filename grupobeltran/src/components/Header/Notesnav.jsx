@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 const NotesNav = () => {
+
     // Animacion de las notas
     useEffect(() => {
         let currentText = 1;

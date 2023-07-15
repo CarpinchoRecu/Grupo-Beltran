@@ -4,6 +4,12 @@ import Notesnav from "./Notesnav.jsx";
 import Menuburger from "./Menuburger.jsx";
 
 const Header = () => {
+
+    const notes = [
+        { texto: "Cobertura personalizada" },
+        { texto: "Para vos y tu familia" },
+        { texto: "inverti en vos" }]
+
     return (
         <header>
             <Nav />
