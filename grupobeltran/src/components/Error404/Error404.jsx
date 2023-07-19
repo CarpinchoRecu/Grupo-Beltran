@@ -10,9 +10,7 @@ const Error404 = () => {
                 <h1 className="titleError1">Error 404 - Not Found</h1>
                 <h4 className="titleError2">Vuelve al inicio</h4>
                 <Link className="linkError" to="/Inicio">Volver</Link>
-
                 <img src={imgError} alt="img_error" />
-
             </div >
         </>
 

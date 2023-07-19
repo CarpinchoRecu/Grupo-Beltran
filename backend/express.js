@@ -16,14 +16,14 @@ app.use(cors());
 
 // Limite de uso de api
 // en este caso son 2 peticones por minuto
-const limiter = rateLimit({
+const limiterContactanos = rateLimit({
   windowMs: 1 * 60 * 1000,
   max: 2,
   standardHeaders: true,
   legacyHeaders: false,
 });
 
-app.use(limiter);
+app.use("/contactanos",limiterContactanos);
 
 // Crear la conexión a la base de datos al iniciar el servidor
 const connection = mysql.createConnection({
@@ -66,10 +66,12 @@ app.post("/contactanos", (req, res) => {
     if (err) {
       console.error("Error al insertar datos en la base de datos de contactos: ", err);
       res.status(500).send("Error al insertar datos en la base de datos de contactos.");
+      connection.end();
       return;
     }
 
     res.send("Datos insertados correctamente en la base de datos de contactos.");
+    connection.end();
   });
 });
 

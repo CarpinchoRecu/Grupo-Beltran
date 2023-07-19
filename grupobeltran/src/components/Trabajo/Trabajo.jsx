@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styleContactanos from "./styleTrabajo.scss";
 
 const Trabajo = () => {
     useEffect(() => {
