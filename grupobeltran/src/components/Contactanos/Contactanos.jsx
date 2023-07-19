@@ -42,7 +42,7 @@ const Contactanos = () => {
                 return;
             }
 
-            inputProv.style.transition = "border-radius 0.3s ease"
+            inputProv.style.transition = "border-radius 0.3s ease";
             inputProv.style.borderBottomLeftRadius = "0";
             inputProv.style.borderBottomRightRadius = "0";
             mensaje.innerHTML = "";
