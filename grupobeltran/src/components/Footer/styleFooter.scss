@@ -1,0 +1,121 @@
+footer {
+    background-color: #9b8a8a;
+    max-width: 100%;
+
+    .titleLogoFooter {
+        border-bottom: 2px solid #fff;
+        border-top: 2px solid;
+        display: grid;
+        grid-template-columns: 10% 80%;
+        img {
+            margin-left: 10px;
+            height: 130px;
+        }
+
+        .titlesFooter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+
+            h2 {
+                font-size: 33px;
+            }
+
+            h3 {
+                font-size: 25px;
+                color: #19711b;
+            }
+        }
+    }
+
+
+    .logos {
+        padding: 11px;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            img {
+                height: 60px;
+                transition: 0.3s ease;
+
+                &:hover {
+                    scale: 1.2;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    footer {
+        .titleLogoFooter {
+            img {
+                height: 90px;
+            }
+            .titlesFooter {
+                padding: 0;
+                h2 {
+                    font-size: 28px;
+                }
+    
+                h3 {
+                    font-size: 22px;
+                }
+            }
+        }
+    
+    
+        .logos {
+            padding: 6px;
+            gap: 18px;
+    
+            a {
+                img {
+                    height: 45px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    footer {
+        .titleLogoFooter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                height: 90px;
+            }
+            .titlesFooter {
+                
+                padding: 0;
+                h2 {
+                    font-size: 28px;
+                }
+    
+                h3 {
+                    font-size: 22px;
+                }
+            }
+        }
+    
+    
+        .logos {
+            padding: 6px;
+            gap: 18px;
+    
+            a {
+                img {
+                    height: 45px;
+                }
+            }
+        }
+    }
+}

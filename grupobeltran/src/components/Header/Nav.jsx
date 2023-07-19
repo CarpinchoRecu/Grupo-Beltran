@@ -1,4 +1,3 @@
-import { useSpring, animated } from "react-spring";
 import logo from "./assetsHeader/logo.jpeg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,15 +8,10 @@ const Nav = () => {
     const click = () => {
         setLogoClick(true);
         setInterval(() => {
-            window.location.href = "/Inicio";
+            window.location.href = "../index.html";
         }, 500);
     };
 
-    const animationLogo = useSpring({
-        from: { transform: "scale(1)" },
-        to: { transform: LogoClick ? "scale(0.8)" : "scale(1)" },
-        config: { tension: 200, friction: 2 },
-    });
     return (
         <nav>
             <div className="buttons">
@@ -49,7 +43,7 @@ const Nav = () => {
             </div>
             <div className="title-logo">
                 <a onClick={click}>
-                    <animated.img style={animationLogo} src={logo} alt="Logo" />
+                    <img src={logo} alt="Logo" />
                 </a>
                 <h2>AsesSalud S.R.L.</h2>
             </div>

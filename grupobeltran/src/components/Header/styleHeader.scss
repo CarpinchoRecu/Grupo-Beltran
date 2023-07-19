@@ -34,22 +34,6 @@ nav {
             font-weight: 100;
         }
 
-        /*Animacion del Logo*/
-
-        @keyframes animation_logo {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(0.8);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
         img {
             width: 8rem;
             height: 8rem;
@@ -422,13 +406,6 @@ nav {
         100% {
             opacity: 0;
             transform: translateY(19px);
-        }
-    }
-
-    nav {
-        .title-logo {
-            img {
-            }
         }
     }
 

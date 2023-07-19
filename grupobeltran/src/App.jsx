@@ -7,6 +7,7 @@ import Trabajo from "./components/Trabajo/Trabajo.jsx";
 import Contactanos from "./components/contactanos/Contactanos";
 import Nosotros from "./components/Nosotros/Nosotros";
 import Error404 from "./components/Error404/Error404.jsx";
+import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Nosotros" element={<Inicio />} />
         <Route path="*" element={<Inicio />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
