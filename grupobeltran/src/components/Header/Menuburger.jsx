@@ -27,27 +27,29 @@ const MenuBurger = () => {
       <div className="offcanvas" ref={offcanvasRef}>
         <div className="close-btn" onClick={handleClickClose}></div>
         <div>
-                    <Link className="links" to="/Inicio">
-                        Inicio
-                    </Link>
-                </div>
-                <div>
-                    <Link className="links" to="/Coberturas">
-                        Coberturas
-                    </Link>
-                </div>
-                <div>
-                    <Link className="links" to="/Contactanos">
-                        Contáctanos
-                    </Link>
-                </div>
-                <div>
-                    <Link className="links" to="/Trabajo">
-                        Trabaja con Nosotros
-                    </Link>
-                </div>
+          <Link className="links" to="/Inicio">
+            Inicio
+          </Link>
+        </div>
         <div>
-          <a href="./index.html">Nuestra Historia</a>
+          <Link className="links" to="/Coberturas">
+            Coberturas
+          </Link>
+        </div>
+        <div>
+          <Link className="links" to="/Nosotros">
+            Acerca de Nosotros
+          </Link>
+        </div>
+        <div>
+          <Link className="links" to="/Contactanos">
+            Contactanos
+          </Link>
+        </div>
+        <div>
+          <Link className="links" to="/Trabajo">
+            Trabaja con Nosotros
+          </Link>
         </div>
         <div className="menu-line"></div>
       </div>
