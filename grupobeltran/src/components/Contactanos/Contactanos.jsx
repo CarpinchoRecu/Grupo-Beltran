@@ -6,6 +6,7 @@ const Contactanos = () => {
     useEffect(() => {
         const inputProv = document.getElementById("provincia");
         let provincias = [
+            "Caba",
             "Buenos Aires",
             "Catamarca",
             "Chaco",
