@@ -1,126 +1,137 @@
 footer {
-    background-color: #e0d8d8;
-    max-width: 100%;
+    background-color: #96b19791;
+    display: grid;
+    grid-template-areas: "titleLogoFooter buttonsFooter logoContact logosRedes";
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
 
     .titleLogoFooter {
-        border-bottom: 2px solid;
-        border-top: 2px solid;
-        display: grid;
-        grid-template-columns: 10% 80%;
-        img {
-            margin-left: 10px;
-            height: 130px;
-            transition: 0.3s ease;
-
-            &:hover {
-                scale: 1.15;
-            }
-        }
-
-        .titlesFooter {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 5px;
-
-            h2 {
-                font-size: 33px;
-            }
-
-            h3 {
-                font-size: 25px;
-                color: #19711b;
-                border-bottom: 3px solid #000;
-            }
-        }
-    }
-
-
-    .logos {
-        padding: 11px;
+        grid-area: titleLogoFooter;
         display: flex;
-        gap: 20px;
         align-items: center;
-        justify-content: center;
+        flex-direction: column;
+        border-right: solid 1px;
 
         a {
             img {
-                height: 60px;
+                cursor: pointer;
+                height: 120px;
                 transition: 0.3s ease;
 
                 &:hover {
-                    scale: 1.2;
+                    scale: 1.1;
                 }
+            }
+        }
+
+        h2 {
+            position: relative;
+            bottom: 20px;
+            font-size: 17px;
+            font-family: "TT";
+            font-weight: 100;
+        }
+    }
+
+    .buttonsFooter {
+        grid-area: buttonsFooter;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 30px;
+        gap: 10px;
+        border-right: solid 1px;
+
+        .link {
+            text-decoration: none;
+            transition: 0.15s ease-in-out;
+            border-bottom: solid 1px #00000000;
+            font-size: 15px;
+            font-family: "TT";
+            color: #000;
+
+            &:hover {
+                border-bottom: 1px solid #000;
             }
         }
     }
-}
 
-@media (max-width: 600px) {
-    footer {
-        .titleLogoFooter {
-            img {
-                height: 90px;
-            }
-            .titlesFooter {
-                padding: 0;
-                h2 {
-                    font-size: 28px;
-                }
-    
-                h3 {
-                    font-size: 22px;
-                }
-            }
-        }
-    
-    
-        .logos {
-            padding: 6px;
-            gap: 18px;
-    
-            a {
-                img {
-                    height: 45px;
-                }
-            }
-        }
-    }
-}
+    .logoContact {
+        grid-area: logoContact;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-right: solid 1px;
+        gap: 10px;
 
-@media (max-width: 450px) {
-    footer {
-        .titleLogoFooter {
+        h2 {
+            font-size: 17px;
+            font-family: "TT";
+            font-weight: 100;
+        }
+
+        .contact {
+
             display: flex;
+            justify-content: flex-start;
             flex-direction: column;
-            align-items: center;
+            gap: 10px;
 
-            img {
-                height: 90px;
-            }
-            .titlesFooter {
-                
-                padding: 0;
-                h2 {
-                    font-size: 28px;
+            div {
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+
+                a {
+                    img {
+                        height: 45px;
+                        transition: 0.3s ease;
+
+                        &:hover {
+                            scale: 1.05;
+                        }
+                    }
                 }
-    
-                h3 {
-                    font-size: 22px;
-                    border-bottom: 0;
+
+                h2 {
+                    font-size: 15px;
+                    font-family: "TT";
+                    font-weight: 100;
                 }
             }
         }
-    
-    
-        .logos {
-            padding: 6px;
-            gap: 18px;
-    
+
+    }
+
+    .logosRedes {
+        grid-area: logosRedes;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        h2 {
+            font-size: 17px;
+            font-family: "TT";
+            font-weight: 100;
+        }
+
+        div {
+            display: flex;
+            gap: 16px;
+
             a {
                 img {
-                    height: 45px;
+                    height: 60px;
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        scale: 1.15;
+                    }
+
                 }
             }
         }

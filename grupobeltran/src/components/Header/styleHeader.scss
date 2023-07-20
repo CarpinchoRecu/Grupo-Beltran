@@ -1,7 +1,7 @@
 /*color de nav*/
 
 header {
-    background-color: #9b8a8a;
+    background-color: #96B197;
     max-width: 100%;
 
     nav {
@@ -14,10 +14,10 @@ header {
             align-items: center;
             justify-content: center;
             position: relative;
-            top: 40px;
+            top: 26px;
 
             img {
-                cursor: pointer;
+                z-index: 1;
                 grid-area: logo;
                 height: 80px;
                 scale: 1.7;
@@ -35,17 +35,15 @@ header {
 
             .links {
                 font-family: "TT";
-                display: flex;
-                justify-content: center;
                 text-decoration: none;
                 font-size: 21px;
                 color: #000;
-                transition: 0.08s ease-in-out;
-                border-bottom: solid 3px #9b8a8a;
+                transition: 0.2s ease-in-out;
+                border-bottom: solid 1px #00000000;
 
                 /*Animacion de Botones*/
                 &:hover {
-                    border-bottom: solid 3px #000000;
+                    border-bottom: solid 1px #000000;
                 }
             }
         }

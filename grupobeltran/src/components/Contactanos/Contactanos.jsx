@@ -4,6 +4,7 @@ import logo from "../Footer/assetsFooter/logo2.jpeg";
 
 const Contactanos = () => {
     useEffect(() => {
+        const form = document.getElementById("contactForm")
         const inputProv = document.getElementById("provincia");
         let provincias = [
             "Caba",
@@ -31,6 +32,11 @@ const Contactanos = () => {
             "Tierra del Fuego",
             "Tucumán",
         ];
+        let mensajeValidaciones = []
+
+        const setCustomValidity = (validity) => {
+            const f = f
+        }
 
         const mostrarOptions = () => {
             const mensaje = document.getElementById("mensaje");

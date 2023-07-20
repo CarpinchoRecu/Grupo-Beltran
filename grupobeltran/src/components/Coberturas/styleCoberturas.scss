@@ -1,24 +1,6 @@
-.parallax {
-    height: 500px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: #000 solid 3px;
-    border-top: #000 solid 3px;
-}
-
-.parallax-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    font-size: 36px;
-    z-index: 1;
-}
-
 .content {
-    height: 500px;
-    padding: 20px;
+    height: 600px;
+    padding: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,20 +8,22 @@
     h1 {
         font-size: 55px;
         border-bottom: #000 solid 4px;
+        font-family: "Lovelo";
     }
 
     .imgContent {
         display: flex;
         flex-wrap: wrap;
+        gap: 20px;
 
         div {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
 
             h2 {
                 font-size: 35px;
+                font-family: "TT";
             }
 
             .imgsimg {
@@ -58,25 +42,6 @@
 }
 
 @media (max-width: 500px) {
-    .parallax {
-        height: 500px;
-        position: relative;
-        overflow: hidden;
-        border-bottom: #000 solid 3px;
-        border-top: #000 solid 3px;        
-    }
-    
-    .parallax-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        font-size: 20px;
-        z-index: 1;
-
-    }
-
     .content {
         height: 500px;
         padding: 20px;
