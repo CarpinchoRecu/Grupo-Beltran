@@ -1,4 +1,4 @@
-import logo from "./assetsHeader/logo.jpeg";
+import logo1 from "./assetsHeader/logo1.jpeg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -14,6 +14,11 @@ const Nav = () => {
 
     return (
         <nav>
+            <div className="logo">
+                <a onClick={click}>
+                    <img src={logo1} alt="Logo" />
+                </a>
+            </div>
             <div className="buttons">
                 <div>
                     <Link className="links" to="/Inicio">
@@ -40,12 +45,6 @@ const Nav = () => {
                         Trabaja con Nosotros
                     </Link>
                 </div>
-            </div>
-            <div className="title-logo">
-                <a onClick={click}>
-                    <img src={logo} alt="Logo" />
-                </a>
-                <h2>AsesSalud S.R.L.</h2>
             </div>
         </nav>
     );

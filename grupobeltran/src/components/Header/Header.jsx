@@ -13,7 +13,6 @@ const Header = () => {
     return (
         <header>
             <Nav />
-            <Notesnav />
             <Menuburger />
         </header>
     );

@@ -3,7 +3,7 @@ import logofb from "./assetsFooter/logofb.jpeg"
 import logoig from "./assetsFooter/logoig.jpeg"
 import logotw from "./assetsFooter/logotw.jpeg"
 import logowp from "./assetsFooter/logowp.jpeg"
-import logo from "../Header/assetsHeader/logo.jpeg"
+import logo2 from "./assetsFooter/logo2.jpeg"
 import { useState } from "react"
 
 const Counter = () => {
@@ -20,7 +20,7 @@ const Counter = () => {
     return (
         <footer>
             <div className="titleLogoFooter">
-                <a onClick={click}><img src={logo} alt="logo" /></a>
+                <a onClick={click}><img src={logo2} alt="logo" /></a>
                 
                 <div className="titlesFooter">
                     <h2>ASESSALUD S.R.L.</h2>

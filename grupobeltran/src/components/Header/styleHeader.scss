@@ -3,6 +3,53 @@
 header {
     background-color: #9b8a8a;
     max-width: 100%;
+
+    nav {
+        display: grid;
+        grid-template-areas: "logo botones";
+        grid-template-rows: auto auto;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            top: 40px;
+
+            img {
+                cursor: pointer;
+                grid-area: logo;
+                height: 80px;
+                scale: 1.7;
+            }
+        }
+
+        /*Botones de la Barra de Navegacion*/
+
+        .buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 70px;
+            grid-area: botones;
+
+            .links {
+                font-family: "TT";
+                display: flex;
+                justify-content: center;
+                text-decoration: none;
+                font-size: 21px;
+                color: #000;
+                transition: 0.08s ease-in-out;
+                border-bottom: solid 3px #9b8a8a;
+
+                /*Animacion de Botones*/
+                &:hover {
+                    border-bottom: solid 3px #000000;
+                }
+            }
+        }
+    }
 }
 
 /*Menu Hamburguesa*/
@@ -13,63 +60,7 @@ header {
 
 /*UI-BarraNav*/
 
-nav {
-    display: flex;
-    flex-direction: column;
 
-    /*Titulo y Logo de la Barra de Navegacion*/
-
-    .title-logo {
-        display: grid;
-        grid-template-areas: "logo title";
-        grid-template-columns: 15% 70%;
-        border-top: solid #d8d8d8 2px;
-
-        h2 {
-            font-size: 75px;
-            grid-area: title;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 100;
-        }
-
-        img {
-            width: 8rem;
-            height: 8rem;
-            margin: -13px 20px -30px;
-            grid-area: logo;
-            transition: 0.3s;
-
-            &:hover{
-                scale: 1.1;
-            }
-        }
-    }
-
-    /*Botones de la Barra de Navegacion*/
-
-    .buttons {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        margin: 1%;
-
-        .links {
-            display: flex;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 25px;
-            color: #000;
-            transition: 0.08s ease-in-out;
-            border-bottom: solid 3px #9b8a8a;
-
-            /*Animacion de Botones*/
-            &:hover {
-                border-bottom: solid 3px #000000;
-            }
-        }
-    }
-}
 
 /*Animacion para las notas*/
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import styleContactanos from "./styleContacto.scss";
-import logo from "../Header/assetsHeader/logo.jpeg";
+import logo from "../Footer/assetsFooter/logo2.jpeg";
 
 const Contactanos = () => {
     useEffect(() => {
