@@ -25,7 +25,7 @@ const Footer = () => {
                     <img src={logo2} alt="logo" />
                 </a>
                 <h2>•TODOS LOS DERECHOS RESERVADOS•</h2>
-                <h2>&copy; Copyright 2023 </h2>
+                <h2>&copy; COPYRIGHT 2023</h2>
             </div>
             <div className="buttonsFooter">
                 <Link className="link" to="/Inicio">
@@ -47,18 +47,18 @@ const Footer = () => {
             <div className="logoContact">
                 <h2>•CONTACTOS</h2>
                 <div className="contact">
-                <div>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
-                        <img src={logowp} alt="Whatsapp" />
-                    </a>
-                    <h2>+54 123456789</h2>
-                </div>
-                <div>
-                    <a href="http://" target="_blank" rel="noopener noreferrer">
-                        <img src={logoemail} alt="Email" />
-                    </a>
-                    <h2>consultas@asessaludsrl.com</h2>
-                </div>
+                    <div>
+                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                            <img src={logowp} alt="Whatsapp" />
+                        </a>
+                        <h2>+54 123456789</h2>
+                    </div>
+                    <div>
+                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                            <img src={logoemail} alt="Email" />
+                        </a>
+                        <h2>consultas@asessaludsrl.com</h2>
+                    </div>
                 </div>
             </div>
             <div className="logosRedes">

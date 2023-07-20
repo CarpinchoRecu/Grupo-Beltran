@@ -25,8 +25,6 @@ footer {
         }
 
         h2 {
-            position: relative;
-            bottom: 20px;
             font-size: 17px;
             font-family: "TT";
             font-weight: 100;
@@ -73,7 +71,6 @@ footer {
         }
 
         .contact {
-
             display: flex;
             justify-content: flex-start;
             flex-direction: column;
@@ -102,7 +99,6 @@ footer {
                 }
             }
         }
-
     }
 
     .logosRedes {
@@ -131,7 +127,370 @@ footer {
                     &:hover {
                         scale: 1.15;
                     }
+                }
+            }
+        }
+    }
+}
 
+@media screen and (max-width: 1300px) {
+    footer {
+        padding: 10px;
+
+        .titleLogoFooter {
+            a {
+                img {
+                    height: 110px;
+                }
+            }
+
+            h2 {
+                position: relative;
+                bottom: 10px;
+                font-size: 10px;
+            }
+        }
+
+        .buttonsFooter {
+            margin-left: 28px;
+            gap: 9px;
+
+            .link {
+                font-size: 13px;
+            }
+        }
+
+        .logoContact {
+            gap: 5px;
+
+            h2 {
+                font-size: 15px;
+            }
+
+            .contact {
+                gap: 5px;
+
+                div {
+                    a {
+                        img {
+                            height: 40px;
+                        }
+                    }
+
+                    h2 {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+
+        .logosRedes {
+            h2 {
+                font-size: 15px;
+            }
+
+            div {
+                gap: 10px;
+
+                a {
+                    img {
+                        height: 52px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    footer {
+        .titleLogoFooter {
+            a {
+                img {
+                    height: 100px;
+                }
+            }
+        }
+
+        .buttonsFooter {
+            gap: 6px;
+        }
+
+        .logoContact {
+            .contact {
+                gap: 4px;
+
+                div {
+                    a {
+                        img {
+                            height: 37px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .logosRedes {
+            h2 {
+                font-size: 13px;
+            }
+
+            div {
+                a {
+                    img {
+                        height: 44px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    footer {
+        grid-template-areas: "titleLogoFooter buttonsFooter" "logoContact logosRedes";
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        padding: 10px;
+
+        .titleLogoFooter {
+            a {
+                img {
+                    height: 120px;
+                }
+            }
+
+            h2 {
+                font-size: 17px;
+            }
+        }
+
+        .buttonsFooter {
+            margin-left: 30px;
+            gap: 10px;
+            border-right: solid 0px;
+
+            .link {
+                font-size: 15px;
+            }
+        }
+
+        .logoContact {
+            border-top: 1px solid;
+            border-right: solid 1px;
+            gap: 10px;
+
+            h2 {
+                font-size: 17px;
+            }
+
+            .contact {
+                gap: 10px;
+
+                div {
+                    a {
+                        img {
+                            height: 45px;
+                        }
+                    }
+
+                    h2 {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .logosRedes {
+            border-top: 1px solid;
+            gap: 10px;
+
+            h2 {
+                font-size: 17px;
+            }
+
+            div {
+                gap: 16px;
+
+                a {
+                    img {
+                        height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    footer {
+        .titleLogoFooter {
+            a {
+                img {
+                    height: 100px;
+                }
+            }
+
+            h2 {
+                font-size: 15px;
+            }
+        }
+
+        .buttonsFooter {
+
+            .link {
+                font-size: 13px;
+            }
+        }
+
+        .logoContact {
+
+            h2 {
+                font-size: 15px;
+            }
+
+            .contact {
+                div {
+                    a {
+                        img {
+                            height: 40px;
+                        }
+                    }
+
+                    h2 {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+
+        .logosRedes {
+            h2 {
+                font-size: 15px;
+            }
+
+            div {
+                gap: 15px;
+
+                a {
+                    img {
+                        height: 55px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    footer {
+        .titleLogoFooter {
+            h2 {
+                font-size: 13px;
+            }
+        }
+
+        .buttonsFooter {
+
+            .link {
+                font-size: 11px;
+            }
+        }
+
+        .logoContact {
+            gap: 2px;
+
+            h2 {
+                font-size: 13px;
+            }
+
+            .contact {
+                div {
+                    a {
+                        img {
+                            height: 35px;
+                        }
+                    }
+
+                    h2 {
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+
+        .logosRedes {
+            h2 {
+                font-size: 13px;
+            }
+
+            div {
+                gap: 10px;
+
+                a {
+                    img {
+                        height: 50px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    footer {
+        .titleLogoFooter {
+            a {
+                img {
+                    height: 90px;
+                }
+            }
+
+            h2 {
+                font-size: 11px;
+            }
+        }
+
+        .buttonsFooter {
+            gap: 7px;
+
+            .link {
+                font-size: 10px;
+            }
+        }
+
+        .logoContact {
+            h2 {
+                font-size: 11px;
+            }
+
+            .contact {
+                div {
+                    a {
+                        img {
+                            height: 30px;
+                        }
+                    }
+
+                    h2 {
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+
+        .logosRedes {
+            h2 {
+                font-size: 11px;
+            }
+
+            div {
+                gap: 10px;
+
+                a {
+                    img {
+                        height: 40px;
+                    }
                 }
             }
         }
