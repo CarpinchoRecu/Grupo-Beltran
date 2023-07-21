@@ -7,7 +7,8 @@
 
     #contactFormTrabajo {
         display: grid;
-        grid-template-areas: "img img"
+        grid-template-areas:
+            "img img"
             "mitad1 mitad2"
             "boton boton";
         grid-template-columns: auto auto;
@@ -19,7 +20,7 @@
         gap: 20px;
         box-shadow: 0 2px 9px rgb(0, 0, 0);
 
-        .img {
+        .imgTrabajo {
             grid-area: img;
             display: flex;
             align-items: center;
@@ -62,10 +63,7 @@
                         outline: none;
                         background-color: #5b8a4a;
                     }
-
                 }
-
-
             }
 
             #prov {
@@ -97,7 +95,6 @@
                         outline: none;
                         background-color: #5b8a4a;
                     }
-
                 }
 
                 div {
@@ -130,12 +127,10 @@
                                 scale: 1.05;
                                 border: solid 1px;
                                 border-radius: 5px;
-                                background-color: #A4BEA4;
+                                background-color: #a4bea4;
                             }
                         }
                     }
-
-
                 }
             }
         }
@@ -172,10 +167,7 @@
                         outline: none;
                         background-color: #5b8a4a;
                     }
-
                 }
-
-
             }
         }
 

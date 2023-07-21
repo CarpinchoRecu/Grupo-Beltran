@@ -62,7 +62,6 @@ header {
             .logo {
                 img {
                     height: 70px;
-                    scale: 1.65;
                 }
             }
 
@@ -81,9 +80,9 @@ header {
     header {
         nav {
             .logo {
+                top: 23px;
                 img {
                     height: 62px;
-                    scale: 1.5;
                 }
             }
 
@@ -98,7 +97,7 @@ header {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 870px) {
     header {
         nav {
             .logo {
