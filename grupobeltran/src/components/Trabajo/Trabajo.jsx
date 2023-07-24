@@ -32,11 +32,6 @@ const Trabajo = () => {
             "Tierra del Fuego",
             "Tucumán",
         ];
-        let mensajeValidaciones = [];
-
-        const setCustomValidity = (validity) => {
-            const f = f;
-        };
 
         const mostrarOptions = () => {
             const mensaje = document.getElementById("mensaje");

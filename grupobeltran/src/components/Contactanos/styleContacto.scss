@@ -5,56 +5,129 @@
     height: 47rem;
     background-color: #eaefea;
 
-
     #contactForm {
-        width: 420px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-areas: "img img"
+            "Mitad1 Mitad2"
+            "btn btn";
+        width: 720px;
         padding: 1.3rem;
-        background-color: #A4BEA4;
+        background-color: #a4bea4;
         border-radius: 13px;
         gap: 8px;
         box-shadow: 0 2px 9px rgb(0, 0, 0);
 
-        img {
-            height: 100px;
+        .Img {
+            grid-area: img;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 100px;
+            }
         }
 
-        div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1px;
+        .Mitad1 {
+            grid-area: Mitad1;
 
-            label {
-                font-size: 16px;
-                font-family: "Lovelo";
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+
+                label {
+                    font-size: 16px;
+                    font-family: "TT";
+                }
+
+                input {
+                    font-size: 15px;
+                    padding: 8px;
+                    width: 300px;
+                    border: 0;
+                    background-color: #f0e9e9;
+                    border-radius: 20px;
+                    transition: 0.2s ease;
+                    font-family: "TT";
+
+                    &:hover {
+                        background-color: #5b8a4a;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        background-color: #5b8a4a;
+                    }
+                }
+
+                .errorMessageDiv {
+                    font-size: 12px;
+                }
             }
+        }
 
-            input {
-                font-size: 15px;
-                padding: 8px;
-                width: 300px;
-                border: 0;
-                background-color: #f0e9e9;
-                border-radius: 20px;
-                transition: 0.2s ease;
-                font-family: "TT";
+        .Mitad2 {
+            grid-area: Mitad2;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1px;
+
+                label {
+                    font-size: 16px;
+                    font-family: "TT";
+                }
+
+                input {
+                    font-size: 15px;
+                    padding: 8px;
+                    width: 300px;
+                    border: 0;
+                    background-color: #f0e9e9;
+                    border-radius: 20px;
+                    transition: 0.2s ease;
+                    font-family: "TT";
+
+                    &:hover {
+                        background-color: #5b8a4a;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        background-color: #5b8a4a;
+                    }
+                }
+            }
+        }
+
+        .Btn {
+            grid-area: btn;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            button {
+                position: relative;
+                top: 8px;
+                border-radius: 28px;
+                padding: 10px;
+                border: 1px solid #00000083;
+                font-size: 18px;
+                transition: 0.3s ease;
+                font-family: "Lovelo";
 
                 &:hover {
-                    background-color: #5b8a4a;
+                    background-color: #b4adad;
+                    scale: 1.1;
                 }
-
-                &:focus {
-                    outline: none;
-                    background-color: #5b8a4a;
-                }
-
             }
-
-
         }
+
+
+
 
         #prov {
             div {
@@ -87,28 +160,10 @@
                             scale: 1.05;
                             border: solid 1px;
                             border-radius: 5px;
-                            background-color: #A4BEA4;
+                            background-color: #a4bea4;
                         }
                     }
                 }
-
-
-            }
-        }
-
-        button {
-            position: relative;
-            top: 8px;
-            border-radius: 28px;
-            padding: 10px;
-            border: 1px solid #00000083;
-            font-size: 18px;
-            transition: 0.3s ease;
-            font-family: "Lovelo";
-
-            &:hover {
-                background-color: #b4adad;
-                scale: 1.1;
             }
         }
 
