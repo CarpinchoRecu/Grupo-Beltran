@@ -81,6 +81,7 @@ header {
         nav {
             .logo {
                 top: 23px;
+
                 img {
                     height: 62px;
                 }
@@ -118,109 +119,225 @@ header {
 }
 
 @media (max-width: 800px) {
-    /*Menu Hamburguesa*/
-
-    #menu-burger {
-        display: block;
-
-        .menu-btn {
+    header {
+        nav {
             display: flex;
             justify-content: center;
-            align-items: center;
-            width: 5rem;
-            height: 5rem;
-            background-color: #000000;
-            border-radius: 50%;
-            position: fixed;
-            top: 1rem;
-            right: 1rem;
-            z-index: 30;
-            cursor: pointer;
+            gap: 30rem;
 
-            &::before {
-                content: "";
-                position: absolute;
-                border-radius: 10px;
-                height: 5px;
-                width: 46px;
-                background-color: #ffffff;
-                transition: transform 0.3s ease;
-                transform: translateY(-13px);
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                border-radius: 10px;
-                height: 5px;
-                width: 46px;
-                background-color: #ffffff;
-                transition: transform 0.3s ease;
-                transform: translateY(13px);
-            }
-
-            span {
-                content: "";
-                position: absolute;
-                border-radius: 10px;
-                height: 5px;
-                width: 46px;
-                background-color: #ffffff;
-                transition: transform 0.3s ease;
-                transform: translateY();
-            }
-
-            .hide {
-                display: none;
-            }
-
-            &.close::before {
-                transform: translateY(0) rotate(-45deg);
-            }
-
-            &.close::after {
-                transform: translateY(0) rotate(45deg);
-            }
-        }
-
-        .offcanvas {
-            position: fixed;
-            top: 0;
-            right: -80%;
-            width: 70%;
-            height: 100%;
-            background-color: #000000af;
-            padding: 50px 20px;
-            transition: transform 0.6s ease;
-            z-index: 29;
-
-            .links {
-                display: block;
-                font-size: 25px;
-                margin-bottom: 20px;
-                color: #ffffff;
-                text-decoration: none;
-                width: 55%;
-                font-family: "TT";
-                border-bottom: solid 2px #d8d8d800;
-                transition: 0.3s ease-in-out;
-
-                /*Animacion de Botones*/
-                &:hover {
-                    border-bottom: solid 2px #d8d8d8;
+            .logo {
+                img {
+                    height: 70px;
                 }
             }
 
-            &.show {
-                transform: translateX(-110%);
+            /*Menu Hamburguesa*/
+            #menu-burger {
+                display: block;
+                position: relative;
+                left: 3rem;
+
+                .menu-btn {
+                    position: sticky;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 4rem;
+                    height: 4rem;
+                    z-index: 30;
+                    cursor: pointer;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        border-radius: 10px;
+                        height: 2px;
+                        width: 30px;
+                        background-color: #ffffff;
+                        transition: transform 0.3s ease;
+                        transform: translateY(-10px);
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        border-radius: 10px;
+                        height: 2px;
+                        width: 30px;
+                        background-color: #ffffff;
+                        transition: transform 0.3s ease;
+                        transform: translateY(10px);
+                    }
+
+                    span {
+                        content: "";
+                        position: absolute;
+                        border-radius: 10px;
+                        height: 2px;
+                        width: 30px;
+                        background-color: #ffffff;
+                        transition: transform 0.3s ease;
+                        transform: translateY();
+                    }
+
+                    .hide {
+                        display: none;
+                    }
+
+                    &.close::before {
+                        transform: translateY(0) rotate(-45deg);
+                        background-color: #000;
+                    }
+
+                    &.close::after {
+                        transform: translateY(0) rotate(45deg);
+                        background-color: #000;
+                    }
+                }
+
+                .offcanvas {
+                    position: fixed;
+                    top: 0;
+                    right: -80%;
+                    width: 70%;
+                    height: 100%;
+                    background-color: #f5f5f5f1;
+                    padding: 50px 20px;
+                    transition: transform 0.6s ease;
+                    z-index: 28;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    .links {
+                        font-size: 22px;
+                        margin-bottom: 20px;
+                        color: #000000;
+                        text-decoration: none;
+                        width: 60%;
+                        font-family: "TT";
+                        border-bottom: solid 2px #d8d8d800;
+                        transition: 0.3s ease-in-out;
+                        border-bottom: solid 1px #00000000;
+
+                        /*Animacion de Botones*/
+                        &:hover {
+                            border-bottom: solid 1px #000000;
+                        }
+                    }
+
+                    &.show {
+                        transform: translateX(-110%);
+                    }
+                }
+            }
+
+            .buttons {
+                display: none;
             }
         }
     }
+}
 
+@media (max-width: 700px) {
     header {
         nav {
-            .buttons {
-                display: none;
+            gap: 22rem;
+
+            .logo {
+                img {
+                    height: 65px;
+                }
+            }
+
+            /*Menu Hamburguesa*/
+            #menu-burger {
+                left: 3rem;
+
+                .menu-btn {
+                    width: 4rem;
+                    height: 4rem;
+                }
+
+                .offcanvas {
+                    gap: 15px;
+
+                    .links {
+                        font-size: 20px;
+                        width: 80%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    header {
+        nav {
+            gap: 17rem;
+
+            .logo {
+                top: 18px;
+
+                img {
+                    height: 60px;
+                }
+            }
+
+            /*Menu Hamburguesa*/
+            #menu-burger {
+                left: 3rem;
+
+                .offcanvas {
+                    .links {
+                        font-size: 19px;
+                        width: 90%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        nav {
+            gap: 11rem;
+
+            .logo {
+                top: 17px;
+
+                img {
+                    height: 55px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 390px) {
+    header {
+        nav {
+            gap: 8rem;
+
+            .logo {
+                top: 20px;
+
+                img {
+                    height: 52px;
+                }
+            }
+
+            #menu-burger {
+                .offcanvas {
+                    gap: 10px;
+
+                    .links {
+                        font-size: 18px;
+                        width: 90%;
+                    }
+                }
             }
         }
     }

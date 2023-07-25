@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import img1 from "./assetsInicio/imgInicio1.jpg";
-import img2 from "./assetsInicio/imgInicio2.jpg";
-import img3 from "./assetsInicio/imgInicio3.jpg";
+import img1 from "./assetsInicio/imgInicio1.jpeg";
+import img2 from "./assetsInicio/imgInicio2.jpeg";
+import img3 from "./assetsInicio/imgInicio3.jpeg";
 import { Link } from "react-router-dom";
 
 const Carrusel = () => {
@@ -11,17 +11,19 @@ const Carrusel = () => {
   const slides = [
     {
       image: img1,
-      content: "Nuestras Coberturas",
+      content: "TU SALUD ES NUESTRA PRIORIDAD",
+      p: "Tene la seguridad de estar protegido tanto vos como tu familia, desde el integrante mas pequeño.",
     },
     {
       image: img2,
-      content: "Para Vos y tu Familia",
+      content: "GESTIONA TUS CONSULTAS DESDE CASA",
+      p: "Te ofrecemos el mejor asesoramiento a traves de nuestros canales de atencion con respuesta inmediata",
     },
     {
       image: img3,
-      content: "Inverti en tu Salud",
+      content: "FORMA PARTE DE NUESTRO EQUIPO",
+      p: "Te damos la oportunidad de formar parte de nuestro equipo de trabajo!",
     },
-    // Agrega más objetos para más slides
   ];
 
   useEffect(() => {
@@ -61,16 +63,21 @@ const Carrusel = () => {
       <div className="slider-contenedor" ref={setSliderRef}>
         {slides.map((slide, index) => (
           <section className="contenido-slider" key={index}>
-            <div>
+            <div className="contenedorTxt">
               <h2>{slide.content}</h2>
-              <Link className="linkInicio" to="/Coberturas">Toca Aqui</Link>
+              <p>{slide.p}</p>
+              <Link className="linkInicio" to="/Coberturas">
+                INFO
+              </Link>
             </div>
-            <img src={slide.image} alt={`Slide ${index + 1}`} />
+            <div className="contenedorImg">
+              <img src={slide.image} alt={`Slide ${index + 1}`} />
+            </div>
           </section>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default Carrusel;

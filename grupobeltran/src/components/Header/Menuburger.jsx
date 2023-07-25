@@ -41,7 +41,6 @@ const MenuBurger = () => {
         <Link className="links" to="/Trabajo">
           Trabaja con Nosotros
         </Link>
-        <hr />
       </div>
     </div>
   );

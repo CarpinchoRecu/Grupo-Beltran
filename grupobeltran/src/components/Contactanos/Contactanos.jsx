@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styleContactanos from "./styleContacto.scss";
 import logo from "../Footer/assetsFooter/logo2.jpeg";
+import Swal from "sweetalert2";
+import { FaCheck, FaTimes } from "react-icons/fa";
 
 const Contactanos = () => {
     // Datos de inputs
@@ -12,6 +14,7 @@ const Contactanos = () => {
         email: "",
         localidad: "",
     });
+
     // Datos de inputs por error
     const [errors, setErrors] = useState({
         nombre: "",
@@ -22,13 +25,45 @@ const Contactanos = () => {
         localidad: "",
     });
 
+    // Variables de estado para rastrear la validez de cada campo
+    const [isValidNombre, setIsValidNombre] = useState(false);
+    const [isValidApellido, setIsValidApellido] = useState(false);
+    const [isValidEdad, setIsValidEdad] = useState(false);
+    const [isValidTelefono, setIsValidTelefono] = useState(false);
+    const [isValidEmail, setIsValidEmail] = useState(false);
+    const [isValidLocalidad, setIsValidLocalidad] = useState(false);
+
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
             [id]: value,
         }));
-        validateInput(id, value);
+
+        // Valida el campo actual y actualiza el estado de validez del campo
+        const isValid = validateInput(id, value);
+        switch (id) {
+            case "nombre":
+                setIsValidNombre(isValid);
+                break;
+            case "apellido":
+                setIsValidApellido(isValid);
+                break;
+            case "edad":
+                setIsValidEdad(isValid);
+                break;
+            case "telefono":
+                setIsValidTelefono(isValid);
+                break;
+            case "email":
+                setIsValidEmail(isValid);
+                break;
+            case "localidad":
+                setIsValidLocalidad(isValid);
+                break;
+            default:
+                break;
+        }
     };
 
     const validateInput = (id, value) => {
@@ -80,6 +115,8 @@ const Contactanos = () => {
                 case "localidad":
                     if (value.length < 2) {
                         errorMessage = "Este campo debe poseer al menos 2 caracteres";
+                    } else if (value.length > 20) {
+                        errorMessage = "Este campo debe poseer menos de 20 caracteres";
                     }
                     break;
                 default:
@@ -92,7 +129,56 @@ const Contactanos = () => {
             [id]: errorMessage,
         }));
 
-        return value;
+        return errorMessage === "";
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        // Validar los datos antes de enviar
+        const isNombreValid = validateInput("nombre", formData.nombre);
+        const isApellidoValid = validateInput("apellido", formData.apellido);
+        const isEdadValid = validateInput("edad", formData.edad);
+        const isTelefonoValid = validateInput("telefono", formData.telefono);
+        const isEmailValid = validateInput("email", formData.email);
+        const isLocalidadValid = validateInput("localidad", formData.localidad);
+
+        // Verificar si todos los campos son válidos
+        const isFormValid =
+            isNombreValid &&
+            isApellidoValid &&
+            isEdadValid &&
+            isTelefonoValid &&
+            isEmailValid &&
+            isLocalidadValid;
+
+        if (!isFormValid) {
+            // Mostrar mensaje al usuario sobre la validación pendiente utilizando SweetAlert
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Por favor, revisa los datos ingresados antes de enviar el formulario.",
+            });
+            return;
+        }
+
+        // Si no hay errores, proceder con el envío de datos
+        const formDataToSend = new URLSearchParams(new FormData(event.target));
+
+        try {
+            const response = await fetch("http://localhost:3000/contactanos", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formDataToSend,
+            });
+
+            const data = await response.text();
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     useEffect(() => {
@@ -187,52 +273,12 @@ const Contactanos = () => {
     }, []);
 
     // Mandar por fetch los datos despues de validarlos por parte del cliente
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-
-        // Validar los datos antes de enviar
-        const values = Object.entries(formData).map(([id, value]) => {
-            return validateInput(id, value);
-        });
-
-        // Verificar si hay algún mensaje de error
-        const hasErrors = Object.values(errors).some(
-            (errorMessage) => errorMessage !== ""
-        );
-
-        if (hasErrors) {
-            // Mostrar mensaje al usuario sobre la validación pendiente
-            alert(
-                "Por favor, revisa los datos ingresados antes de enviar el formulario."
-            );
-            return;
-        }
-
-        // Si no hay errores, proceder con el envío de datos
-        const formDataToSend = new URLSearchParams(new FormData(event.target));
-
-        try {
-            const response = await fetch("http://localhost:3000/contactanos", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: formDataToSend,
-            });
-
-            const data = await response.text();
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     return (
         <div className="form-container">
             <form id="contactForm" onSubmit={handleSubmit}>
                 <div className="Img">
-
-                <img src={logo} alt="Logo" />
+                    <img src={logo} alt="Logo" />
                 </div>
                 <div className="Mitad1">
                     <div>
@@ -244,10 +290,18 @@ const Contactanos = () => {
                             value={formData.nombre}
                             onChange={handleChange}
                             required
+                            autoComplete="off"
                         />
-                        {errors.nombre && (
-                            <div className="errorMessageDiv">{errors.nombre}</div>
-                        )}
+                        <div className="contenedorError">
+                            {errors.nombre && (
+                                <div className="errorMessageDiv">{errors.nombre}</div>
+                            )}
+                            {isValidNombre && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="apellido">Apellido</label>
@@ -258,10 +312,18 @@ const Contactanos = () => {
                             value={formData.apellido}
                             onChange={handleChange}
                             required
+                            autoComplete="off"
                         />
-                        {errors.apellido && (
-                            <div className="errorMessageDiv">{errors.apellido}</div>
-                        )}
+                        <div className="contenedorError">
+                            {errors.apellido && (
+                                <div className="errorMessageDiv">{errors.apellido}</div>
+                            )}
+                            {isValidApellido && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="edad">Edad</label>
@@ -272,8 +334,18 @@ const Contactanos = () => {
                             value={formData.edad}
                             onChange={handleChange}
                             required
+                            autoComplete="off"
                         />
-                        {errors.edad && <div className="errorMessageDiv">{errors.edad}</div>}
+                        <div className="contenedorError">
+                            {errors.edad && (
+                                <div className="errorMessageDiv">{errors.edad}</div>
+                            )}
+                            {isValidEdad && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="telefono">Teléfono</label>
@@ -284,10 +356,18 @@ const Contactanos = () => {
                             value={formData.telefono}
                             onChange={handleChange}
                             required
+                            autoComplete="off"
                         />
-                        {errors.telefono && (
-                            <div className="errorMessageDiv">{errors.telefono}</div>
-                        )}
+                        <div className="contenedorError">
+                            {errors.telefono && (
+                                <div className="errorMessageDiv">{errors.telefono}</div>
+                            )}
+                            {isValidTelefono && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
                 <div className="Mitad2">
@@ -301,7 +381,16 @@ const Contactanos = () => {
                             onChange={handleChange}
                             required
                         />
-                        {errors.email && <div className="erroMessageDiv">{errors.email}</div>}
+                        <div className="contenedorError">
+                            {errors.email && (
+                                <div className="erroMessageDiv">{errors.email}</div>
+                            )}
+                            {isValidEmail && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div id="prov">
                         <label>Provincia</label>
@@ -314,6 +403,7 @@ const Contactanos = () => {
                         <div>
                             <div id="mensaje"></div>
                         </div>
+                        <div className="contenedorError"></div>
                     </div>
                     <div>
                         <label htmlFor="localidad">Localidad</label>
@@ -324,15 +414,21 @@ const Contactanos = () => {
                             value={formData.localidad}
                             onChange={handleChange}
                             required
+                            autoComplete="off"
                         />
-
-                        {errors.localidad && (
-                            <div className="errorMessageDiv">{errors.localidad}</div>
-                        )}
+                        <div className="contenedorError">
+                            {errors.localidad && (
+                                <div className="errorMessageDiv">{errors.localidad}</div>
+                            )}
+                            {isValidLocalidad && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
                 <div className="Btn">
-                
                     <button type="submit">Enviar</button>
                 </div>
             </form>
