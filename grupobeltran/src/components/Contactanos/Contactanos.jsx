@@ -383,7 +383,7 @@ const Contactanos = () => {
                         />
                         <div className="contenedorError">
                             {errors.email && (
-                                <div className="erroMessageDiv">{errors.email}</div>
+                                <div className="errorMessageDiv">{errors.email}</div>
                             )}
                             {isValidEmail && (
                                 <div className="iconDiv">
