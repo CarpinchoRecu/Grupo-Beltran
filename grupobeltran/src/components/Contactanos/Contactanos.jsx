@@ -12,7 +12,8 @@ const Contactanos = () => {
         edad: "",
         telefono: "",
         email: "",
-        localidad: "",
+        provincia: "",
+        localidad: ""
     });
 
     // Datos de inputs por error
@@ -22,7 +23,8 @@ const Contactanos = () => {
         edad: "",
         telefono: "",
         email: "",
-        localidad: "",
+        provincia: "",
+        localidad: ""
     });
 
     // Variables de estado para rastrear la validez de cada campo
@@ -31,8 +33,10 @@ const Contactanos = () => {
     const [isValidEdad, setIsValidEdad] = useState(false);
     const [isValidTelefono, setIsValidTelefono] = useState(false);
     const [isValidEmail, setIsValidEmail] = useState(false);
+    const [isValidProvincia, setIsValidProvincia] = useState(false);
     const [isValidLocalidad, setIsValidLocalidad] = useState(false);
 
+    // control de estados de inputs
     const handleChange = (e) => {
         const { id, value } = e.target;
         setFormData((prevFormData) => ({
@@ -40,32 +44,38 @@ const Contactanos = () => {
             [id]: value,
         }));
 
-        // Valida el campo actual y actualiza el estado de validez del campo
-        const isValid = validateInput(id, value);
-        switch (id) {
-            case "nombre":
-                setIsValidNombre(isValid);
-                break;
-            case "apellido":
-                setIsValidApellido(isValid);
-                break;
-            case "edad":
-                setIsValidEdad(isValid);
-                break;
-            case "telefono":
-                setIsValidTelefono(isValid);
-                break;
-            case "email":
-                setIsValidEmail(isValid);
-                break;
-            case "localidad":
-                setIsValidLocalidad(isValid);
-                break;
-            default:
-                break;
+        if (id === "provincia") {
+            validateProvincia(value);
+        } else {
+            // Valida el campo actual y actualiza el estado de validez del campo
+            const isValid = validateInput(id, value);
+            switch (id) {
+                case "nombre":
+                    setIsValidNombre(isValid);
+                    break;
+                case "apellido":
+                    setIsValidApellido(isValid);
+                    break;
+                case "edad":
+                    setIsValidEdad(isValid);
+                    break;
+                case "telefono":
+                    setIsValidTelefono(isValid);
+                    break;
+                case "email":
+                    setIsValidEmail(isValid);
+                    break;
+                case "localidad":
+                    setIsValidLocalidad(isValid);
+                    break;
+                default:
+                    break;
+            }
         }
-    };
 
+
+    };
+    //validar inputs
     const validateInput = (id, value) => {
         value = value.trim();
         let errorMessage = "";
@@ -132,86 +142,63 @@ const Contactanos = () => {
         return errorMessage === "";
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    let provincias = [
+        "Caba",
+        "Buenos Aires",
+        "Catamarca",
+        "Chaco",
+        "Chubut",
+        "Córdoba",
+        "Corrientes",
+        "Entre Ríos",
+        "Formosa",
+        "Jujuy",
+        "La Pampa",
+        "La Rioja",
+        "Mendoza",
+        "Misiones",
+        "Neuquén",
+        "Río Negro",
+        "Salta",
+        "San Juan",
+        "San Luis",
+        "Santa Cruz",
+        "Santa Fe",
+        "Santiago del Estero",
+        "Tierra del Fuego",
+        "Tucumán",
+    ];
 
-        // Validar los datos antes de enviar
-        const isNombreValid = validateInput("nombre", formData.nombre);
-        const isApellidoValid = validateInput("apellido", formData.apellido);
-        const isEdadValid = validateInput("edad", formData.edad);
-        const isTelefonoValid = validateInput("telefono", formData.telefono);
-        const isEmailValid = validateInput("email", formData.email);
-        const isLocalidadValid = validateInput("localidad", formData.localidad);
+    const validateProvincia = (value) => {
+        value = value.trim();
+        let errorMessage = "";
 
-        // Verificar si todos los campos son válidos
-        const isFormValid =
-            isNombreValid &&
-            isApellidoValid &&
-            isEdadValid &&
-            isTelefonoValid &&
-            isEmailValid &&
-            isLocalidadValid;
+        if (value.length === 0) {
+            errorMessage = "Este campo es obligatorio";
+        } else {
+            const provinciaExists = provincias.some((provincia) =>
+                provincia.toLowerCase().startsWith(value.toLowerCase())
+            ); //corregir el handglechange del html y hacer que sea compatible con la eleccion de las provincias
 
-        if (!isFormValid) {
-            // Mostrar mensaje al usuario sobre la validación pendiente utilizando SweetAlert
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Por favor, revisa los datos ingresados antes de enviar el formulario.",
-            });
-            return;
+            if (!provinciaExists) {
+                errorMessage = "Por favor, elige una provincia válida de la lista";
+            }
         }
 
-        // Si no hay errores, proceder con el envío de datos
-        const formDataToSend = new URLSearchParams(new FormData(event.target));
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            provincia: errorMessage,
+        }));
 
-        try {
-            const response = await fetch("http://localhost:3000/contactanos", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                },
-                body: formDataToSend,
-            });
-
-            const data = await response.text();
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
+        setIsValidProvincia(errorMessage === "");
     };
-
+    //mostrar opciones de input provincias(mostrar provincias)
     useEffect(() => {
         // Formulario
         const form = document.getElementById("contactForm");
         // Input de las Provincias
         const inputProv = document.getElementById("provincia");
-        let provincias = [
-            "Caba",
-            "Buenos Aires",
-            "Catamarca",
-            "Chaco",
-            "Chubut",
-            "Córdoba",
-            "Corrientes",
-            "Entre Ríos",
-            "Formosa",
-            "Jujuy",
-            "La Pampa",
-            "La Rioja",
-            "Mendoza",
-            "Misiones",
-            "Neuquén",
-            "Río Negro",
-            "Salta",
-            "San Juan",
-            "San Luis",
-            "Santa Cruz",
-            "Santa Fe",
-            "Santiago del Estero",
-            "Tierra del Fuego",
-            "Tucumán",
-        ];
+
 
         // Mostrar provincias en input provincias
         const mostrarOptions = () => {
@@ -273,6 +260,54 @@ const Contactanos = () => {
     }, []);
 
     // Mandar por fetch los datos despues de validarlos por parte del cliente
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        // Validar los datos antes de enviar
+        const isNombreValid = validateInput("nombre", formData.nombre);
+        const isApellidoValid = validateInput("apellido", formData.apellido);
+        const isEdadValid = validateInput("edad", formData.edad);
+        const isTelefonoValid = validateInput("telefono", formData.telefono);
+        const isEmailValid = validateInput("email", formData.email);
+        const isLocalidadValid = validateInput("localidad", formData.localidad);
+
+        // Verificar si todos los campos son válidos
+        const isFormValid =
+            isNombreValid &&
+            isApellidoValid &&
+            isEdadValid &&
+            isTelefonoValid &&
+            isEmailValid &&
+            isLocalidadValid;
+
+        if (!isFormValid) {
+            // Mostrar mensaje al usuario sobre la validación pendiente utilizando SweetAlert
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Por favor, revisa los datos ingresados antes de enviar el formulario.",
+            });
+            return;
+        }
+
+        // Si no hay errores, proceder con el envío de datos
+        const formDataToSend = new URLSearchParams(new FormData(event.target));
+
+        try {
+            const response = await fetch("http://localhost:3000/contactanos", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formDataToSend,
+            });
+
+            const data = await response.text();
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <div className="form-container">
@@ -398,12 +433,23 @@ const Contactanos = () => {
                             type="text"
                             id="provincia"
                             name="provincia"
+                            value={formData.provincia}
+                            onChange={handleChange}
                             autoComplete="off"
                         />
                         <div>
                             <div id="mensaje"></div>
                         </div>
-                        <div className="contenedorError"></div>
+                        <div className="contenedorError">
+                            {errors.provincia && (
+                                <div className="errorMessageDiv">{errors.provincia}</div>
+                            )}
+                            {isValidProvincia && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div>
                         <label htmlFor="localidad">Localidad</label>
