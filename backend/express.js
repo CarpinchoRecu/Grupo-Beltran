@@ -3,16 +3,24 @@ const mysql = require("mysql2");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const rateLimit = require("express-rate-limit");
+const compression = require("compression");
+const helmet = require("helmet");
 
 dotenv.config(); // Cargar las variables de entorno desde el archivo .env
 
 const app = express();
-const port = 3000; // Puerto en el que se ejecutará el servidor
+const port = process.env.PORT || 3000; // Puerto en el que se ejecutará el servidor
 
 app.use(express.urlencoded({ extended: true }));
 
 // Middleware de CORS
 app.use(cors());
+
+// Middleware de Compression
+app.use(compression());
+
+// Middleware de Helmet
+app.use(helmet());
 
 // Limite de uso de api
 // en este caso son 2 peticones por minuto

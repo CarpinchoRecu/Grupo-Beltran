@@ -13,7 +13,7 @@ const Contactanos = () => {
         telefono: "",
         email: "",
         provincia: "",
-        localidad: ""
+        localidad: "",
     });
 
     // Datos de inputs por error
@@ -24,7 +24,7 @@ const Contactanos = () => {
         telefono: "",
         email: "",
         provincia: "",
-        localidad: ""
+        localidad: "",
     });
 
     // Variables de estado para rastrear la validez de cada campo
@@ -72,8 +72,6 @@ const Contactanos = () => {
                     break;
             }
         }
-
-
     };
     //validar inputs
     const validateInput = (id, value) => {
@@ -199,7 +197,6 @@ const Contactanos = () => {
         // Input de las Provincias
         const inputProv = document.getElementById("provincia");
 
-
         // Mostrar provincias en input provincias
         const mostrarOptions = () => {
             const mensaje = document.getElementById("mensaje");
@@ -269,6 +266,7 @@ const Contactanos = () => {
         const isEdadValid = validateInput("edad", formData.edad);
         const isTelefonoValid = validateInput("telefono", formData.telefono);
         const isEmailValid = validateInput("email", formData.email);
+        const isProvinciaValid = validateProvincia("provincia", formData.provincia)
         const isLocalidadValid = validateInput("localidad", formData.localidad);
 
         // Verificar si todos los campos son válidos
@@ -278,6 +276,7 @@ const Contactanos = () => {
             isEdadValid &&
             isTelefonoValid &&
             isEmailValid &&
+            isProvinciaValid &&
             isLocalidadValid;
 
         if (!isFormValid) {
@@ -304,8 +303,21 @@ const Contactanos = () => {
 
             const data = await response.text();
             console.log(data);
+
+            // Mostrar mensaje al usuario de éxito 
+            Swal.fire({
+                icon: "success",
+                title: "¡Envío exitoso!",
+                text: "Los datos se enviaron correctamente.",
+            });
         } catch (error) {
             console.log(error);
+            // Mostrar mensaje al usuario de error
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Ocurrió un error al enviar los datos. Por favor, inténtalo nuevamente.",
+            });
         }
     };
 
@@ -427,6 +439,28 @@ const Contactanos = () => {
                             )}
                         </div>
                     </div>
+                    <div>
+                        <label htmlFor="localidad">Localidad</label>
+                        <input
+                            type="text"
+                            id="localidad"
+                            name="localidad"
+                            value={formData.localidad}
+                            onChange={handleChange}
+                            required
+                            autoComplete="off"
+                        />
+                        <div className="contenedorError">
+                            {errors.localidad && (
+                                <div className="errorMessageDiv">{errors.localidad}</div>
+                            )}
+                            {isValidLocalidad && (
+                                <div className="iconDiv">
+                                    <FaCheck />
+                                </div>
+                            )}
+                        </div>
+                    </div>
                     <div id="prov">
                         <label>Provincia</label>
                         <input
@@ -445,28 +479,6 @@ const Contactanos = () => {
                                 <div className="errorMessageDiv">{errors.provincia}</div>
                             )}
                             {isValidProvincia && (
-                                <div className="iconDiv">
-                                    <FaCheck />
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="localidad">Localidad</label>
-                        <input
-                            type="text"
-                            id="localidad"
-                            name="localidad"
-                            value={formData.localidad}
-                            onChange={handleChange}
-                            required
-                            autoComplete="off"
-                        />
-                        <div className="contenedorError">
-                            {errors.localidad && (
-                                <div className="errorMessageDiv">{errors.localidad}</div>
-                            )}
-                            {isValidLocalidad && (
                                 <div className="iconDiv">
                                     <FaCheck />
                                 </div>

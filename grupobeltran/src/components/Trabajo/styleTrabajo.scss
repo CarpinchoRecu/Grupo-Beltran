@@ -2,26 +2,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 43rem;
+    height: 47rem;
     background-color: #eaefea;
 
-    #contactFormTrabajo {
+    #contactForm {
         display: grid;
         grid-template-areas:
             "img img"
-            "mitad1 mitad2"
-            "boton boton";
-        width: 750px;
-        padding: 1rem;
-        background-color: #ffffff;
+            "Mitad1 Mitad2"
+            "btn btn";
+        width: 720px;
+        padding: 1.3rem;
+        background-color: #f1f4f1;
         border-radius: 13px;
         gap: 8px;
         box-shadow: 0 2px 9px rgb(0, 0, 0);
 
-        .imgTrabajo {
+        .Img {
             grid-area: img;
             display: flex;
-            align-items: center;
             justify-content: center;
 
             img {
@@ -29,21 +28,21 @@
             }
         }
 
-        .mitad1 {
-            grid-area: mitad1;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+        .Mitad1 {
+            grid-area: Mitad1;
 
-            .divMitad1 {
+            div {
                 display: flex;
                 flex-direction: column;
-                gap: 8px;
+                align-items: flex-start;
+                gap: 5px;
 
                 label {
                     font-size: 16px;
                     font-family: "TT";
                 }
+
+                /* Estilo para ocultar los botones de incremento y decremento */
 
                 input[type="number"]::-webkit-inner-spin-button,
                 input[type="number"]::-webkit-outer-spin-button {
@@ -55,7 +54,7 @@
                     padding: 8px;
                     width: 300px;
                     border: 0;
-                    background-color: #d7d3d3;
+                    background-color: #d5cfcf;
                     border-radius: 20px;
                     transition: 0.2s ease;
                     font-family: "TT";
@@ -69,9 +68,30 @@
                         background-color: #5b8a4a;
                     }
                 }
-            }
 
-            #prov {
+                .contenedorError {
+                    height: 30px;
+                    width: 230px;
+                    text-align: center;
+
+                    .errorMessageDiv {
+                        font-size: 11px;
+                        font-family: "TT";
+                    }
+
+                    .iconDiv {
+                        position: relative;
+                        bottom: 1.94rem;
+                        left: 8rem;
+                    }
+                }
+            }
+        }
+
+        .Mitad2 {
+            grid-area: Mitad2;
+
+            div {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-start;
@@ -82,79 +102,7 @@
                     font-family: "TT";
                 }
 
-                input {
-                    font-size: 15px;
-                    padding: 8px;
-                    width: 300px;
-                    border: 0;
-                    background-color: #d7d3d3;
-                    border-radius: 20px;
-                    transition: 0.2s ease;
-                    font-family: "TT";
-
-                    &:hover {
-                        background-color: #5b8a4a;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        background-color: #5b8a4a;
-                    }
-                }
-
-                div {
-                    #mensaje {
-                        background-color: #ffffffec;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        padding: 10px;
-                        border: solid 1px;
-                        border-radius: 0px 0px 20px 20px;
-                        width: 300px;
-                        position: absolute;
-                        z-index: 2;
-                        animation: dropdownAnimation 0.4s ease-in-out;
-
-                        p {
-                            font-size: 14.5px;
-                            cursor: pointer;
-                            width: 180px;
-                            border: solid 1px #00000000;
-                            border-bottom: solid 1px #0000006a;
-                            padding: 5px;
-                            font-family: "TT";
-                            transition: 0.15s ease;
-                            animation: dropdownAnimation 0.4s ease-in-out;
-
-                            &:hover {
-                                scale: 1.05;
-                                border: solid 1px;
-                                border-radius: 5px;
-                                background-color: #a4bea4;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        .mitad2 {
-            grid-area: mitad2;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-
-            .divMitad2 {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-
-                label {
-                    font-size: 16px;
-                    font-family: "TT";
-                }
+                /* Estilo para ocultar los botones de incremento y decremento */
 
                 input[type="number"]::-webkit-inner-spin-button,
                 input[type="number"]::-webkit-outer-spin-button {
@@ -166,7 +114,7 @@
                     padding: 8px;
                     width: 300px;
                     border: 0;
-                    background-color: #d7d3d3;
+                    background-color: #d5cfcf;
                     border-radius: 20px;
                     transition: 0.2s ease;
                     font-family: "TT";
@@ -178,61 +126,82 @@
                     &:focus {
                         outline: none;
                         background-color: #5b8a4a;
+                    }
+                }
+
+                .contenedorError {
+                    height: 30px;
+                    width: 230px;
+                    text-align: center;
+
+                    .errorMessageDiv {
+                        font-size: 11px;
+                        font-family: "TT";
+                    }
+
+                    .iconDiv {
+                        position: relative;
+                        bottom: 1.94rem;
+                        left: 8rem;
                     }
                 }
             }
         }
 
-        .boton {
+        .Btn {
+            grid-area: btn;
             display: flex;
-            justify-content: space-around;
-            grid-area: boton;
-
-            #CV {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 5px;
-
-                label {
-                    font-size: 16px;
-                    font-family: "TT";
-                }
-
-                input {
-                    font-size: 15px;
-                    padding: 8px;
-                    width: 300px;
-                    border: 0;
-                    background-color: #f0e9e9;
-                    border-radius: 20px;
-                    transition: 0.2s ease;
-                    font-family: "TT";
-
-                    &:hover {
-                        background-color: #5b8a4a;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        background-color: #5b8a4a;
-                    }
-                }
-            }
-            
+            justify-content: center;
 
             button {
                 border-radius: 28px;
                 padding: 10px;
                 border: 1px solid #00000083;
                 font-size: 18px;
-                height: 45px;
                 transition: 0.3s ease;
                 font-family: "Lovelo";
 
                 &:hover {
                     background-color: #b4adad;
                     scale: 1.1;
+                }
+            }
+        } 
+
+        #prov {
+            div {
+                #mensaje {
+                    background-color: #ffffffec;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 10px;
+                    border: solid 1px;
+                    border-radius: 0px 0px 20px 20px;
+                    width: 300px;
+                    position: absolute;
+                    z-index: 2;
+                    animation: dropdownAnimation 0.4s ease-in-out;
+
+                    p {
+                        font-size: 14.5px;
+                        cursor: pointer;
+                        width: 180px;
+                        border: solid 1px #00000000;
+                        border-bottom: solid 1px #0000006a;
+                        padding: 5px;
+                        font-family: "TT";
+                        transition: 0.15s ease;
+                        animation: dropdownAnimation 0.4s ease-in-out;
+
+                        &:hover {
+                            scale: 1.05;
+                            border: solid 1px;
+                            border-radius: 5px;
+                            background-color: #a4bea4;
+                        }
+                    }
                 }
             }
         }
@@ -249,5 +218,468 @@
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 1100px) {
+    .form-containerTrabajo {
+        height: 43rem;
+
+        #contactForm {
+            width: 690px;
+            padding: 1rem;
+            gap: 6px;
+
+            .Img {
+                img {
+                    height: 95px;
+                }
+            }
+
+            .Mitad1 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 280px;
+                    }
+
+                    .contenedorError {
+                        height: 30px;
+                        width: 230px;
+
+                        .errorMessageDiv {
+                            font-size: 10px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.65rem;
+                            left: 7.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Mitad2 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 280px;
+                    }
+
+                    .contenedorError {
+                        height: 30px;
+                        width: 230px;
+
+                        .errorMessageDiv {
+                            font-size: 10px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.65rem;
+                            left: 7.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Btn {
+                button {
+                    padding: 8px;
+                    font-size: 15px;
+                }
+            }
+
+            #prov {
+                div {
+                    #mensaje {
+                        padding: 8px;
+                        width: 280px;
+
+                        p {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .form-containerTrabajo {
+        height: 43rem;
+
+        #contactForm {
+            width: 560px;
+            padding: 0.8rem;
+            gap: 5px;
+
+            .Img {
+                img {
+                    height: 95px;
+                }
+            }
+
+            .Mitad1 {
+                div {
+                    gap: 2px;
+
+                    label {
+                        font-size: 13px;
+                    }
+
+                    input {
+                        font-size: 12px;
+                        width: 250px;
+                    }
+
+                    .contenedorError {
+
+                        .iconDiv {
+                            bottom: 1.55rem;
+                            left: 7rem;
+                        }
+                    }
+                }
+            }
+
+            .Mitad2 {
+                div {
+                    gap: 2px;
+
+                    label {
+                        font-size: 13px;
+                    }
+
+                    input {
+                        font-size: 12px;
+                        width: 250px;
+                    }
+
+                    .contenedorError {
+
+                        .iconDiv {
+                            bottom: 1.55rem;
+                            left: 7rem;
+                        }
+                    }
+                }
+            }
+
+            .Btn {
+                button {
+                    padding: 8px;
+                    font-size: 15px;
+                }
+            }
+
+            #prov {
+                div {
+                    #mensaje {
+                        padding: 8px;
+                        width: 250px;
+
+                        p {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 590px) {
+    .form-containerTrabajo {
+        height: 70rem;
+
+        #contactForm {
+            grid-template-areas:
+            "img"
+            "Mitad1" 
+            "Mitad2"
+            "btn";
+            width: 370px;
+            padding: 0.5rem;
+            gap: 5px;
+
+            .Img {
+                img {
+                    height: 95px;
+                }
+            }
+
+            .Mitad1 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 280px;
+                    }
+
+                    .contenedorError {
+                        height: 25px;
+                        width: 230px;
+
+                        .errorMessageDiv {
+                            font-size: 10px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.65rem;
+                            left: 7.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Mitad2 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 280px;
+                    }
+
+                    .contenedorError {
+                        height: 30px;
+                        width: 230px;
+
+                        .errorMessageDiv {
+                            font-size: 10px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.65rem;
+                            left: 7.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Btn {
+                button {
+                    padding: 8px;
+                    font-size: 15px;
+                }
+            }
+
+            #prov {
+                div {
+                    #mensaje {
+                        width: 280px;
+
+                        p {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .form-containerTrabajo {
+        height: 58rem;
+
+        #contactForm {
+            width: 310px;
+            padding: 0.3rem;
+            gap: 5px;
+
+            .Img {
+                img {
+                    height: 75px;
+                }
+            }
+
+            .Mitad1 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 240px;
+                        padding: 4.5px;
+                    }
+
+                    .contenedorError {
+                        height: 21px;
+                        width: 260px;
+
+                        .errorMessageDiv {
+                            font-size: 9px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.46rem;
+                            left: 6.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Mitad2 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 240px;
+                        padding: 4.5px;
+                    }
+
+                    .contenedorError {
+                        height: 21px;
+                        width: 260px;
+
+                        .errorMessageDiv {
+                            font-size: 9px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.46rem;
+                            left: 6.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Btn {
+                button {
+                    padding: 6px;
+                    font-size: 13px;
+                }
+            }
+
+            #prov {
+                div {
+                    #mensaje {
+                        padding: 7px;
+                        width: 240px;
+
+                        p {
+                            font-size: 11px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 340px) {
+    .form-containerTrabajo {
+
+
+        #contactForm {
+            width: 290px;
+            padding: 0.3rem;
+            gap: 0;
+
+            .Img {
+                img {
+                    height: 72px;
+                }
+            }
+
+            .Mitad1 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 240px;
+                        padding: 4.5px;
+                    }
+
+                    .contenedorError {
+                        height: 21px;
+                        width: 260px;
+
+                        .errorMessageDiv {
+                            font-size: 9px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.46rem;
+                            left: 6.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Mitad2 {
+                div {
+                    gap: 3px;
+
+                    label {
+                        font-size: 14px;
+                    }
+
+                    input {
+                        font-size: 13px;
+                        width: 240px;
+                        padding: 4.5px;
+                    }
+
+                    .contenedorError {
+                        height: 21px;
+                        width: 260px;
+
+                        .errorMessageDiv {
+                            font-size: 9px;
+                        }
+
+                        .iconDiv {
+                            bottom: 1.46rem;
+                            left: 6.5rem;
+                        }
+                    }
+                }
+            }
+
+            .Btn {
+                button {
+                    padding: 6px;
+                    font-size: 13px;
+                }
+            }
+        }
     }
 }
