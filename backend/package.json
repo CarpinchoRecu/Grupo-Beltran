@@ -4,7 +4,7 @@
   "description": "",
   "main": "express.js",
   "scripts": {
-    "start": "node backend/express.js"
+    "start": "node express.js"
   },
   "author": "",
   "license": "ISC",

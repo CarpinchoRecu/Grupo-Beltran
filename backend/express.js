@@ -31,7 +31,7 @@ const limiterContactanos = rateLimit({
   legacyHeaders: false,
 });
 
-app.use("/contactanos",limiterContactanos);
+app.use("/contactanos", limiterContactanos);
 
 // Crear la conexión a la base de datos al iniciar el servidor
 const connection = mysql.createConnection({
@@ -72,13 +72,20 @@ app.post("/contactanos", (req, res) => {
 
   connection.query(sqlContactanos, valuesContactanos, (err, result) => {
     if (err) {
-      console.error("Error al insertar datos en la base de datos de contactos: ", err);
-      res.status(500).send("Error al insertar datos en la base de datos de contactos.");
+      console.error(
+        "Error al insertar datos en la base de datos de contactos: ",
+        err
+      );
+      res
+        .status(500)
+        .send("Error al insertar datos en la base de datos de contactos.");
       connection.end();
       return;
     }
 
-    res.send("Datos insertados correctamente en la base de datos de contactos.");
+    res.send(
+      "Datos insertados correctamente en la base de datos de contactos."
+    );
     connection.end();
   });
 });
