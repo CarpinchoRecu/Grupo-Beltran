@@ -105,8 +105,8 @@ const Contactanos = () => {
                     }
                     break;
                 case "telefono":
-                    if (value.length < 3) {
-                        errorMessage = "Este campo debe poseer al menos 3 caracteres";
+                    if (value.length < 6) {
+                        errorMessage = "Este campo debe poseer al menos 6 caracteres";
                     } else if (value.length > 14) {
                         errorMessage = "Este campo debe poseer como máximo 14 caracteres";
                     } else if (value.includes(" ")) {
@@ -256,9 +256,36 @@ const Contactanos = () => {
         };
     }, []);
 
+    const [formSubmitCount, setFormSubmitCount] = useState(0);
+    const [canSubmitForm, setCanSubmitForm] = useState(true);
+
+    // Establecer el tiempo de espera para poder enviar otro formulario después de exceder el límite
+    useEffect(() => {
+        const cooldownTime = 1 * 60 * 1000; // 1 minuto en milisegundos
+
+        const timeout = setTimeout(() => {
+            // Restablecer el contador y habilitar el envío del formulario
+            setFormSubmitCount(0);
+            setCanSubmitForm(true);
+        }, cooldownTime);
+
+        // Limpieza del timeout al desmontar el componente
+        return () => clearTimeout(timeout);
+    }, [formSubmitCount]);
+
     // Mandar por fetch los datos despues de validarlos por parte del cliente
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        // Verificar si aún se puede enviar el formulario
+        if (!canSubmitForm) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Solo se pueden enviar 2 formularios. Intenta más tarde.",
+            });
+            return;
+        }
 
         // Validar los datos antes de enviar
         const isNombreValid = validateInput("nombre", formData.nombre);
@@ -266,7 +293,6 @@ const Contactanos = () => {
         const isEdadValid = validateInput("edad", formData.edad);
         const isTelefonoValid = validateInput("telefono", formData.telefono);
         const isEmailValid = validateInput("email", formData.email);
-        const isProvinciaValid = validateProvincia("provincia", formData.provincia)
         const isLocalidadValid = validateInput("localidad", formData.localidad);
 
         // Verificar si todos los campos son válidos
@@ -276,7 +302,6 @@ const Contactanos = () => {
             isEdadValid &&
             isTelefonoValid &&
             isEmailValid &&
-            isProvinciaValid &&
             isLocalidadValid;
 
         if (!isFormValid) {
@@ -304,7 +329,15 @@ const Contactanos = () => {
             const data = await response.text();
             console.log(data);
 
-            // Mostrar mensaje al usuario de éxito 
+            // Incrementar el contador de envío del formulario
+            setFormSubmitCount((prevCount) => prevCount + 1);
+
+            // Deshabilitar el envío del formulario después de enviarlo dos veces
+            if (formSubmitCount + 1 >= 2) {
+                setCanSubmitForm(false);
+            }
+
+            // Mostrar mensaje al usuario de éxito
             Swal.fire({
                 icon: "success",
                 title: "¡Envío exitoso!",
@@ -467,8 +500,6 @@ const Contactanos = () => {
                             type="text"
                             id="provincia"
                             name="provincia"
-                            value={formData.provincia}
-                            onChange={handleChange}
                             autoComplete="off"
                         />
                         <div>

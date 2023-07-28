@@ -26,13 +26,13 @@
 }
 
 body {
-    animation: animation-pages 1.5s ease;
+    animation: animation-pages 2s ease;
     opacity: 1;
 }
 
 /* Estilo para la barra de scroll vertical */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -41,8 +41,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #504f4f;
-    border-radius: 3px;
+    background: #71911b;
+    border-radius: 20px;
     border: solid 1px;
     /* Color del thumb (barra móvil) */
 }
@@ -54,6 +54,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-    background: #504f4f;
+    background: #71911b;
     /* Color del thumb (barra móvil) horizontal */
 }
