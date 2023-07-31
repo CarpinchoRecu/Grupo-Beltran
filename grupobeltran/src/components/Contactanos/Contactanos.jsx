@@ -329,7 +329,7 @@ const Contactanos = () => {
             const data = await response.text();
             console.log(data);
 
-            // Incrementar el contador de envío del formulario
+            // Incrementar el contador solo cuando no hay errores
             setFormSubmitCount((prevCount) => prevCount + 1);
 
             // Deshabilitar el envío del formulario después de enviarlo dos veces
@@ -353,6 +353,7 @@ const Contactanos = () => {
             });
         }
     };
+
 
     return (
         <div className="form-container">
