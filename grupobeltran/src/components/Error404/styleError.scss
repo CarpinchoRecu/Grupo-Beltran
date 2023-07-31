@@ -1,11 +1,12 @@
 #error {
-    background-color: #2155e4;
+    background-color: #eaefea;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     gap: 10px;
-    height: 50rem;
+    height: 40rem;
+    font-family: "TT";
 
     .titleError1 {
         font-size: 50px;
@@ -19,16 +20,15 @@
 
     .linkError {
         text-decoration: none;
-        color: #2155e4;
         background-color: #fff;
         padding: 4px;
         font-size: 20px;
         border-radius: 4px;
         transition: 0.4s;
+        background-color: #000;
+        color: #fff;
 
         &:hover {
-            color: #fff;
-            background-color: #000;
             scale: 1.1;
         }
     }

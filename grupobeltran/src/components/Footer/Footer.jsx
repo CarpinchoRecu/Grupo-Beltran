@@ -45,7 +45,7 @@ const Footer = () => {
                 </Link>
             </div>
             <div className="logoContact">
-                <h2>•CONTACTOS</h2>
+                <h2>•CONTACTOS•</h2>
                 <div className="contact">
                     <div>
                         <a href="http://" target="_blank" rel="noopener noreferrer">

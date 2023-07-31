@@ -11,19 +11,18 @@ import Footer from "./components/Footer/Footer.jsx";
 
 function App() {
   return (
-
-
     <BrowserRouter>
       <Header />
-
+      
       <Routes>
         <Route path="/Inicio" element={<Inicio />} />
         <Route path="/Coberturas" element={<Error404 />} />
-        <Route path="/Trabajo" element={<Trabajo />} />
+        <Route path="/Trabajo" element={<Error404 />} />
         <Route path="/Contactanos" element={<Contactanos />} />
         <Route path="/Nosotros" element={<Error404 />} />
         <Route path="*" element={<Inicio />} />
       </Routes>
+
       <Footer/>
     </BrowserRouter>
   );
