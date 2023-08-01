@@ -318,7 +318,7 @@ const Contactanos = () => {
         const formDataToSend = new URLSearchParams(new FormData(event.target));
 
         try {
-            const response = await fetch("http://localhost:3000/contactanos", {
+            const response = await fetch("https://expressserver-uclv.onrender.com/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",

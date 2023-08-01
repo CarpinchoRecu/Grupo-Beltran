@@ -5,7 +5,8 @@
     align-items: center;
     gap: 20px;
     background-color: #eaefea;
-height: 40rem;
+    height: 40rem;
+
     #contactForm {
         display: grid;
         grid-template-areas:
@@ -40,7 +41,6 @@ height: 40rem;
 
                 label {
                     font-size: 16px;
-                    font-family: "TT";
                 }
 
                 /* Estilo para ocultar los botones de incremento y decremento */
@@ -167,7 +167,7 @@ height: 40rem;
                     scale: 1.1;
                 }
             }
-        } 
+        }
 
         #prov {
             div {
@@ -408,10 +408,10 @@ height: 40rem;
 
         #contactForm {
             grid-template-areas:
-            "img"
-            "Mitad1" 
-            "Mitad2"
-            "btn";
+                "img"
+                "Mitad1"
+                "Mitad2"
+                "btn";
             width: 370px;
             padding: 0.5rem;
             gap: 5px;
