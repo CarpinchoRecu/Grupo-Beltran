@@ -190,6 +190,7 @@ const Contactanos = () => {
 
         setIsValidProvincia(errorMessage === "");
     };
+
     //mostrar opciones de input provincias(mostrar provincias)
     useEffect(() => {
         // Formulario
@@ -293,6 +294,7 @@ const Contactanos = () => {
         const isEdadValid = validateInput("edad", formData.edad);
         const isTelefonoValid = validateInput("telefono", formData.telefono);
         const isEmailValid = validateInput("email", formData.email);
+        const isProvinciaValid = validateProvincia(value, formData.provincia);
         const isLocalidadValid = validateInput("localidad", formData.localidad);
 
         // Verificar si todos los campos son válidos
@@ -302,6 +304,7 @@ const Contactanos = () => {
             isEdadValid &&
             isTelefonoValid &&
             isEmailValid &&
+            isProvinciaValid &&
             isLocalidadValid;
 
         if (!isFormValid) {
@@ -353,7 +356,6 @@ const Contactanos = () => {
             });
         }
     };
-
 
     return (
         <div className="form-container">
@@ -473,6 +475,22 @@ const Contactanos = () => {
                             )}
                         </div>
                     </div>
+
+                    <div id="prov">
+                        <label>Provincia</label>
+                        <input
+                            type="text"
+                            id="provincia"
+                            name="provincia"
+                            required
+                            autoComplete="off"
+                        />
+                        <div className="contenedorSugerencia">
+                            <div>
+                                <div id="mensaje"></div>
+                            </div>
+                        </div>
+                    </div>
                     <div>
                         <label htmlFor="localidad">Localidad</label>
                         <input
@@ -489,28 +507,6 @@ const Contactanos = () => {
                                 <div className="errorMessageDiv">{errors.localidad}</div>
                             )}
                             {isValidLocalidad && (
-                                <div className="iconDiv">
-                                    <FaCheck />
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                    <div id="prov">
-                        <label>Provincia</label>
-                        <input
-                            type="text"
-                            id="provincia"
-                            name="provincia"
-                            autoComplete="off"
-                        />
-                        <div>
-                            <div id="mensaje"></div>
-                        </div>
-                        <div className="contenedorError">
-                            {errors.provincia && (
-                                <div className="errorMessageDiv">{errors.provincia}</div>
-                            )}
-                            {isValidProvincia && (
                                 <div className="iconDiv">
                                     <FaCheck />
                                 </div>

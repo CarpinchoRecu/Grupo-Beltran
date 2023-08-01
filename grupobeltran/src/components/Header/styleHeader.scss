@@ -32,9 +32,8 @@ header {
             grid-area: botones;
 
             .links {
-                font-family: "TT";
                 text-decoration: none;
-                font-size: 21px;
+                font-size: 24px;
                 color: #000;
                 transition: 0.2s ease-in-out;
                 border-bottom: solid 1px #00000000;
@@ -69,7 +68,7 @@ header {
                 gap: 50px;
 
                 .links {
-                    font-size: 19px;
+                    font-size: 22px;
                 }
             }
         }
@@ -91,7 +90,7 @@ header {
                 gap: 40px;
 
                 .links {
-                    font-size: 16px;
+                    font-size: 20px;
                 }
             }
         }
@@ -111,7 +110,7 @@ header {
                 gap: 30px;
 
                 .links {
-                    font-size: 15px;
+                    font-size: 18px;
                 }
             }
         }

@@ -21,39 +21,33 @@
                 align-items: center;
                 justify-content: center;
                 flex-direction: column;
-                gap: 30px;
+                gap: 20px;
                 grid-area: txt;
 
                 h2 {
-                    font-size: 26px;
-                    font-family: "TT";
+                    font-size: 30px;
                     width: 350px;
-                    margin-top: 10rem;
+                    margin-top: 5rem;
                     text-align: center;
                 }
 
                 p {
-                    font-size: 27px;
-                    font-family: "TT";
+                    font-size: 26px;
                     width: 400px;
                     text-align: center;
                 }
 
                 .linkInicio {
-                    color: #fff;
-                    background: #19711b;
-                    border-radius: 3rem;
-                    margin-top: 20px;
-                    width: 100px;
-                    height: 60px;
-                    font-weight: bold;
-                    font-family: "TT";
+                    background-color: #19711b;
+                    text-align: center;
                     text-decoration: none;
-                    font-size: 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    transition: 0.4s;
+                    color: #fff;
+                    font-size: 25px;
+                    border-radius: 3rem;
+                    padding: 13px;
+                    width: 90px;
+                    transition: 0.5s ease;
+                    margin: 10px;
 
                     &:hover {
                         scale: 1.2;

@@ -48,13 +48,23 @@ const Footer = () => {
                 <h2>•CONTACTOS•</h2>
                 <div className="contact">
                     <div>
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="https://api.whatsapp.com/send?phone=5491130452581&text=Hola,%20mi%20consulta%20es...
+"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <img src={logowp} alt="Whatsapp" />
                         </a>
-                        <h2>+54 123456789</h2>
+                        <h2>+54 11 3045 2581</h2>
                     </div>
                     <div>
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                        <a
+                            href="mailto:consultas@asessaludsrl.com?subject=Consulta&body=Hola,%20mi%20consulta%20es...
+"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <img src={logoemail} alt="Email" />
                         </a>
                         <h2>consultas@asessaludsrl.com</h2>
@@ -65,7 +75,7 @@ const Footer = () => {
                 <h2>•NUESTRAS REDES SOCIALES•</h2>
                 <div>
                     <a
-                        href="https://www.facebook.com/profile.php?id=100094913220507"
+                        href="https://www.facebook.com/profile.php?id=100094507124115"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

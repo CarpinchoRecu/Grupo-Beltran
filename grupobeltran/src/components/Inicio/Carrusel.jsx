@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import img1 from "./assetsInicio/imgInicio1.jpeg";
 import img2 from "./assetsInicio/imgInicio2.jpeg";
 import img3 from "./assetsInicio/imgInicio3.jpeg";
+import { useSpring, animated } from '@react-spring/web'
 import { Link } from "react-router-dom";
 
 const Carrusel = () => {
