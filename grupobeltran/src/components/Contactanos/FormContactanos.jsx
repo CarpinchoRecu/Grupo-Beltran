@@ -294,7 +294,6 @@ const Contactanos = () => {
         const isEdadValid = validateInput("edad", formData.edad);
         const isTelefonoValid = validateInput("telefono", formData.telefono);
         const isEmailValid = validateInput("email", formData.email);
-        const isProvinciaValid = validateProvincia(value, formData.provincia);
         const isLocalidadValid = validateInput("localidad", formData.localidad);
 
         // Verificar si todos los campos son válidos
@@ -304,7 +303,6 @@ const Contactanos = () => {
             isEdadValid &&
             isTelefonoValid &&
             isEmailValid &&
-            isProvinciaValid &&
             isLocalidadValid;
 
         if (!isFormValid) {

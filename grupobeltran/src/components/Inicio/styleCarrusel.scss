@@ -2,6 +2,44 @@
     width: 100%;
     overflow: hidden;
 
+    .flechas {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: 15rem;
+        height: 0;
+        z-index: 1;
+
+        .flechaIzq {
+            cursor: pointer;
+
+            img {
+                height: 100px;
+                rotate: (180deg);
+                transition: 0.4s ease;
+
+                &:hover {
+                    transform: translateX(10px);
+                    scale: 1.1;
+                }
+            }
+        }
+
+        .flechaDer {
+            cursor: pointer;
+
+            img {
+                height: 100px;
+                transition: 0.4s ease;
+
+                &:hover {
+                    transform: translateX(10px);
+                    scale: 1.1;
+                }
+            }
+        }
+    }
+
     .slider-contenedor {
         width: 100%;
         display: flex;
@@ -65,6 +103,33 @@
                 img {
                     height: 500px;
                     width: 100%;
+                }
+            }
+        }
+    }
+
+    .contendorPuntos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .puntos-indicadores {
+            display: flex;
+            gap: 7px;
+            position: absolute;
+            bottom: 60px;
+
+            .punto {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #636363;
+                margin: 0 5px;
+                cursor: pointer;
+                transition: 1s ease;
+
+                &.activo {
+                    background-color: #19711b;
+                    scale: 1.4;
                 }
             }
         }
@@ -275,6 +340,32 @@
                 .contenedorImg {
                     img {
                         height: 290px;
+                    }
+                }
+            }
+        }
+        .contendorPuntos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .puntos-indicadores {
+                display: flex;
+                gap: 10px;
+                position: absolute;
+                bottom: -25px;
+    
+                .punto {
+                    width: 15px;
+                    height: 15px;
+                    border-radius: 50%;
+                    background-color: #636363;
+                    margin: 0 5px;
+                    cursor: pointer;
+                    transition: 1s ease;
+    
+                    &.activo {
+                        background-color: #19711b;
+                        scale: 1.4;
                     }
                 }
             }

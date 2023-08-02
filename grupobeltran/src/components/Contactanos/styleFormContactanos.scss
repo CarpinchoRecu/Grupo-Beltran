@@ -301,13 +301,16 @@
             }
 
             #prov {
-                div {
-                    #mensaje {
-                        padding: 8px;
-                        width: 280px;
+                .contenedorSugerencia {
 
-                        p {
-                            font-size: 13px;
+                    div {
+                        #mensaje {
+                            padding: 8px;
+                            width: 280px;
+    
+                            p {
+                                font-size: 13px;
+                            }
                         }
                     }
                 }
@@ -383,13 +386,16 @@
             }
 
             #prov {
-                div {
-                    #mensaje {
-                        padding: 8px;
-                        width: 250px;
+                .contenedorSugerencia {
 
-                        p {
-                            font-size: 13px;
+                    div {
+                        #mensaje {
+                            padding: 8px;
+                            width: 250px;
+    
+                            p {
+                                font-size: 13px;
+                            }
                         }
                     }
                 }
@@ -484,12 +490,15 @@
             }
 
             #prov {
-                div {
-                    #mensaje {
-                        width: 280px;
-
-                        p {
-                            font-size: 12px;
+                .contenedorSugerencia {
+                    
+                    div {
+                        #mensaje {
+                            width: 280px;
+    
+                            p {
+                                font-size: 12px;
+                            }
                         }
                     }
                 }
@@ -581,13 +590,16 @@
             }
 
             #prov {
-                div {
-                    #mensaje {
-                        padding: 7px;
-                        width: 240px;
-
-                        p {
-                            font-size: 11px;
+                .contenedorSugerencia {
+                    
+                    div {
+                        #mensaje {
+                            padding: 7px;
+                            width: 240px;
+    
+                            p {
+                                font-size: 11px;
+                            }
                         }
                     }
                 }

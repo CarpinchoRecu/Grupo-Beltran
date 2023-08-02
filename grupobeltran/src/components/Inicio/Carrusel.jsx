@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import img1 from "./assetsInicio/imgInicio1.jpeg";
 import img2 from "./assetsInicio/imgInicio2.jpeg";
 import img3 from "./assetsInicio/imgInicio3.jpeg";
-import { useSpring, animated } from '@react-spring/web'
+import flecha from "./assetsInicio/flecha.png";
 import { Link } from "react-router-dom";
+import styleCarrusel from "./styleCarrusel.scss";
 
 const Carrusel = () => {
   const [contador, setContador] = useState(0);
@@ -27,6 +28,29 @@ const Carrusel = () => {
     },
   ];
 
+  const moveCarousel = (index) => {
+    const transformValue = -width * index + "px";
+    sliderRef.style.transform = `translateX(${transformValue})`;
+    sliderRef.style.transition = "transform 1s";
+  };
+
+  const handleNextSlide = () => {
+    const nextSlideIndex = (contador + 1) % slides.length;
+    setContador(nextSlideIndex);
+    moveCarousel(nextSlideIndex);
+  };
+
+  const handlePreviousSlide = () => {
+    const previousSlideIndex = (contador - 1 + slides.length) % slides.length;
+    setContador(previousSlideIndex);
+    moveCarousel(previousSlideIndex);
+  };
+
+  const handlePuntoClick = (index) => {
+    setContador(index);
+    moveCarousel(index);
+  };
+
   useEffect(() => {
     setWidth(sliderRef?.firstChild.clientWidth);
 
@@ -34,8 +58,7 @@ const Carrusel = () => {
       setWidth(sliderRef?.firstChild.clientWidth);
     };
 
-    resizeHandler(); // Llamar a resizeHandler una vez para establecer el ancho inicialmente
-
+    resizeHandler();
     window.addEventListener("resize", resizeHandler);
 
     return () => {
@@ -43,24 +66,51 @@ const Carrusel = () => {
     };
   }, [sliderRef]);
 
+  const [paused, setPaused] = useState(false);
+  const intervalRef = useRef(null);
+
   useEffect(() => {
     const handleSlide = () => {
       const nextSlideIndex = (contador + 1) % slides.length;
       const transformValue = -width * nextSlideIndex + "px";
       sliderRef.style.transform = `translateX(${transformValue})`;
-      sliderRef.style.transition = "transform .8s";
+      sliderRef.style.transition = "transform 0.7s";
       setContador(nextSlideIndex);
     };
 
-    const interval = setInterval(handleSlide, 3200);
+    const startInterval = () => {
+      if (!paused) {
+        intervalRef.current = setInterval(handleSlide, 5000);
+      }
+    };
+
+    startInterval();
 
     return () => {
-      clearInterval(interval);
+      clearInterval(intervalRef.current);
     };
-  }, [contador, slides.length, sliderRef, width]);
+  }, [contador, paused, slides.length, sliderRef, width]);
+
+  const generatePuntosIndicadores = () => {
+    return Array.from({ length: slides.length }).map((_, index) => (
+      <div
+        key={index}
+        className={`punto${index === contador ? " activo" : ""}`}
+        onClick={() => handlePuntoClick(index)}
+      ></div>
+    ));
+  };
 
   return (
     <div className="contenedor">
+      <div className="flechas">
+        <div className="flechaIzq" onClick={handlePreviousSlide}>
+          <img src={flecha} alt="" />
+        </div>
+        <div className="flechaDer" onClick={handleNextSlide}>
+          <img src={flecha} alt="" />
+        </div>
+      </div>
       <div className="slider-contenedor" ref={setSliderRef}>
         {slides.map((slide, index) => (
           <section className="contenido-slider" key={index}>
@@ -76,6 +126,10 @@ const Carrusel = () => {
             </div>
           </section>
         ))}
+      </div>
+      <div className="contendorPuntos">
+        {" "}
+        <div className="puntos-indicadores">{generatePuntosIndicadores()}</div>
       </div>
     </div>
   );
