@@ -1,9 +1,0 @@
-registrase para usar/chat interactivo con cliente/call
-mandar contacto
-recolectar datos/ventas aseguradas
-contactarse desde app
-mostrar cada una de los servisios
-acerca de nosotros
-mantenimiento en el tiempo, nuevas opciones, mejor interfaz, mejora en los servidores, cambio de base de datos, cambio de convenios, cambio de servisios, noticias
-seguimiento por mail
-ver precio servidor
