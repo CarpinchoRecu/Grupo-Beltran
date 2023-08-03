@@ -81,8 +81,8 @@
 
                     .iconDiv {
                         position: relative;
-                        bottom: 1.94rem;
-                        left: 8rem;
+                        bottom: 1.8rem;
+                        left: 17rem;
                     }
                 }
             }
@@ -141,8 +141,8 @@
 
                     .iconDiv {
                         position: relative;
-                        bottom: 1.94rem;
-                        left: 8rem;
+                        bottom: 1.8rem;
+                        left: 17rem;
                     }
                 }
             }
@@ -169,37 +169,40 @@
         } 
 
         #prov {
-            div {
-                #mensaje {
-                    background-color: #ffffffec;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    padding: 10px;
-                    border: solid 1px;
-                    border-radius: 0px 0px 20px 20px;
-                    width: 300px;
-                    position: absolute;
-                    z-index: 2;
-                    animation: dropdownAnimation 0.4s ease-in-out;
+            .contenedorSugerencia {
+                height: 30px;
 
-                    p {
-                        font-size: 14.5px;
-                        cursor: pointer;
-                        width: 180px;
-                        border: solid 1px #00000000;
-                        border-bottom: solid 1px #0000006a;
-                        padding: 5px;
-                        font-family: "TT";
-                        transition: 0.15s ease;
+                div {
+                    #mensaje {
+                        background-color: #ffffffec;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 10px;
+                        border: solid 1px;
+                        border-radius: 0px 0px 20px 20px;
+                        width: 300px;
+                        position: absolute;
+                        z-index: 2;
                         animation: dropdownAnimation 0.4s ease-in-out;
 
-                        &:hover {
-                            scale: 1.05;
-                            border: solid 1px;
-                            border-radius: 5px;
-                            background-color: #a4bea4;
+                        p {
+                            font-size: 14.5px;
+                            cursor: pointer;
+                            width: 180px;
+                            border: solid 1px #00000000;
+                            border-bottom: solid 1px #0000006a;
+                            padding: 5px;
+                            transition: 0.15s ease;
+                            animation: dropdownAnimation 0.4s ease-in-out;
+
+                            &:hover {
+                                scale: 1.05;
+                                border: solid 1px;
+                                border-radius: 5px;
+                                background-color: #a4bea4;
+                            }
                         }
                     }
                 }

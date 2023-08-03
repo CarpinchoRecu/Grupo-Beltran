@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import img1 from "./assetsInicio/imgInicio1.jpeg";
-import img2 from "./assetsInicio/imgInicio2.jpeg";
-import img3 from "./assetsInicio/imgInicio3.jpeg";
+import img1 from "./assetsInicio/imgInicio/imgInicio1.jpeg"
+import img2 from "./assetsInicio/imgInicio/imgInicio2.jpeg";
+import img3 from "./assetsInicio/imgInicio/imgInicio3.jpeg";
 import flecha from "./assetsInicio/flecha.png";
 import { Link } from "react-router-dom";
 import styleCarrusel from "./styleCarrusel.scss";
@@ -69,18 +69,23 @@ const Carrusel = () => {
   const [paused, setPaused] = useState(false);
   const intervalRef = useRef(null);
 
+  const handleResumeAnimation = () => {
+    setPaused(false); // Reanudar animación
+  };
+
   useEffect(() => {
     const handleSlide = () => {
       const nextSlideIndex = (contador + 1) % slides.length;
       const transformValue = -width * nextSlideIndex + "px";
       sliderRef.style.transform = `translateX(${transformValue})`;
-      sliderRef.style.transition = "transform 0.7s";
+      sliderRef.style.transition = "transform 1s";
       setContador(nextSlideIndex);
+      handleResumeAnimation();
     };
 
     const startInterval = () => {
       if (!paused) {
-        intervalRef.current = setInterval(handleSlide, 5000);
+        intervalRef.current = setInterval(handleSlide, 5100);
       }
     };
 
@@ -114,9 +119,9 @@ const Carrusel = () => {
       <div className="slider-contenedor" ref={setSliderRef}>
         {slides.map((slide, index) => (
           <section className="contenido-slider" key={index}>
-            <div className="contenedorTxt">
-              <h2>{slide.content}</h2>
-              <p>{slide.p}</p>
+            <div className={`contenedorTxt ${paused ? 'pausado' : ''}`}>
+              <h2 className={`texto-entrada ${contador === index ? 'activo' : ''}`}>{slide.content}</h2>
+              <p className={`texto-entrada ${contador === index ? 'activo' : ''}`}>{slide.p}</p>
               <Link className="linkInicio" to="/Coberturas">
                 INFO
               </Link>

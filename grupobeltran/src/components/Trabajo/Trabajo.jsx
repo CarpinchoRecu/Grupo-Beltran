@@ -53,13 +53,7 @@ const Trabajo = () => {
             [id]: value,
         }));
 
-        if (id === "provincia") {
-            validateProvincia(value);
-        } else if (id === "dni") {
-            validateDNI(value);
-        } else if (id === "domicilio") {
-            validateDomicilio(value);
-        } else if (id === "cv") {
+        if (id === "cv") {
             validateCV(value);
         } else {
             // Valida el campo actual y actualiza el estado de validez del campo
@@ -82,6 +76,12 @@ const Trabajo = () => {
                     break;
                 case "localidad":
                     setIsValidLocalidad(isValid);
+                    break;
+                case "domicilio":
+                    setIsValidDomicilio(isValid);
+                    break;
+                case "dni":
+                    setIsValidDNI(isValid);
                     break;
                 default:
                     break;
@@ -113,9 +113,11 @@ const Trabajo = () => {
                     if (isNaN(edadValue)) {
                         errorMessage = "Por favor, ingresa una edad válida";
                     } else if (edadValue < 18) {
-                        errorMessage = "Tiene que ser mayor de 18 para poder enviar el formulario";
+                        errorMessage =
+                            "Tiene que ser mayor de 18 para poder enviar el formulario";
                     } else if (edadValue > 56) {
-                        errorMessage = "Tiene que tener menos de 56 para enviar el formulario";
+                        errorMessage =
+                            "Tiene que tener menos de 56 para enviar el formulario";
                     }
                     break;
                 case "telefono":
@@ -135,10 +137,19 @@ const Trabajo = () => {
                     }
                     break;
                 case "localidad":
+                case "domicilio":
                     if (value.length < 2) {
                         errorMessage = "Este campo debe tener al menos 2 caracteres";
                     } else if (value.length > 20) {
                         errorMessage = "Este campo debe tener menos de 20 caracteres";
+                    }
+                    break;
+                case "dni":
+                    const dniValue = parseInt(value);
+                    if (isNaN(dniValue)) {
+                        errorMessage = "Por favor, ingresa un DNI válido";
+                    } else if (value.length !== 8) {
+                        errorMessage = "El DNI debe tener exactamente 8 dígitos";
                     }
                     break;
                 default:
@@ -152,50 +163,6 @@ const Trabajo = () => {
         }));
 
         return errorMessage === "";
-    };
-
-    const validateDNI = (value) => {
-        value = value.trim();
-        let errorMessage = "";
-
-        if (value.length === 0) {
-            errorMessage = "Este campo es obligatorio";
-        } else {
-            // Validar que sea un número válido
-            const dniValue = parseInt(value);
-            if (isNaN(dniValue)) {
-                errorMessage = "Por favor, ingresa un DNI válido";
-            } else if (value.length !== 8) {
-                errorMessage = "El DNI debe tener exactamente 8 dígitos";
-            }
-        }
-
-        setErrors((prevErrors) => ({
-            ...prevErrors,
-            dni: errorMessage,
-        }));
-
-        setIsValidDNI(errorMessage === "");
-    };
-
-    const validateDomicilio = (value) => {
-        value = value.trim();
-        let errorMessage = "";
-
-        if (value.length === 0) {
-            errorMessage = "Este campo es obligatorio";
-        } else if (value.length < 5) {
-            errorMessage = "Este campo debe tener al menos 5 caracteres";
-        } else if (value.length > 30) {
-            errorMessage = "Este campo debe tener menos de 30 caracteres";
-        }
-
-        setErrors((prevErrors) => ({
-            ...prevErrors,
-            domicilio: errorMessage,
-        }));
-
-        setIsValidDomicilio(errorMessage === "");
     };
 
     const validateCV = (value) => {
@@ -241,30 +208,6 @@ const Trabajo = () => {
         "Tierra del Fuego",
         "Tucumán",
     ]);
-
-    const validateProvincia = (value) => {
-        value = value.trim();
-        let errorMessage = "";
-
-        if (value.length === 0) {
-            errorMessage = "Este campo es obligatorio";
-        } else {
-            const provinciaExists = provincias.some((provincia) =>
-                provincia.toLowerCase().startsWith(value.toLowerCase())
-            );
-
-            if (!provinciaExists) {
-                errorMessage = "Por favor, elige una provincia válida de la lista";
-            }
-        }
-
-        setErrors((prevErrors) => ({
-            ...prevErrors,
-            provincia: errorMessage,
-        }));
-
-        setIsValidProvincia(errorMessage === "");
-    };
 
     // Mostrar opciones de input provincias (mostrar provincias)
     useEffect(() => {
@@ -332,9 +275,35 @@ const Trabajo = () => {
         };
     }, []);
 
+    const [formSubmitCount, setFormSubmitCount] = useState(0);
+    const [canSubmitForm, setCanSubmitForm] = useState(true);
+
+    // Establecer el tiempo de espera para poder enviar otro formulario después de exceder el límite
+    useEffect(() => {
+        const cooldownTime = 1 * 60 * 1000; // 1 minuto en milisegundos
+
+        const timeout = setTimeout(() => {
+            // Restablecer el contador y habilitar el envío del formulario
+            setFormSubmitCount(0);
+            setCanSubmitForm(true);
+        }, cooldownTime);
+
+        // Limpieza del timeout al desmontar el componente
+        return () => clearTimeout(timeout);
+    }, [formSubmitCount]);
+
     // Mandar por fetch los datos después de validarlos por parte del cliente
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (!canSubmitForm) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Solo se pueden enviar 2 formularios. Intenta más tarde.",
+            });
+            return;
+        }
 
         // Validar los datos antes de enviar
         const isNombreValid = validateInput("nombre", formData.nombre);
@@ -370,18 +339,41 @@ const Trabajo = () => {
         }
 
         // Si no hay errores, proceder con el envío de datos
-        const formDataToSend = new FormData(event.target);
+        const formDataTrabajoToSend = new URLSearchParams(new FormData(event.target));
+
+    // Agregar datos del formulario al objeto FormData
+    formDataToSend.append("nombre", formData.nombre);
+    formDataToSend.append("apellido", formData.apellido);
+    formDataToSend.append("edad", formData.edad);
+    formDataToSend.append("telefono", formData.telefono);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("localidad", formData.localidad);
+    formDataToSend.append("provincia", formData.provincia);
+    formDataToSend.append("dni", formData.dni);
+    formDataToSend.append("domicilio", formData.domicilio);
+    formDataToSend.append("cv", formData.cv);
 
         try {
-            const response = await fetch("http://localhost:443/contactanos", {
+            const response = await fetch("https://expressserver-uclv.onrender.com/", {
                 method: "POST",
-                body: formDataToSend,
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formDataTrabajoToSend,
             });
 
             const data = await response.text();
             console.log(data);
 
-            // Mostrar mensaje al usuario de éxito utilizando SweetAlert
+            // Incrementar el contador solo cuando no hay errores
+            setFormSubmitCount((prevCount) => prevCount + 1);
+
+            // Deshabilitar el envío del formulario después de enviarlo dos veces
+            if (formSubmitCount + 1 >= 2) {
+                setCanSubmitForm(false);
+            }
+
+            // Mostrar mensaje al usuario de éxito
             Swal.fire({
                 icon: "success",
                 title: "¡Envío exitoso!",
@@ -389,7 +381,7 @@ const Trabajo = () => {
             });
         } catch (error) {
             console.log(error);
-            // Mostrar mensaje al usuario de error utilizando SweetAlert
+            // Mostrar mensaje al usuario de error
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -417,7 +409,9 @@ const Trabajo = () => {
                             autoComplete="off"
                         />
                         <div className="contenedorError">
-                            {errors.nombre && <div className="errorMessageDiv">{errors.nombre}</div>}
+                            {errors.nombre && (
+                                <div className="errorMessageDiv">{errors.nombre}</div>
+                            )}
                             {isValidNombre && (
                                 <div className="iconDiv">
                                     <FaCheck />
@@ -437,7 +431,9 @@ const Trabajo = () => {
                             autoComplete="off"
                         />
                         <div className="contenedorError">
-                            {errors.apellido && <div className="errorMessageDiv">{errors.apellido}</div>}
+                            {errors.apellido && (
+                                <div className="errorMessageDiv">{errors.apellido}</div>
+                            )}
                             {isValidApellido && (
                                 <div className="iconDiv">
                                     <FaCheck />
@@ -457,7 +453,9 @@ const Trabajo = () => {
                             autoComplete="off"
                         />
                         <div className="contenedorError">
-                            {errors.edad && <div className="errorMessageDiv">{errors.edad}</div>}
+                            {errors.edad && (
+                                <div className="errorMessageDiv">{errors.edad}</div>
+                            )}
                             {isValidEdad && (
                                 <div className="iconDiv">
                                     <FaCheck />
@@ -477,7 +475,9 @@ const Trabajo = () => {
                             autoComplete="off"
                         />
                         <div className="contenedorError">
-                            {errors.telefono && <div className="errorMessageDiv">{errors.telefono}</div>}
+                            {errors.telefono && (
+                                <div className="errorMessageDiv">{errors.telefono}</div>
+                            )}
                             {isValidTelefono && (
                                 <div className="iconDiv">
                                     <FaCheck />
@@ -497,7 +497,9 @@ const Trabajo = () => {
                             autoComplete="off"
                         />
                         <div className="contenedorError">
-                            {errors.dni && <div className="errorMessageDiv">{errors.dni}</div>}
+                            {errors.dni && (
+                                <div className="errorMessageDiv">{errors.dni}</div>
+                            )}
                             {isValidDNI && (
                                 <div className="iconDiv">
                                     <FaCheck />
@@ -518,12 +520,29 @@ const Trabajo = () => {
                             required
                         />
                         <div className="contenedorError">
-                            {errors.email && <div className="errorMessageDiv">{errors.email}</div>}
+                            {errors.email && (
+                                <div className="errorMessageDiv">{errors.email}</div>
+                            )}
                             {isValidEmail && (
                                 <div className="iconDiv">
                                     <FaCheck />
                                 </div>
                             )}
+                        </div>
+                    </div>
+                    <div id="prov">
+                        <label>Provincia</label>
+                        <input
+                            type="text"
+                            id="provincia"
+                            name="provincia"
+                            required
+                            autoComplete="off"
+                        />
+                        <div className="contenedorSugerencia">
+                            <div>
+                                <div id="mensaje"></div>
+                            </div>
                         </div>
                     </div>
                     <div>
@@ -538,30 +557,10 @@ const Trabajo = () => {
                             autoComplete="off"
                         />
                         <div className="contenedorError">
-                            {errors.localidad && <div className="errorMessageDiv">{errors.localidad}</div>}
-                            {isValidLocalidad && (
-                                <div className="iconDiv">
-                                    <FaCheck />
-                                </div>
+                            {errors.localidad && (
+                                <div className="errorMessageDiv">{errors.localidad}</div>
                             )}
-                        </div>
-                    </div>
-                    <div>
-                        <label htmlFor="provincia">Provincia</label>
-                        <input
-                            type="text"
-                            id="provincia"
-                            name="provincia"
-                            value={formData.provincia}
-                            onChange={handleChange}
-                            autoComplete="off"
-                        />
-                        <div>
-                            <div id="mensaje"></div>
-                        </div>
-                        <div className="contenedorError">
-                            {errors.provincia && <div className="errorMessageDiv">{errors.provincia}</div>}
-                            {isValidProvincia && (
+                            {isValidLocalidad && (
                                 <div className="iconDiv">
                                     <FaCheck />
                                 </div>
@@ -580,7 +579,9 @@ const Trabajo = () => {
                             autoComplete="off"
                         />
                         <div className="contenedorError">
-                            {errors.domicilio && <div className="errorMessageDiv">{errors.domicilio}</div>}
+                            {errors.domicilio && (
+                                <div className="errorMessageDiv">{errors.domicilio}</div>
+                            )}
                             {isValidDomicilio && (
                                 <div className="iconDiv">
                                     <FaCheck />
