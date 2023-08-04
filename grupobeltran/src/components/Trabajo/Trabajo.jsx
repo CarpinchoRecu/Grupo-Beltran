@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import styleContactanos from "./styleTrabajo.scss";
 import logo from "../Footer/assetsFooter/logo2.jpeg";
+import FormTrabajo from "./FormTrabajo.jsx";
+import axios from "axios";
 
 const Trabajo = () => {
     // Datos de inputs
@@ -296,6 +298,7 @@ const Trabajo = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        // Verificar si aún se puede enviar el formulario
         if (!canSubmitForm) {
             Swal.fire({
                 icon: "error",
@@ -312,9 +315,8 @@ const Trabajo = () => {
         const isTelefonoValid = validateInput("telefono", formData.telefono);
         const isEmailValid = validateInput("email", formData.email);
         const isLocalidadValid = validateInput("localidad", formData.localidad);
-        const isDNIValid = validateInput("dni", formData.dni);
+        const isDniValid = validateInput("dni", formData.dni);
         const isDomicilioValid = validateInput("domicilio", formData.domicilio);
-        const isCVValid = validateInput("cv", formData.cv);
 
         // Verificar si todos los campos son válidos
         const isFormValid =
@@ -324,9 +326,8 @@ const Trabajo = () => {
             isTelefonoValid &&
             isEmailValid &&
             isLocalidadValid &&
-            isDNIValid &&
-            isDomicilioValid &&
-            isCVValid;
+            isDniValid &&
+            isDomicilioValid;
 
         if (!isFormValid) {
             // Mostrar mensaje al usuario sobre la validación pendiente utilizando SweetAlert
@@ -339,31 +340,16 @@ const Trabajo = () => {
         }
 
         // Si no hay errores, proceder con el envío de datos
-        const formDataTrabajoToSend = new URLSearchParams(new FormData(event.target));
-
-    // Agregar datos del formulario al objeto FormData
-    formDataToSend.append("nombre", formData.nombre);
-    formDataToSend.append("apellido", formData.apellido);
-    formDataToSend.append("edad", formData.edad);
-    formDataToSend.append("telefono", formData.telefono);
-    formDataToSend.append("email", formData.email);
-    formDataToSend.append("localidad", formData.localidad);
-    formDataToSend.append("provincia", formData.provincia);
-    formDataToSend.append("dni", formData.dni);
-    formDataToSend.append("domicilio", formData.domicilio);
-    formDataToSend.append("cv", formData.cv);
+        const formDataToSend = new URLSearchParams(new FormData(event.target));
 
         try {
-            const response = await fetch("https://expressserver-uclv.onrender.com/", {
-                method: "POST",
+            const response = await axios.post('http://localhost:4000/trabajo', formDataToSend, {
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    'Content-Type': 'multipart/form-data',
                 },
-                body: formDataTrabajoToSend,
             });
-
-            const data = await response.text();
-            console.log(data);
+            console.log(response.data);
+            alert('Formulario enviado con éxito');
 
             // Incrementar el contador solo cuando no hay errores
             setFormSubmitCount((prevCount) => prevCount + 1);
@@ -590,23 +576,14 @@ const Trabajo = () => {
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="cv">CV (png o pdf)</label>
+                        <label htmlFor="cv">CV (Solo png)</label>
                         <input
                             type="file"
                             id="cv"
                             name="cv"
-                            accept=".png,.pdf"
-                            onChange={handleChange}
+                            accept=".png"
                             required
                         />
-                        <div className="contenedorError">
-                            {errors.cv && <div className="errorMessageDiv">{errors.cv}</div>}
-                            {isValidCV && (
-                                <div className="iconDiv">
-                                    <FaCheck />
-                                </div>
-                            )}
-                        </div>
                     </div>
                 </div>
                 <div className="Btn">
