@@ -64,6 +64,9 @@
             grid-template-areas: "txt img";
             grid-template-columns: 4fr 2fr;
             background-image: url("./assetsInicio/fondoInicio/pantalla/fondoInicio.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
             width: 100%;
             height: 600px;
             flex-shrink: 0;
@@ -138,11 +141,11 @@
         }
 
         .contenido-slider:nth-child(2) {
-            background-image: none;
+            background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px2.jpg");
         }
 
         .contenido-slider:nth-child(3) {
-            background-image: none;
+            background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px3.jpg");
         }
     }
 
@@ -192,13 +195,6 @@
                         font-size: 20px;
                         width: 300px;
                     }
-
-                    .linkInicio {
-                        margin-top: 17px;
-                        width: 90px;
-                        height: 55px;
-                        font-size: 18px;
-                    }
                 }
 
                 .contenedorImg {
@@ -230,13 +226,6 @@
                     p {
                         font-size: 19px;
                         width: 290px;
-                    }
-
-                    .linkInicio {
-                        margin-top: 15px;
-                        width: 85px;
-                        height: 52px;
-                        font-size: 17px;
                     }
                 }
 
@@ -287,13 +276,6 @@
                         font-size: 17px;
                         width: 250px;
                     }
-
-                    .linkInicio {
-                        margin-top: 13px;
-                        width: 80px;
-                        height: 48px;
-                        font-size: 15px;
-                    }
                 }
 
                 .contenedorImg {
@@ -303,14 +285,6 @@
                         height: 350px;
                     }
                 }
-            }
-
-            .contenido-slider:nth-child(2) {
-                background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px2.jpg");
-            }
-
-            .contenido-slider:nth-child(3) {
-                background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px3.jpg");
             }
         }
 
@@ -342,13 +316,6 @@
                     p {
                         font-size: 14px;
                         width: 210px;
-                    }
-
-                    .linkInicio {
-                        margin-top: 10px;
-                        width: 65px;
-                        height: 37px;
-                        font-size: 13px;
                     }
                 }
 
@@ -385,13 +352,6 @@
                     p {
                         font-size: 17px;
                         width: 210px;
-                    }
-
-                    .linkInicio {
-                        margin-top: 15px;
-                        width: 80px;
-                        height: 50px;
-                        font-size: 18px;
                     }
                 }
 
@@ -435,14 +395,6 @@
                         height: 290px;
                     }
                 }
-            }
-
-            .contenido-slider:nth-child(2) {
-                background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px2.jpg");
-            }
-
-            .contenido-slider:nth-child(3) {
-                background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px3.jpg");
             }
         }
 
