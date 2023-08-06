@@ -277,6 +277,7 @@ const Contactanos = () => {
     // Mandar por fetch los datos despues de validarlos por parte del cliente
     const handleSubmit = async (event) => {
         event.preventDefault();
+        event.persist();
 
         // Verificar si aún se puede enviar el formulario
         if (!canSubmitForm) {
