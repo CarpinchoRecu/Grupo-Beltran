@@ -59,8 +59,10 @@ header {
     header {
         nav {
             .logo {
+                top: 20px;
                 img {
                     height: 70px;
+                    scale: 1.5;
                 }
             }
 
@@ -79,10 +81,9 @@ header {
     header {
         nav {
             .logo {
-                top: 23px;
-
+                top: 18px;
                 img {
-                    height: 62px;
+                    height: 65px;
                 }
             }
 
@@ -101,8 +102,10 @@ header {
     header {
         nav {
             .logo {
+                top: 16px;
                 img {
                     height: 60px;
+                    scale: 1.4;
                 }
             }
 
@@ -155,6 +158,7 @@ header {
                         background-color: #ffffff;
                         transition: transform 0.3s ease;
                         transform: translateY(-10px);
+                        z-index: 1;
                     }
 
                     &::after {
@@ -179,10 +183,6 @@ header {
                         transform: translateY();
                     }
 
-                    .hide {
-                        display: none;
-                    }
-
                     &.close::before {
                         transform: translateY(0) rotate(-45deg);
                         background-color: #000;
@@ -202,7 +202,7 @@ header {
                     right: -80%;
                     width: 70%;
                     height: 100%;
-                    background-color: #f5f5f5f1;
+                    background-color: #fffffff5;
                     padding: 50px 20px;
                     transition: transform 0.6s ease;
                     z-index: 28;
@@ -246,8 +246,10 @@ header {
             gap: 22rem;
 
             .logo {
+                top: 18px;
                 img {
                     height: 65px;
+                    scale: 1.5;
                 }
             }
 
@@ -279,10 +281,10 @@ header {
             gap: 17rem;
 
             .logo {
-                top: 18px;
-
+                top: 16px;
                 img {
                     height: 60px;
+                    scale: 1.4;
                 }
             }
 
@@ -307,8 +309,6 @@ header {
             gap: 11rem;
 
             .logo {
-                top: 17px;
-
                 img {
                     height: 55px;
                 }
@@ -323,10 +323,10 @@ header {
             gap: 8rem;
 
             .logo {
-                top: 20px;
-
+                top: 18px;
                 img {
-                    height: 52px;
+                    height: 50px;
+                    scale: 1.5;
                 }
             }
 

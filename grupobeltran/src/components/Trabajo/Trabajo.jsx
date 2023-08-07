@@ -4,7 +4,7 @@ import FormTrabajo from "./FormTrabajo.jsx";
 const Trabajo = () => {
     return (
         <>
-            <div className="a">
+            <div id="titleTrabajo">
                 <h2>¿Deseas formar parte de AsesSalud?</h2>
                 <h2>Completa el formulario</h2>
             </div>

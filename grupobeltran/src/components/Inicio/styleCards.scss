@@ -5,7 +5,10 @@
     justify-content: center;
     gap: 10rem;
     padding: 3rem;
-    background-image: url("./assetsInicio/fondoInicio/pantalla/fondoInicio.png");
+    background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 
     .card {
         background-image: url("./assetsInicio/imgCards/imgCard1.jpg");
@@ -32,12 +35,12 @@
             transition: 0.3s ease-in-out;
             text-decoration: none;
 
-                h2 {
-                    transition: 0.3s ease-in-out;
-                    color: #fff;
-                    font-size: 27px;
-                    font-weight: 100;
-                }
+            h2 {
+                transition: 0.3s ease-in-out;
+                color: #fff;
+                font-size: 27px;
+                font-weight: 100;
+            }
         }
 
 
@@ -85,6 +88,9 @@
 
 @media (max-width: 900px) {
     .conteinerCards {
+        background-image: none;
+        background-color: #fff;
+
         .card {
             height: 350px;
             width: 240px;
@@ -98,7 +104,7 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 430px) {
     .conteinerCards {
         .card {
             height: 400px;

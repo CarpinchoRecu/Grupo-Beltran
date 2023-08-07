@@ -1,3 +1,12 @@
+$sizeLabel: 18px;
+$sizeInput: 16px;
+$sizeError: 14px;
+$sizeProv : 14px;
+$widthError: 270px;
+$heightError: 30px;
+$bottomTilde: 100%;
+$leftTilde: 8rem;
+
 .form-container {
     display: flex;
     justify-content: center;
@@ -40,7 +49,7 @@
                 gap: 5px;
 
                 label {
-                    font-size: 16px;
+                    font-size: $sizeLabel;
                 }
 
                 /* Estilo para ocultar los botones de incremento y decremento */
@@ -51,7 +60,7 @@
                 }
 
                 input {
-                    font-size: 15px;
+                    font-size: $sizeInput;
                     padding: 8px;
                     width: 300px;
                     border: 0;
@@ -70,18 +79,18 @@
                 }
 
                 .contenedorError {
-                    height: 30px;
-                    width: 230px;
+                    height: $heightError;
+                    width: $widthError;
                     text-align: center;
 
                     .errorMessageDiv {
-                        font-size: 11px;
+                        font-size: $sizeError;
                     }
 
                     .iconDiv {
                         position: relative;
-                        bottom: 100%;
-                        left: 8rem;
+                        bottom: $bottomTilde;
+                        left: $leftTilde;
                     }
                 }
             }
@@ -97,7 +106,7 @@
                 gap: 5px;
 
                 label {
-                    font-size: 16px;
+                    font-size: $sizeLabel;
                 }
 
                 /* Estilo para ocultar los botones de incremento y decremento */
@@ -108,7 +117,7 @@
                 }
 
                 input {
-                    font-size: 15px;
+                    font-size: $sizeInput;
                     padding: 8px;
                     width: 300px;
                     border: 0;
@@ -127,18 +136,18 @@
                 }
 
                 .contenedorError {
-                    height: 30px;
-                    width: 230px;
+                    height: $heightError;
+                    width: $widthError;
                     text-align: center;
 
                     .errorMessageDiv {
-                        font-size: 11px;
+                        font-size: $sizeError;
                     }
 
                     .iconDiv {
                         position: relative;
-                        bottom: 100%;
-                        left: 8rem;
+                        bottom: $bottomTilde;
+                        left: $leftTilde;
                     }
                 }
             }
@@ -169,6 +178,8 @@
                 height: 30px;
 
                 div {
+                    margin: -2px;
+
                     #mensaje {
                         background-color: #ffffffec;
                         display: flex;
@@ -184,7 +195,7 @@
                         animation: dropdownAnimation 0.4s ease-in-out;
 
                         p {
-                            font-size: 14.5px;
+                            font-size: $sizeProv;
                             cursor: pointer;
                             width: 180px;
                             border: solid 1px #00000000;
@@ -194,9 +205,9 @@
                             animation: dropdownAnimation 0.4s ease-in-out;
 
                             &:hover {
-                                scale: 1.05;
+                                scale: 1.07;
                                 border: solid 1px;
-                                border-radius: 5px;
+                                border-radius: 7px;
                                 background-color: #a4bea4;
                             }
                         }
@@ -221,8 +232,17 @@
 }
 
 @media (max-width: 1100px) {
+    $sizeLabel: 17px;
+    $sizeInput: 15px;
+    $sizeError: 13px;
+    $sizeProv : 13px;
+    $widthError: 260px;
+    $heightError: 28px;
+    $bottomTilde: 90%;
+    $leftTilde: 7.5rem;
+
     .form-container {
-        height: 43rem;
+        height: 40rem;
 
         #contactForm {
             width: 690px;
@@ -240,25 +260,25 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 280px;
                     }
 
                     .contenedorError {
-                        height: 30px;
-                        width: 230px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 10px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.65rem;
-                            left: 7.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -269,25 +289,25 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 280px;
                     }
 
                     .contenedorError {
-                        height: 30px;
-                        width: 230px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 10px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.65rem;
-                            left: 7.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -307,9 +327,9 @@
                         #mensaje {
                             padding: 8px;
                             width: 280px;
-    
+
                             p {
-                                font-size: 13px;
+                                font-size: $sizeProv;
                             }
                         }
                     }
@@ -320,8 +340,17 @@
 }
 
 @media (max-width: 700px) {
+    $sizeLabel: 16px;
+    $sizeInput: 14px;
+    $sizeError: 12px;
+    $sizeProv : 12px;
+    $widthError: 255px;
+    $heightError: 26px;
+    $bottomTilde: 100%;
+    $leftTilde: 7rem;
+
     .form-container {
-        height: 43rem;
+        height: 36rem;
 
         #contactForm {
             width: 560px;
@@ -339,18 +368,24 @@
                     gap: 2px;
 
                     label {
-                        font-size: 13px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 12px;
+                        font-size: $sizeInput;
                         width: 250px;
                     }
 
                     .contenedorError {
+                        height: $heightError;
+                        width: $widthError;
+
+                        .errorMessageDiv {
+                            font-size: $sizeError;
+                        }
                         .iconDiv {
-                            bottom: 1.55rem;
-                            left: 7rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -361,18 +396,23 @@
                     gap: 2px;
 
                     label {
-                        font-size: 13px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 12px;
+                        font-size: $sizeInput;
                         width: 250px;
                     }
 
                     .contenedorError {
+                        height: $heightError;
+                        width: $widthError;
+                        .errorMessageDiv {
+                            font-size: $sizeError;
+                        }
                         .iconDiv {
-                            bottom: 1.55rem;
-                            left: 7rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -392,9 +432,9 @@
                         #mensaje {
                             padding: 8px;
                             width: 250px;
-    
+
                             p {
-                                font-size: 13px;
+                                font-size: $sizeProv;
                             }
                         }
                     }
@@ -405,6 +445,15 @@
 }
 
 @media (max-width: 590px) {
+    $sizeLabel: 18px;
+    $sizeInput: 16px;
+    $sizeError: 14px;
+    $sizeProv : 14px;
+    $widthError: 260px;
+    $heightError: 26px;
+    $bottomTilde: 1.8rem;
+    $leftTilde: 7.5rem;
+
     .form-container {
         height: 53rem;
 
@@ -429,25 +478,25 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 280px;
                     }
 
                     .contenedorError {
-                        height: 25px;
-                        width: 230px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 10px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.65rem;
-                            left: 7.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -458,25 +507,25 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 280px;
                     }
 
                     .contenedorError {
-                        height: 30px;
-                        width: 230px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 10px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.65rem;
-                            left: 7.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -491,13 +540,13 @@
 
             #prov {
                 .contenedorSugerencia {
-                    
+
                     div {
                         #mensaje {
                             width: 280px;
-    
+
                             p {
-                                font-size: 12px;
+                                font-size: $sizeProv;
                             }
                         }
                     }
@@ -507,7 +556,16 @@
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 420px) {
+    $sizeLabel: 16px;
+    $sizeInput: 14px;
+    $sizeError: 12px;
+    $sizeProv : 12px;
+    $widthError: 240px;
+    $heightError: 24px;
+    $bottomTilde: 100%;
+    $leftTilde: 6.5rem;
+
     .form-container {
         height: 44rem;
 
@@ -527,26 +585,26 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 240px;
                         padding: 4.5px;
                     }
 
                     .contenedorError {
-                        height: 21px;
-                        width: 260px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 9px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.46rem;
-                            left: 6.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -557,26 +615,26 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 240px;
                         padding: 4.5px;
                     }
 
                     .contenedorError {
-                        height: 21px;
-                        width: 260px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 9px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.46rem;
-                            left: 6.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -591,14 +649,14 @@
 
             #prov {
                 .contenedorSugerencia {
-                    
+
                     div {
                         #mensaje {
                             padding: 7px;
                             width: 240px;
-    
+
                             p {
-                                font-size: 11px;
+                                font-size: $sizeProv;
                             }
                         }
                     }
@@ -609,6 +667,15 @@
 }
 
 @media (max-width: 340px) {
+    $sizeLabel: 15px;
+    $sizeInput: 14px;
+    $sizeError: 12px;
+    $sizeProv : 12px;
+    $widthError: 200px;
+    $heightError: 24px;
+    $bottomTilde: 100%;
+    $leftTilde: 6.5rem;
+
     .form-container {
         height: 43rem;
 
@@ -628,26 +695,26 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 240px;
                         padding: 4.5px;
                     }
 
                     .contenedorError {
-                        height: 21px;
-                        width: 260px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 9px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.46rem;
-                            left: 6.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -658,26 +725,26 @@
                     gap: 3px;
 
                     label {
-                        font-size: 14px;
+                        font-size: $sizeLabel;
                     }
 
                     input {
-                        font-size: 13px;
+                        font-size: $sizeInput;
                         width: 240px;
                         padding: 4.5px;
                     }
 
                     .contenedorError {
-                        height: 21px;
-                        width: 260px;
+                        height: $heightError;
+                        width: $widthError;
 
                         .errorMessageDiv {
-                            font-size: 9px;
+                            font-size: $sizeError;
                         }
 
                         .iconDiv {
-                            bottom: 1.46rem;
-                            left: 6.5rem;
+                            bottom: $bottomTilde;
+                            left: $leftTilde;
                         }
                     }
                 }
@@ -687,6 +754,18 @@
                 button {
                     padding: 6px;
                     font-size: 13px;
+                }
+            }
+
+            #prov {
+                .contenedorSugerencia {
+                    div {
+                        #mensaje {
+                            p {
+                                font-size: $sizeProv;
+                            }
+                        }
+                    }
                 }
             }
         }
