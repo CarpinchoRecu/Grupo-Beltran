@@ -262,6 +262,7 @@ const FormTrabajo = () => {
 
   const [formSubmitCount, setFormSubmitCount] = useState(0);
   const [canSubmitForm, setCanSubmitForm] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Establecer el tiempo de espera para poder enviar otro formulario después de exceder el límite
   useEffect(() => {
@@ -282,6 +283,10 @@ const FormTrabajo = () => {
     event.preventDefault();
     event.persist();
 
+    if (isSubmitting) {
+      return; // Evitar envío si ya se está enviando
+    }
+
     // Verificar si aún se puede enviar el formulario
     if (!canSubmitForm) {
       Swal.fire({
@@ -291,6 +296,8 @@ const FormTrabajo = () => {
       });
       return;
     }
+
+    setIsSubmitting(true);
 
     // Validar los datos antes de enviar
     const isNombreValid = validateInput("nombre", formData.nombre);
@@ -327,6 +334,8 @@ const FormTrabajo = () => {
     const formDataToSend = new FormData(event.target);
 
     try {
+      // desarrollo http://localhost:4000/
+      // produccion https://servertrabajo.onrender.com/
       const response = await axios.post(
         "https://servertrabajo.onrender.com/",
         formDataToSend,
@@ -336,6 +345,8 @@ const FormTrabajo = () => {
           },
         }
       );
+
+      setIsSubmitting(false);
 
       // Incrementar el contador solo cuando no hay errores
       setFormSubmitCount((prevCount) => prevCount + 1);
@@ -353,6 +364,7 @@ const FormTrabajo = () => {
       });
     } catch (error) {
       console.log(error);
+      setIsSubmitting(false);
       // Mostrar mensaje al usuario de error
       Swal.fire({
         icon: "error",

@@ -259,6 +259,7 @@ const Contactanos = () => {
 
     const [formSubmitCount, setFormSubmitCount] = useState(0);
     const [canSubmitForm, setCanSubmitForm] = useState(true);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Establecer el tiempo de espera para poder enviar otro formulario después de exceder el límite
     useEffect(() => {
@@ -279,6 +280,10 @@ const Contactanos = () => {
         event.preventDefault();
         event.persist();
 
+        if (isSubmitting) {
+            return; // Evitar envío si ya se está enviando
+        }
+
         // Verificar si aún se puede enviar el formulario
         if (!canSubmitForm) {
             Swal.fire({
@@ -288,6 +293,7 @@ const Contactanos = () => {
             });
             return;
         }
+        setIsSubmitting(true); // Iniciar el envío
 
         // Validar los datos antes de enviar
         const isNombreValid = validateInput("nombre", formData.nombre);
@@ -320,6 +326,8 @@ const Contactanos = () => {
         const formDataToSend = new URLSearchParams(new FormData(event.target));
 
         try {
+            // desarrollo http://localhost:3000/
+            // produccion https://expressserver-uclv.onrender.com/
             const response = await fetch("https://expressserver-uclv.onrender.com/", {
                 method: "POST",
                 headers: {
@@ -327,6 +335,8 @@ const Contactanos = () => {
                 },
                 body: formDataToSend,
             });
+
+            setIsSubmitting(false);
 
             const data = await response.text();
             console.log(data);
@@ -347,6 +357,7 @@ const Contactanos = () => {
             });
         } catch (error) {
             console.log(error);
+            setIsSubmitting(false);
             // Mostrar mensaje al usuario de error
             Swal.fire({
                 icon: "error",
@@ -514,7 +525,9 @@ const Contactanos = () => {
                     </div>
                 </div>
                 <div className="Btn">
-                    <button type="submit">Enviar</button>
+                    <button type="submit" disabled={isSubmitting}>
+                        Enviar
+                    </button>
                 </div>
             </form>
         </div>
