@@ -19,18 +19,9 @@
 @media (max-width: 1050px) {
     #titleContactos {
         h2 {
+            height: 120px;
             max-width: 600px;
-            font-size: 20px;
-        }
-    }
-}
-
-@media (max-width: 700px) {
-    #titleContactos {
-        h2 {
-            height: 90px;
-            max-width: 550px;
-            font-size: 19px;
+            font-size: 22px;
         }
     }
 }
@@ -38,9 +29,8 @@
 @media (max-width: 500px) {
     #titleContactos {
         h2 {
-            height: 80px;
-            max-width: 400px;
-            font-size: 18px;
+            max-width: 350px;
+            font-size: 20px;
         }
     }
 }
@@ -48,18 +38,18 @@
 @media (max-width: 400px) {
     #titleContactos {
         h2 {
-            height: 70px;
-            max-width: 370px;
-            font-size: 17px;
+            height: 110px;
+            max-width: 310px;
+            font-size: 18px;
         }
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 370px) {
     #titleContactos {
         h2 {
-            height: 60px;
-            max-width: 350px;
+            height: 100px;
+            max-width: 300px;
             font-size: 16px;
         }
     }
@@ -68,9 +58,9 @@
 @media (max-width: 330px) {
     #titleContactos {
         h2 {
-            height: 90px;
-            max-width: 400px;
-            font-size: 16px;
+            height: 85px;
+            max-width: 290px;
+            font-size: 14px;
         }
     }
 }

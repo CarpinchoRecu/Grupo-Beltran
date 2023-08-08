@@ -8,6 +8,7 @@ import Contactanos from "./components/contactanos/Contactanos";
 import Nosotros from "./components/Nosotros/Nosotros";
 import Error404 from "./components/Error404/Error404.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import FormTrabajo from "./components/Trabajo/FormTrabajo.jsx";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
         <Route path="/Contactanos" element={<Contactanos />} />
         <Route path="/Nosotros" element={<Error404 />} />
         <Route path="*" element={<Inicio />} />
+        <Route path="/FormTrabajo" element={<FormTrabajo/>}/>
+        
       </Routes>
 
       <Footer/>
