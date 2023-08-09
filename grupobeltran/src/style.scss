@@ -8,6 +8,16 @@
     src: url('../fonts/TT\ Commons\ Light.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'TT Black';
+    src: url('../fonts/TT\ Commons\ Black.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Satisfy';
+    src: url('../fonts/Satisfy-Regular.ttf') format("truetype");
+}
+
 
 * {
     margin: 0;
@@ -29,7 +39,12 @@
 body {
     animation: animation-pages 2s ease;
     opacity: 1;
-    background-color: #eaefea;
+    background-color: #eeffee;
+}
+
+.op{
+    animation: animation-pages 1.5s ease;
+    opacity: 1;
 }
 
 /* Estilo para la barra de scroll vertical */

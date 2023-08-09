@@ -9,12 +9,13 @@ import Nosotros from "./components/Nosotros/Nosotros";
 import Error404 from "./components/Error404/Error404.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import FormTrabajo from "./components/Trabajo/FormTrabajo.jsx";
+import ChatBot from "./components/ChatBot/ChatBot.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      
+      <ChatBot/>
       <Routes>
         <Route path="/Inicio" element={<Inicio />} />
         <Route path="/Coberturas" element={<Error404 />} />
@@ -22,11 +23,12 @@ function App() {
         <Route path="/Contactanos" element={<Contactanos />} />
         <Route path="/Nosotros" element={<Error404 />} />
         <Route path="*" element={<Inicio />} />
-        <Route path="/FormTrabajo" element={<FormTrabajo/>}/>
-        
+        <Route path="/FormTrabajo" element={<FormTrabajo />} />
+
       </Routes>
 
-      <Footer/>
+
+      <Footer />
     </BrowserRouter>
   );
 }

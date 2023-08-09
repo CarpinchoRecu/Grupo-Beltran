@@ -12,25 +12,49 @@ const MenuBurger = () => {
     setMenuOpen(!menuOpen);
   };
 
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      if (
-        offcanvasRef.current &&
-        !offcanvasRef.current.contains(event.target) &&
-        !menuBtnRef.current.contains(event.target)
-      ) {
-        setMenuOpen(false);
-      }
-    };
+  const handleOutsideClick = (event) => {
+    if (
+      offcanvasRef.current &&
+      !offcanvasRef.current.contains(event.target) &&
+      !menuBtnRef.current.contains(event.target)
+    ) {
+      setMenuOpen(false);
+      enableBodyScroll(); // Habilitar el scroll del cuerpo cuando se cierra el offcanvas
+    }
+  };
 
+  const handleScroll = () => {
+    if (menuOpen) {
+      setMenuOpen(false);
+      enableBodyScroll(); // Habilitar el scroll del cuerpo cuando se cierra el offcanvas
+    }
+  };
+
+  const disableBodyScroll = () => {
+    document.body.style.overflow = "hidden";
+  };
+
+  const enableBodyScroll = () => {
+    document.body.style.overflow = "auto";
+  };
+
+  useEffect(() => {
     if (menuOpen) {
       document.addEventListener("mousedown", handleOutsideClick);
+      document.addEventListener("scroll", handleScroll);
+      menuSpanRef.current.style.display = "none";
+      disableBodyScroll(); // Deshabilitar el scroll del cuerpo cuando se abre el offcanvas
     } else {
       document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("scroll", handleScroll);
+      menuSpanRef.current.style.display = "block";
+      enableBodyScroll(); // Habilitar el scroll del cuerpo cuando se cierra el offcanvas
     }
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("scroll", handleScroll);
+      enableBodyScroll(); // Asegurarse de habilitar el scroll al desmontar el componente
     };
   }, [menuOpen]);
 

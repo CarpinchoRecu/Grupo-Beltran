@@ -375,7 +375,7 @@ const FormTrabajo = () => {
   };
 
   return (
-    <div className="form-containerTrabajo">
+    <div className="form-containerTrabajo op">
       <form id="contactForm" onSubmit={handleSubmit}>
         <div className="Img">
           <img src={logo} alt="Logo" />

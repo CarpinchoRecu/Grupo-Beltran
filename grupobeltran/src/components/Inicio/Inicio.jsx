@@ -3,7 +3,7 @@ import Cards from "./Cards.jsx"
 
 const Inicio = () => {
     return (
-        <main>
+        <main className="op">
             <Carrusel />
             <Cards/>
         </main>

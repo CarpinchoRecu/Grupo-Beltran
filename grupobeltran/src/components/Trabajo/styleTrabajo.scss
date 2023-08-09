@@ -1,136 +1,383 @@
-#titleTrabajo {
+.titleTrabajo {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background-color: #dfdddd;
-    height: 7rem;
-    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    height: 43rem;
+    gap: 5px;
+    background-image: url("./assetsTrabajo/fondoTrabajo/1500X900\ FONDO.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    h1 {
+        font-size: 28px;
+        padding: 1rem;
+        font-weight: 500;
+    }
 
     h2 {
+        background-color: #96b19740;
+        border-radius: 2rem;
+        padding: 1.2rem;
+        font-size: 35px;
+        font-weight: 500;
         text-align: center;
-        font-size: 26px;
+        width: 600px;
     }
 
-    h2:nth-child(2) {
-        font-size: 22px;
-    }
-}
-
-.sectionsTrabajo {
-    border: #19711b 5px solid;
-
-    .sectionTrabajo1 {
-        margin-top: 5rem;
-        height: 300px;
-        width: 70%;
-        border-radius: 0 20rem 20rem 0;
-        background-color: #19711b;
-    }
-
-    .sectionTrabajo2 {
-        transform: translateX(40%);
-        margin: 5rem 0 0 2.5rem;
-        height: 300px;
-        width: 70%;
-        border-radius: 20rem 0 0 20rem;
-        background-color: #19711b;
-    }
-
-    .sectionTrabajo3 {
+    .circulo {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 1.5rem;
+        gap: 5px;
 
-        .circulo {
+        h1 {
+            font-size: 30px;
+
+            strong {
+                font-weight: bold;
+            }
+        }
+
+        .linkTrabajo {
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            margin-top: 5rem;
-            height: 300px;
-            width: 300px;
-            border-radius: 20rem;
-            background-color: #19711b;
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+            background-color: #96b197;
+            transition: 0.4s ease;
+
+            img {
+                height: 50px;
+            }
+
+            &:hover {
+                scale: 1.2;
+            }
         }
-    }
-}
-
-
-
-
-@media (max-width: 1450px) {
-    #titleTrabajo {
-        h2 {
-            font-size: 25px;
-        }
-
-        h2:nth-child(2) {
-            font-size: 21px;
-        }
-    }
-}
-
-@media (max-width: 780px) {
-    #titleTrabajo {
-        height: 6.5rem;
 
         h2 {
-            font-size: 24px;
+            background-color: transparent;
+            padding: 10px;
+            font-size: 30px;
+            width: 800px;
         }
+    }
 
-        h2:nth-child(2) {
-            font-size: 18px;
+    .frase {
+        h2 {
+            font-family: "Satisfy";
+            margin-top: 3rem;
+            font-size: 32px;
+            width: auto;
+            color: #2c392c;
+            background-color: transparent;
         }
     }
 }
 
-@media (max-width: 500px) {
-    #titleTrabajo {
-        height: 8.5rem;
+@media (max-width: 1600px) {
+    .titleTrabajo {
+        height: 40rem;
+
+        h1 {
+            font-size: 23px;
+        }
 
         h2 {
-            font-size: 22px;
+            font-size: 30px;
+            width: 550px;
+        }
+
+        .circulo {
+            h1 {
+                font-size: 25px;
+            }
+
+            .linkTrabajo {
+                height: 60px;
+                width: 60px;
+
+                img {
+                    height: 40px;
+                }
+            }
+
+            h2 {
+                font-size: 25px;
+                width: 700px;
+            }
+        }
+
+        .frase {
+            h2 {
+                font-size: 30px;
+            }
         }
     }
 }
 
-@media (max-width: 400px) {
-    #titleTrabajo {
-        height: 7.5rem;
+@media (max-width: 1000px) {
+    .titleTrabajo {
+        height: 40rem;
+
+        h1 {
+            font-size: 19px;
+        }
+
+        h2 {
+            font-size: 26px;
+            width: 500px;
+        }
+
+        .circulo {
+            h1 {
+                font-size: 22px;
+            }
+
+            .linkTrabajo {
+                height: 55px;
+                width: 55px;
+
+                img {
+                    height: 35px;
+                }
+            }
+
+            h2 {
+                font-size: 22px;
+                width: 600px;
+            }
+        }
+
+        .frase {
+            h2 {
+                font-size: 23px;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .titleTrabajo {
+        background-image: url("./assetsTrabajo/fondoTrabajo/800X900\ FONDO.jpg");
+        height: 37rem;
+
+        h1 {
+            font-size: 16px;
+        }
 
         h2 {
             font-size: 20px;
+            width: 400px;
         }
 
-        h2:nth-child(2) {
-            font-size: 16px;
+        .circulo {
+            h1 {
+                font-size: 20px;
+            }
+
+            .linkTrabajo {
+                height: 50px;
+                width: 50px;
+
+                img {
+                    height: 30px;
+                }
+            }
+
+            h2 {
+                font-size: 20px;
+                width: 600px;
+            }
+        }
+
+        .frase {
+            h2 {
+                font-size: 21px;
+                margin-top: 1rem;
+            }
         }
     }
 }
 
-@media (max-width: 365px) {
-    #titleTrabajo {
-        h2 {
-            font-size: 18px;
+@media (max-width: 680px) {
+    .titleTrabajo {
+        height: 28rem;
+
+        h1 {
+            font-size: 13px;
         }
 
-        h2:nth-child(2) {
-            font-size: 15px;
+        h2 {
+            font-size: 16px;
+            width: 300px;
+            padding: 0.9rem;
+        }
+
+        .circulo {
+            h1 {
+                font-size: 16px;
+            }
+
+            .linkTrabajo {
+                height: 40px;
+                width: 40px;
+
+                img {
+                    height: 25px;
+                }
+            }
+
+            h2 {
+                font-size: 16px;
+                width: 450px;
+            }
+        }
+
+        .frase {
+            h2 {
+                font-size: 17px;
+                margin-top: 0;
+            }
         }
     }
 }
 
-@media (max-width: 330px) {
-    #titleTrabajo {
-        height: 7rem;
+@media (max-width: 565px) {
+    .titleTrabajo {
+        height: 24rem;
+        gap: 0;
 
-        h2 {
-            font-size: 16px;
+        h1 {
+            font-size: 11px;
         }
 
-        h2:nth-child(2) {
+        h2 {
             font-size: 14px;
+            width: 260px;
+            padding: 0.7rem;
+        }
+
+        .circulo {
+            padding: 1rem;
+            h1 {
+                font-size: 14px;
+            }
+
+            .linkTrabajo {
+                height: 30px;
+                width: 30px;
+
+                img {
+                    height: 20px;
+                }
+            }
+
+            h2 {
+                font-size: 14px;
+                width: 360px;
+            }
+        }
+
+        .frase {
+            h2 {
+                font-size: 15px;
+                margin-top: 2px;
+            }
         }
     }
 }
+
+@media (max-width: 480px) {
+    .titleTrabajo {
+        height: 33rem;
+        background-image: url("./assetsTrabajo/fondoTrabajo/400X700\ FONDO.jpg");
+
+        h1 {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            width: 360px;
+            padding: 1rem;
+        }
+
+        .circulo {
+            padding: 1rem;
+            h1 {
+                font-size: 20px;
+            }
+
+            .linkTrabajo {
+                height: 55px;
+                width: 55px;
+
+                img {
+                    height: 40px;
+                }
+            }
+
+            h2 {
+                font-size: 20px;
+                width: 360px;
+            }
+        }
+
+        .frase {
+            h2 {
+                font-size: 15px;
+                margin-top: 2px;
+            }
+        }
+    }
+}
+
+@media (max-width: 380px) {
+    .titleTrabajo {
+        height: 33rem;
+
+        h1 {
+            font-size: 17px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 17px;
+            width: 320px;
+        }
+
+        .circulo {
+
+            .linkTrabajo {
+                height: 50px;
+                width: 50px;
+
+                img {
+                    height: 35px;
+                }
+            }
+
+            h2 {
+                font-size: 18px;
+                width: 300px;
+            }
+        }
+
+        .frase {
+            h2 {
+                font-size: 18px;
+                width: 300px;
+                margin-top: 2px;
+            }
+        }
+    }
+}
+

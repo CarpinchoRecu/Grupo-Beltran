@@ -142,11 +142,11 @@
         }
 
         .contenido-slider:nth-child(2) {
-            background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px1.jpg");
+            background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px2.jpg");
         }
 
         .contenido-slider:nth-child(3) {
-            background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px3.jpg");
+            background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px1.jpg");
         }
     }
 
@@ -286,6 +286,14 @@
                         height: 280px;
                     }
                 }
+            }
+
+            .contenido-slider:nth-child(2){
+                background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px2.jpg");
+            }
+
+            .contenido-slider:nth-child(3){
+                background-image: url("./assetsInicio/fondoInicio/800px/fondoInicio800px3.jpg");
             }
         }
 
