@@ -122,7 +122,7 @@ const Carrusel = () => {
             <div className={`contenedorTxt ${paused ? 'pausado' : ''}`}>
               <h2 className={`texto-entrada ${contador === index ? 'activo' : ''}`}>{slide.content}</h2>
               <p className={`texto-entrada ${contador === index ? 'activo' : ''}`}>{slide.p}</p>
-              <Link className="linkInicio" to="/Coberturas">
+              <Link className="linkInicio" to="/Contactanos">
                 +INFO
               </Link>
             </div>

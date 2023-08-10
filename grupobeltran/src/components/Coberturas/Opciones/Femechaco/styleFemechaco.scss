@@ -12,9 +12,11 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 32rem;
+        gap: 7rem;
+        height: 35rem;
 
-        .atras{
+
+        .atras {
             text-decoration: none;
             border-radius: 20px;
             font-size: 20px;
@@ -23,13 +25,14 @@
             background-color: #19711b;
             padding: 8px;
             transition: 0.4s ease;
-            &:hover{
+
+            &:hover {
                 scale: 1.2;
             }
         }
 
         img {
-            height: 300px;
+            height: 80px;
         }
 
         p {
@@ -104,8 +107,6 @@
                             left: 5px;
                         }
                     }
-
-
                 }
             }
         }
@@ -156,6 +157,8 @@
             gap: 3rem;
 
             h2 {
+                font-size: 22px;
+
                 tilde {
                     font-size: 16px;
                 }
@@ -187,7 +190,7 @@
             padding: 10px;
             transition: 0.4s ease;
 
-            &:hover{
+            &:hover {
                 scale: 1.2;
             }
         }

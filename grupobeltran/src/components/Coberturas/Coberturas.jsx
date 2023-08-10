@@ -12,7 +12,7 @@ const Coberturas = () => {
             <div className="coberturas">
                 <div className="contenedorCoberturas">
                     <Link className="cobertura" to="/Ospida">
-                        <img src={ospida} alt="logo de ospida" />
+                        <img  src={ospida} alt="logo de ospida" />
                     </Link>
                     <Link className="cobertura" to="/SancorSalud">
                         <img src={sancor} alt="logo de sancor" />

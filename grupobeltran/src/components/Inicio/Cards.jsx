@@ -6,7 +6,7 @@ const Cards = () => {
         <>
             <div className="conteinerCards">
                 <div className="card">
-                    <Link className="linkcard" to="/Coberturas">
+                    <Link className="linkcard" to="/SancorSalud">
                         <h2>PREPAGAS</h2>
                     </Link>
                 </div>

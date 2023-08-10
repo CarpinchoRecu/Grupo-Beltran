@@ -39,7 +39,7 @@
             width: 630px;
             text-align: center;
 
-            negrita{
+            negrita {
                 font-family: "TT Black";
             }
         }
@@ -48,12 +48,14 @@
     .sectionOspida2 {
         display: grid;
         grid-template-areas: "parte1 parte1" "parte2 parte3";
+        grid-template-columns: 1fr 1fr;
         gap: 3rem;
         margin-bottom: 4rem;
+
         .sec2-parte1 {
             grid-area: parte1;
 
-            h1{
+            h1 {
                 background-color: #c5cdc581;
                 width: 50%;
                 border-radius: 0 20px 20px 0;
@@ -65,16 +67,19 @@
 
         .sec2-parte2 {
             grid-area: parte2;
-            h2{
+
+            h2 {
                 background-color: #c5cdc581;
                 border-radius: 20px;
+                font-size: 20px;
                 padding: 1rem;
-                margin-left: 10px;
-                img{
-                    height: 20px;
+                margin-left: 2rem;
+
+                img {
+                    height: 16px;
                 }
 
-                negrita{
+                negrita {
                     font-family: "TT Black";
                 }
             }
@@ -88,7 +93,7 @@
             justify-content: center;
             gap: 4rem;
 
-            h2{
+            h2 {
                 background-color: #c5cdc581;
                 border-radius: 20px 0 0 20px;
                 text-align: center;
@@ -96,7 +101,7 @@
                 font-size: 30px;
             }
 
-            .linkOspida{
+            .linkOspida {
                 text-decoration: none;
                 border-radius: 20px;
                 font-size: 20px;
@@ -105,12 +110,11 @@
                 background-color: #19711b;
                 padding: 10px;
                 transition: 0.4s ease;
-    
-                &:hover{
+
+                &:hover {
                     scale: 1.2;
                 }
             }
         }
-
     }
 }

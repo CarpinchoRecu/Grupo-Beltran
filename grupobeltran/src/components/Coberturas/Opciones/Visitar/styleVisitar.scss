@@ -1,0 +1,66 @@
+.visitar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../assetsCoberturas/fondoCoberturas.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 47rem;
+    gap: 3rem;
+    .atras {
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #19711b;
+        padding: 8px;
+        transition: 0.4s ease;
+        z-index: 1;
+
+        &:hover {
+            scale: 1.2;
+        }
+    }
+
+    img{
+        height: 200px;
+        scale: 2;
+    }
+
+    h1{
+        font-size: 35px;
+        width: 1000px;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    p{
+        font-size: 25px;
+    }
+
+    h2{
+        font-size: 30px;
+
+        verde{
+            color: #19711b;
+        }
+    }
+
+    .linkVisitar {
+        text-decoration: none;
+        border-radius: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #19711b;
+        padding: 10px;
+        transition: 0.4s ease;
+
+        &:hover {
+            scale: 1.2;
+        }
+    }
+}

@@ -52,43 +52,40 @@ const Femechaco = () => {
                     <div className="sec2-parte3">
                         <h2>
                             <tilde>✔️</tilde> Consultas Médicas
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Análisis Bioquímicos
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> 40% Descuento en Farmacias
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Internación Clínica y Quirúrgica
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Óptica
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Ortodoncia
-                            <br />
                         </h2>
                         <h2>
                             <tilde>✔️</tilde> Odontología
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Fonoudiología
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Kinesiología
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Alta Complejidad
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Asistencia al Viajero
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Servicio de Emergencias Médicas
-                            <br />
                         </h2>
                         <h2>
                             <tilde>✔️</tilde> Servicio Odontológico Móvil
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Plan Materno Infantil
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Exámentes preescolares para el niño
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Vacunas antigripales
-                            <br />
+                            <br /><br />
                             <tilde>✔️</tilde> Cobertura de Embarazo y Parto
-                            <br />
                         </h2>
                     </div>
                 </div>

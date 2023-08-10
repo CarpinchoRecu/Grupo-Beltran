@@ -13,6 +13,7 @@ import ChatBot from "./components/ChatBot/ChatBot.jsx";
 import Femechaco from "./components/Coberturas/Opciones/Femechaco/Femechaco.jsx";
 import Ospida from "./components/Coberturas/Opciones/Ospida/Ospida.jsx";
 import SancorSalud from "./components/Coberturas/Opciones/Sancor/SancorSalud.jsx";
+import Visitar from "./components/Coberturas/Opciones/Visitar/Visitar.jsx";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Femechaco" element={<Femechaco/>} />
         <Route path="/Ospida" element={<Ospida/>} />
         <Route path="/SancorSalud" element={<SancorSalud/>} />
+        <Route path="/Visitar" element={<Visitar/>} />
 
       </Routes>
 

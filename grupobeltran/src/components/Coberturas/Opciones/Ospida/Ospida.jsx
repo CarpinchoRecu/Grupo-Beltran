@@ -20,29 +20,29 @@ const Ospida = () => {
                         <h2>
                             <img src={flechita} alt="flecha verde" /> Programa de prevención de
                             cáncer femenino.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> <negrita>Odontologia:</negrita>
-                            <br />
+                            <br /><br />
                             •Consulta de diagnóstico y plan de tratamiento.
-                            <br />
+                            <br /><br />
                             •Consultas de urgencia.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> 100% de Cobertura en internacion.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> <negrita>Salud Mental:</negrita>
-                            <br />
+                            <br /><br />
                             •30 consultas ambulatorias anuales.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> Colocación del implante subdermico, DIU, entre otros.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> 25 sesiones por año de Kineseologia y fonoudiologia.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> Entre 40% y 100% de cobertura en medicación.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> 100% de cobertura en medicación para pacientes internados.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> Cobertura del %100 en anteojos hasta los 15 años de edad.
-                            <br />
+                            <br /><br />
                             <img src={flechita} alt="flecha verde" /> 100% de cobertura en prótesis internas
                         </h2>
                     </div>
