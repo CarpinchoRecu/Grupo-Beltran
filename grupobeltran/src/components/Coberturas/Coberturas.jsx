@@ -1,41 +1,33 @@
 import styleCoberturas from "./styleCoberturas.scss";
-import ospida from "./assetsCoberturas/ospida.jpeg";
-import sancor from "./assetsCoberturas/sancor.jpeg";
-import conexionsalud from "./assetsCoberturas/conexionsalud.jpeg";
-import chaco from "./assetsCoberturas/chaco.png"
+import ospida from "./assetsCoberturas/logoOspida.png";
+import assistencial from "./assetsCoberturas/logoAssistencial.png";
+import sancor from "./assetsCoberturas/logoSancor.png";
+import visitar from "./assetsCoberturas/logoVisitar.png";
+import chaco from "./assetsCoberturas/logoFemechaco.png";
 
 const Coberturas = () => {
     return (
-            <div className="content">
-                <h1>Nuestras Coberturas</h1>
-                <hr />
-                <div className="imgContent">
-                    <div>
-                        <h2>Ospida</h2>
-                        <div className="imgsimg">
-                            <img src={ospida} alt="Ospida, Cobertuta medica" />
-                        </div>
+        <div className="op">
+            <div className="coberturas">
+                <div className="contenedorCoberturas">
+                    <div className="cobertura">
+                        <img src={ospida} alt="logo de ospida" />
                     </div>
-                    <div>
-                        <h2>Conexion Salud</h2>
-                        <div className="imgsimg">
-                            <img src={conexionsalud} alt="conexionsalud, Cobertuta medica" />
-                        </div>
+                    <div className="cobertura">
+                        <img src={assistencial} alt="logo de assistencial" />
                     </div>
-                    <div>
-                        <h2>Sancor Salud</h2>
-                        <div className="imgsimg">
-                            <img src={sancor} alt="sancor, Cobertuta medica" />
-                        </div>
+                    <div className="cobertura">
+                        <img src={sancor} alt="logo de sancor" />
                     </div>
-                    <div>
-                        <h2>FemeChaco</h2>
-                        <div className="imgsimg">
-                            <img src={chaco} alt="FemeChaco, Cobertuta medica" />
-                        </div>
+                    <div className="cobertura">
+                        <img src={visitar} alt="logo de visitar" />
+                    </div>
+                    <div className="cobertura">
+                        <img src={chaco} alt="logo de femechaco" />
                     </div>
                 </div>
             </div>
+        </div>
     );
 };
 
