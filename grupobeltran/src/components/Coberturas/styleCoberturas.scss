@@ -4,6 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 
     .contenedorCoberturas {
         display: grid;
@@ -25,7 +28,7 @@
             img {
                 height: 100px;
                 object-fit: contain;
-                aspect-ratio: 3/3;
+                aspect-ratio: 3/4;
                 scale: 2;
                 transition: 0.5s ease;
             }

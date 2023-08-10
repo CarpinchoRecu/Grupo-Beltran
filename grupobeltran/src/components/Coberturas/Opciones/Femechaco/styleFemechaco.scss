@@ -1,0 +1,195 @@
+.femechaco {
+    background-image: url("../../assetsCoberturas/fondoCoberturas.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+
+    .sectionChaco1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 32rem;
+
+        .atras{
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #19711b;
+            padding: 8px;
+            transition: 0.4s ease;
+            &:hover{
+                scale: 1.2;
+            }
+        }
+
+        img {
+            height: 300px;
+        }
+
+        p {
+            font-size: 30px;
+            width: 800px;
+            text-align: center;
+        }
+    }
+
+    .sectionChaco2 {
+        display: grid;
+        grid-template-areas:
+            "parte1 parte2"
+            "parte3 parte3";
+        grid-template-columns: 70%;
+        gap: 5rem;
+
+        .sec2-parte1 {
+            grid-area: parte1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            h1 {
+                background-color: #c5cdc581;
+                font-size: 40px;
+                width: 450px;
+                text-align: center;
+                padding: 20px;
+                border-radius: 0 20px 20px 0;
+                color: #1072c4;
+            }
+
+            .planesChaco {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .plan {
+                    transition: 1s ease;
+                    width: 50%;
+
+                    &:hover {
+                        margin-left: 7rem;
+                        border-radius: 20px;
+                        scale: 1.2;
+                        background-color: #1073c478;
+                    }
+
+                    h2 {
+                        font-size: 30px;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+
+                        azulp {
+                            color: #1072c4;
+                            font-size: 40px;
+                            font-family: "TT Black";
+                            font-weight: 100;
+                        }
+
+                        azul {
+                            color: #1072c4;
+                            font-family: "TT Black";
+                            font-weight: 100;
+                        }
+
+                        img {
+                            height: 23px;
+                            position: relative;
+                            left: 5px;
+                        }
+                    }
+
+
+                }
+            }
+        }
+
+        .sec2-parte2 {
+            grid-area: parte2;
+            background-color: #c5cdc581;
+            width: 300px;
+            height: 200px;
+            margin-top: 3rem;
+            border-radius: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h2 {
+                position: relative;
+                top: 2rem;
+                font-size: 41px;
+                width: 200px;
+                text-align: center;
+                color: #1072c4;
+            }
+
+            h2:nth-child(2) {
+                color: #000;
+                margin-bottom: 0;
+
+                azul {
+                    color: #1072c4;
+                }
+            }
+
+            img {
+                height: 75px;
+                position: relative;
+                top: 1rem;
+                left: 8.5rem;
+            }
+        }
+
+        .sec2-parte3 {
+            grid-area: parte3;
+            gap: 3rem;
+            margin-left: 2rem;
+            display: flex;
+            gap: 3rem;
+
+            h2 {
+                tilde {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .btnChaco {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        gap: 2rem;
+
+        h2 {
+            font-size: 20px;
+            text-align: center;
+            font-weight: 100;
+        }
+
+        .linkChaco {
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #19711b;
+            padding: 10px;
+            transition: 0.4s ease;
+
+            &:hover{
+                scale: 1.2;
+            }
+        }
+    }
+}

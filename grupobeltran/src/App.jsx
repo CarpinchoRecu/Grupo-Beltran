@@ -10,22 +10,34 @@ import Error404 from "./components/Error404/Error404.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import FormTrabajo from "./components/Trabajo/FormTrabajo.jsx";
 import ChatBot from "./components/ChatBot/ChatBot.jsx";
+import Femechaco from "./components/Coberturas/Opciones/Femechaco/Femechaco.jsx";
+import Ospida from "./components/Coberturas/Opciones/Ospida/Ospida.jsx";
+import SancorSalud from "./components/Coberturas/Opciones/Sancor/SancorSalud.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
+        {/* routeo de error */}
+        <Route path="*" element={<Inicio />} />
+
+        {/* routeo de paginas principales */}
         <Route path="/Inicio" element={<Inicio />} />
         <Route path="/Coberturas" element={<Coberturas />} />
         <Route path="/Trabajo" element={<Trabajo />} />
         <Route path="/Contactanos" element={<Contactanos />} />
         <Route path="/Nosotros" element={<Error404 />} />
-        <Route path="*" element={<Inicio />} />
+
+        {/* routeo de formulario trabajo */}
         <Route path="/FormTrabajo" element={<FormTrabajo />} />
 
-      </Routes>
+        {/* routeo de coberturas */}
+        <Route path="/Femechaco" element={<Femechaco/>} />
+        <Route path="/Ospida" element={<Ospida/>} />
+        <Route path="/SancorSalud" element={<SancorSalud/>} />
 
+      </Routes>
 
       <Footer />
     </BrowserRouter>

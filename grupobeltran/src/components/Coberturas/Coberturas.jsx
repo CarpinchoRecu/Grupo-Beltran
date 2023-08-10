@@ -3,28 +3,29 @@ import ospida from "./assetsCoberturas/logoOspida.png";
 import assistencial from "./assetsCoberturas/logoAssistencial.png";
 import sancor from "./assetsCoberturas/logoSancor.png";
 import visitar from "./assetsCoberturas/logoVisitar.png";
-import chaco from "./assetsCoberturas/logoFemechaco.png";
+import chaco from "./assetsCoberturas/logoFemechaco.png"
+import { Link } from "react-router-dom";
 
 const Coberturas = () => {
     return (
         <div className="op">
             <div className="coberturas">
                 <div className="contenedorCoberturas">
-                    <div className="cobertura">
+                    <Link className="cobertura" to="/Ospida">
                         <img src={ospida} alt="logo de ospida" />
-                    </div>
-                    <div className="cobertura">
-                        <img src={assistencial} alt="logo de assistencial" />
-                    </div>
-                    <div className="cobertura">
+                    </Link>
+                    <Link className="cobertura" to="/SancorSalud">
                         <img src={sancor} alt="logo de sancor" />
-                    </div>
-                    <div className="cobertura">
+                    </Link>
+                    <Link className="cobertura" to="/Visitar">
                         <img src={visitar} alt="logo de visitar" />
-                    </div>
-                    <div className="cobertura">
+                    </Link>
+                    <Link className="cobertura" to="/Assistencial">
+                        <img src={assistencial} alt="logo de assistencial" />
+                    </Link>
+                    <Link className="cobertura" to="/Femechaco">
                         <img src={chaco} alt="logo de femechaco" />
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
