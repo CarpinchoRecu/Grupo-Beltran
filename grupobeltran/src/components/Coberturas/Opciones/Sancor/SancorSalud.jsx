@@ -14,7 +14,6 @@ const SancorSalud = () => {
         <div className="op">
             <div className="sancor">
                 <div className="sectionSancor1">
-                    <Link to="/Coberturas" className="atras">Volver</Link>
                     <img src={sancor} alt="logo Sancor" />
                     <p>Cobertura medica a nivel nacional. <br /> Cuentan con un plan para vos y toda tu familia.</p>
                 </div>
@@ -52,9 +51,9 @@ const SancorSalud = () => {
                         </div>
                     </div>
                 </div>
-
-                <SliderSancor/>
+            <SliderSancor/>
             </div>
+
         </div>
     )
 }

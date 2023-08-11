@@ -14,6 +14,7 @@ import Femechaco from "./components/Coberturas/Opciones/Femechaco/Femechaco.jsx"
 import Ospida from "./components/Coberturas/Opciones/Ospida/Ospida.jsx";
 import SancorSalud from "./components/Coberturas/Opciones/Sancor/SancorSalud.jsx";
 import Visitar from "./components/Coberturas/Opciones/Visitar/Visitar.jsx";
+import Assistencial from "./components/Coberturas/Opciones/Assistencial/Assistencial.jsx";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/Coberturas" element={<Coberturas />} />
         <Route path="/Trabajo" element={<Trabajo />} />
         <Route path="/Contactanos" element={<Contactanos />} />
-        <Route path="/Nosotros" element={<Error404 />} />
+        <Route path="/Nosotros" element={<Nosotros />} />
 
         {/* routeo de formulario trabajo */}
         <Route path="/FormTrabajo" element={<FormTrabajo />} />
@@ -38,6 +39,7 @@ function App() {
         <Route path="/Ospida" element={<Ospida/>} />
         <Route path="/SancorSalud" element={<SancorSalud/>} />
         <Route path="/Visitar" element={<Visitar/>} />
+        <Route path="/Assistencial" element={<Assistencial/>} />
 
       </Routes>
 

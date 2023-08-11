@@ -1,4 +1,4 @@
-import logo1 from "./assetsHeader/logo1.jpeg";
+import logo1 from "./assetsHeader/logo1.png";
 import Menuburger from "./Menuburger.jsx";
 import { Link } from "react-router-dom";
 

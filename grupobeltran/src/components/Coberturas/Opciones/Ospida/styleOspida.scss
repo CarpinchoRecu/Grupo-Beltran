@@ -14,20 +14,11 @@
         justify-content: center;
         gap: 4rem;
         height: 32rem;
+        opacity: 0;
+        transition: 2s ease-in;
 
-        .atras {
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff;
-            background-color: #19711b;
-            padding: 8px;
-            transition: 0.4s ease;
-
-            &:hover {
-                scale: 1.2;
-            }
+        &.activado{
+opacity: 1;
         }
 
         img {
@@ -40,7 +31,7 @@
             text-align: center;
 
             negrita {
-                font-family: "TT Black";
+                font-weight: bolder;
             }
         }
     }
@@ -51,9 +42,15 @@
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
         margin-bottom: 4rem;
-
+        
         .sec2-parte1 {
             grid-area: parte1;
+            transition: 2s ease;
+            transform: translateX(-50%);
+
+            &.activado {
+                transform: translateX(0);
+            }
 
             h1 {
                 background-color: #c5cdc581;
@@ -62,11 +59,20 @@
                 text-align: center;
                 font-size: 32px;
                 padding: 1rem;
+                transition: transform 1s ease;
+
             }
+
         }
 
         .sec2-parte2 {
             grid-area: parte2;
+            transition: 2s ease-in-out;
+            opacity: 0;
+
+            &.activado {
+                opacity: 1;
+            }
 
             h2 {
                 background-color: #c5cdc581;
@@ -91,13 +97,21 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 4rem;
+            gap: 3rem;
+            transition: 2s ease-in-out;
+            opacity: 0;
+
+            &.activado {
+                opacity: 1;
+            }
 
             h2 {
+                font-weight: 100;
                 background-color: #c5cdc581;
                 border-radius: 20px;
                 text-align: center;
                 padding: 1rem;
+                width: 500px;
                 font-size: 30px;
             }
 
@@ -122,30 +136,30 @@
 @media (max-width: 1000px) {
     .ospida {
         gap: 6rem;
-    
+
         .sectionOspida1 {
             gap: 3rem;
             height: 30rem;
-    
+
             .atras {
                 font-size: 18px;
                 padding: 7px;
             }
-    
+
             img {
                 height: 100px;
             }
-    
+
             p {
                 font-size: 26px;
                 width: 600px;
             }
         }
-    
+
         .sectionOspida2 {
             gap: 2rem;
             margin-bottom: 3rem;
-    
+
             .sec2-parte1 {
                 h1 {
                     width: 60%;
@@ -153,27 +167,27 @@
                     padding: 1rem;
                 }
             }
-    
+
             .sec2-parte2 {
                 h2 {
                     font-size: 18px;
                     padding: 0.9rem;
                     margin-left: 1rem;
-    
+
                     img {
                         height: 13px;
                     }
                 }
             }
-    
+
             .sec2-parte3 {
                 gap: 3rem;
-    
+
                 h2 {
                     padding: 0.8rem;
                     font-size: 20px;
                 }
-    
+
                 .linkOspida {
                     font-size: 16px;
                 }
@@ -184,35 +198,36 @@
 
 @media (max-width: 810px) {
     .ospida {
-    
+
         .sectionOspida1 {
             gap: 3rem;
             height: 30rem;
-    
+
             .atras {
                 font-size: 18px;
                 padding: 7px;
             }
-    
+
             img {
                 height: 100px;
             }
-    
+
             p {
                 font-size: 26px;
                 width: 600px;
             }
         }
-    
+
         .sectionOspida2 {
             display: flex;
             flex-direction: column;
             gap: 2rem;
             margin-bottom: 3rem;
-    
+
             .sec2-parte1 {
                 display: flex;
                 justify-content: center;
+
                 h1 {
                     width: auto;
                     border-radius: 20px;
@@ -220,14 +235,15 @@
                     padding: 1rem;
                 }
             }
-    
+
             .sec2-parte2 {
                 display: flex;
                 justify-content: center;
+
                 h2 {
                     font-size: 18px;
                     padding: 0.9rem;
-    
+
                     img {
                         height: 12px;
                     }
@@ -240,42 +256,43 @@
 @media (max-width: 700px) {
     .ospida {
         gap: 0;
-    
+
         .sectionOspida1 {
             gap: 3rem;
             height: 30rem;
-    
+
             p {
                 font-size: 20px;
                 width: 420px;
             }
         }
-    
+
         .sectionOspida2 {
             gap: 2rem;
-    
+
             .sec2-parte1 {
                 h1 {
                     font-size: 16px;
                 }
             }
-    
+
             .sec2-parte2 {
                 h2 {
                     font-size: 14px;
+
                     img {
                         height: 9px;
                     }
                 }
             }
-    
+
             .sec2-parte3 {
                 gap: 2rem;
-    
+
                 h2 {
                     font-size: 14px;
                 }
-    
+
                 .linkOspida {
                     font-size: 12px;
                 }
@@ -291,46 +308,47 @@
             height: 18rem;
             gap: 2rem;
 
-            .atras{
+            .atras {
                 font-size: 15px;
             }
 
-            img{
+            img {
                 height: 70px;
             }
-    
+
             p {
                 font-size: 15px;
                 width: 320px;
             }
         }
-    
+
         .sectionOspida2 {
             gap: 2rem;
-    
+
             .sec2-parte1 {
                 h1 {
                     font-size: 12px;
                     padding: 0.7rem;
                 }
             }
-    
+
             .sec2-parte2 {
                 h2 {
                     font-size: 11px;
+
                     img {
                         height: 7px;
                     }
                 }
             }
-    
+
             .sec2-parte3 {
                 gap: 2rem;
-    
+
                 h2 {
                     font-size: 11px;
                 }
-    
+
                 .linkOspida {
                     font-size: 10px;
                 }
@@ -346,16 +364,16 @@
         .sectionOspida1 {
             height: 15rem;
 
-            .atras{
+            .atras {
                 font-size: 12px;
             }
-    
+
             p {
                 font-size: 12px;
                 width: 250px;
             }
         }
-    
+
         .sectionOspida2 {
             .sec2-parte1 {
                 h1 {
@@ -363,24 +381,25 @@
                     padding: 0.6rem;
                 }
             }
-    
+
             .sec2-parte2 {
                 h2 {
                     font-size: 9.5px;
+
                     img {
                         height: 6px;
                     }
                 }
             }
-    
+
             .sec2-parte3 {
                 gap: 1.5rem;
-    
+
                 h2 {
                     font-size: 9px;
                     padding: 0.6rem;
                 }
-    
+
                 .linkOspida {
                     font-size: 8px;
                     padding: 0.4rem;

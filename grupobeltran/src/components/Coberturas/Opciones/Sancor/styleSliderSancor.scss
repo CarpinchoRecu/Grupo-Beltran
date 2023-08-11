@@ -1,15 +1,130 @@
-.slider-container {
+.slider-container{
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .slider-container {
     max-width: 600px;
     margin: 0 auto;
+    margin-top: 1rem;
+    display: block;
+
+    .slideCoberturas {
+      background-color: #c5cdc581;
+      height: 300px;
+
+      .contenedorContenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          height: 120px;
+          margin-top: 10%;
+        }
+
+        h2 {
+          color: #1072c4;
+          font-size: 30px;
+          width: 450px;
+          text-align: center;
+        }
+
+        p {
+          font-size: 20px;
+          width: 450px;
+          text-align: center;
+        }
+      }
+    }
   }
-  
-  .slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 300px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    font-size: 24px;
+}
+
+@media (max-width: 690px) {
+  .slider-container {
+    max-width: 500px;
+
+    .slideCoberturas {
+      .contenedorContenido {
+        gap: 1rem;
+
+        img {
+          height: 100px;
+          margin-top: 10%;
+        }
+
+        h2 {
+          font-size: 22px;
+          width: 300px;
+        }
+
+        p {
+          font-size: 16px;
+          width: 320px;
+        }
+      }
+    }
   }
-  
+}
+
+@media (max-width: 580px) {
+  .slider-container {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 450px) {
+  .slider-container {
+    max-width: 300px;
+
+    .slideCoberturas {
+      .contenedorContenido {
+        gap: 1.5rem;
+
+        img {
+          height: 80px;
+          margin-top: 20%;
+        }
+
+        h2 {
+          font-size: 18px;
+          width: 200px;
+        }
+
+        p {
+          font-size: 14px;
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .slider-container {
+    max-width: 250px;
+
+    .slideCoberturas {
+      height: 250px;
+      .contenedorContenido {
+        gap: 1.5rem;
+
+        img {
+          height: 70px;
+          margin-top: 15%;
+        }
+
+        h2 {
+          font-size: 16px;
+          width: 180px;
+        }
+
+        p {
+          font-size: 12px;
+          width: 180px;
+        }
+      }
+    }
+  }
+}

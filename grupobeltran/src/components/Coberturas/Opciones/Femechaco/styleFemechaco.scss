@@ -12,23 +12,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 7rem;
+        gap: 4rem;
         height: 35rem;
+        opacity: 0;
+        transition: 2s ease-in;
 
-
-        .atras {
-            text-decoration: none;
-            border-radius: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #fff;
-            background-color: #19711b;
-            padding: 8px;
-            transition: 0.4s ease;
-
-            &:hover {
-                scale: 1.2;
-            }
+        &.activado {
+            opacity: 1;
         }
 
         img {
@@ -64,6 +54,12 @@
                 padding: 20px;
                 border-radius: 0 20px 20px 0;
                 color: #1072c4;
+                transform: translateX(-50%);
+                transition: 1s ease;
+
+                &.activado {
+                    transform: translateX(0);
+                }
             }
 
             .planesChaco {
@@ -73,13 +69,18 @@
 
                 .plan {
                     transition: 1s ease;
-                    width: 50%;
+                    width: 31%;
+                    transform: translateX(-50%);
+
+                    &.activado {
+                        transform: translateX(0%);
+                    }
 
                     &:hover {
-                        margin-left: 7rem;
+                        margin-left: 5rem;
                         border-radius: 20px;
                         scale: 1.2;
-                        background-color: #1073c478;
+                        background-color: #ffffff67;
                     }
 
                     h2 {
@@ -108,6 +109,26 @@
                         }
                     }
                 }
+
+                .plan:nth-child(2) {
+                    width: 33%;
+                    transform: translateX(-50%);
+                    transition: 1.3s ease;
+
+                    &.activado {
+                        transform: translateX(0%);
+                    }
+                }
+
+                .plan:nth-child(3) {
+                    width: 50%;
+                    transform: translateX(-50%);
+                    transition: 1.7s ease;
+
+                    &.activado {
+                        transform: translateX(0%);
+                    }
+                }
             }
         }
 
@@ -122,6 +143,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            opacity: 0;
+            transition: 2s ease;
+
+            &.activado {
+                opacity: 1;
+            }
 
             h2 {
                 position: relative;
@@ -146,6 +173,14 @@
                 position: relative;
                 top: 1rem;
                 left: 8.5rem;
+                scale: 0;
+                opacity: 0;
+                transition: 2.5s ease;
+
+                &.activado {
+                    scale: 1;
+                    opacity: 1;
+                }
             }
         }
 
@@ -159,14 +194,18 @@
             width: 50%;
             padding: 1rem;
             border-radius: 20px;
+            opacity: 0;
+            transition: 2s ease;
+
+            &.activado {
+                opacity: 1;
+            }
 
             h2 {
                 font-size: 22px;
 
-                img{
-                    position: relative;
-                    top: 4px;
-                    height: 23px;
+                img {
+                    height: 15px;
                 }
             }
         }
@@ -178,10 +217,10 @@
         justify-content: center;
         align-items: center;
         margin-bottom: 2rem;
-        gap: 2rem;
+        gap: 1.5rem;
 
         h2 {
-            font-size: 27px;
+            font-size: 24px;
             text-align: center;
             font-weight: 100;
         }
@@ -189,7 +228,7 @@
         .linkChaco {
             text-decoration: none;
             border-radius: 20px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: bold;
             color: #fff;
             background-color: #19711b;

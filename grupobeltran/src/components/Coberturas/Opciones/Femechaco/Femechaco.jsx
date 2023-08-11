@@ -4,15 +4,54 @@ import flechita from "../../assetsCoberturas/flechaAzul.png";
 import tilde from "../../assetsCoberturas/tickVerde.png";
 import tildeAzul from "../../assetsCoberturas/tickAzul.png";
 import { Link } from "react-router-dom";
+import { useRef, useEffect } from "react";
 
 const Femechaco = () => {
+    const animateRefs = [
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+        useRef(null),
+    ];
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("activado");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.5,
+            }
+        );
+
+        animateRefs.forEach((ref) => {
+            if (ref.current) {
+                observer.observe(ref.current);
+            }
+        });
+
+        return () => {
+            animateRefs.forEach((ref) => {
+                if (ref.current) {
+                    observer.unobserve(ref.current);
+                }
+            });
+        };
+    }, [animateRefs]);
+
     return (
         <div className="op">
             <div className="femechaco">
-                <div className="sectionChaco1">
-                    <Link to="/Coberturas" className="atras">
-                        Volver
-                    </Link>
+                <div className="sectionChaco1" ref={animateRefs[0]}>
                     <img src={chaco} alt="logo femechaco" />
                     <p>
                         Es la organizacion medica mas grande del Nordeste Argentino,
@@ -22,21 +61,21 @@ const Femechaco = () => {
                 </div>
                 <div className="sectionChaco2">
                     <div className="sec2-parte1">
-                        <h1>PLANES DE PREPAGA</h1>
+                        <h1 ref={animateRefs[1]}>PLANES DE PREPAGA</h1>
                         <div className="planesChaco">
-                            <div className="plan">
-                                <h2>
+                            <div className="plan" ref={animateRefs[2]}>
+                                <h2 >
                                     <img src={flechita} alt="flechita azul" />
                                     <azulp>F100</azulp> de <azul>4</azul> a <azul>21</azul> años.
                                 </h2>
                             </div>
-                            <div className="plan">
+                            <div className="plan" ref={animateRefs[3]}>
                                 <h2>
                                     <img src={flechita} alt="flechita azul" />
                                     <azulp>F200</azulp> de <azul>22</azul> a <azul>59</azul> años.
                                 </h2>
                             </div>
-                            <div className="plan">
+                            <div className="plan" ref={animateRefs[4]}>
                                 <h2>
                                     <img src={flechita} alt="flechita azul" />
                                     <azulp>F300</azulp> de <azul>22</azul> a <azul>59</azul> años
@@ -45,14 +84,14 @@ const Femechaco = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="sec2-parte2">
+                    <div className="sec2-parte2" ref={animateRefs[5]}>
                         <h2>PMO</h2>
                         <h2>
                             <azul>P</azul>lan <azul>M</azul>edico <azul>O</azul>bligatorio
                         </h2>
-                        <img src={tilde} alt="tilde verde" />
+                        <img src={tilde} alt="tilde verde" ref={animateRefs[6]} />
                     </div>
-                    <div className="sec2-parte3">
+                    <div className="sec2-parte3" ref={animateRefs[7]}>
                         <h2>
                             <img src={tildeAzul} alt="tilde azul" /> Consultas Médicas
                             <br />

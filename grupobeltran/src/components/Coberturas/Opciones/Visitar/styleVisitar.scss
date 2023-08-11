@@ -8,22 +8,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     height: 47rem;
-    gap: 3rem;
-    .atras {
-        text-decoration: none;
-        border-radius: 20px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #19711b;
-        padding: 8px;
-        transition: 0.4s ease;
-        z-index: 1;
-
-        &:hover {
-            scale: 1.2;
-        }
-    }
+    gap: 2.5rem;
 
     img{
         height: 200px;
@@ -42,7 +27,7 @@
     }
 
     h2{
-        font-size: 30px;
+        font-size: 26px;
 
         verde{
             color: #19711b;

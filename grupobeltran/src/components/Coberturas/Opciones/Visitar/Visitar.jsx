@@ -5,9 +5,6 @@ const Visitar = () => {
     return (
         <div className="op">
             <div className="visitar">
-                <Link to="/Coberturas" className="atras">
-                    Volver
-                </Link>
                 <img src={visitar} alt="logo visitar" />
                 <h1>
                     Cumplen 30 años en el gerenciamiento y cuidado de la salud de los
