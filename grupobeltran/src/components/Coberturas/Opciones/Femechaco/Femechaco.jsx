@@ -2,6 +2,7 @@ import styleFemechaco from "./styleFemechaco.scss";
 import chaco from "../../assetsCoberturas/logoFemechaco.png";
 import flechita from "../../assetsCoberturas/flechaAzul.png";
 import tilde from "../../assetsCoberturas/tickVerde.png";
+import tildeAzul from "../../assetsCoberturas/tickAzul.png";
 import { Link } from "react-router-dom";
 
 const Femechaco = () => {
@@ -9,7 +10,9 @@ const Femechaco = () => {
         <div className="op">
             <div className="femechaco">
                 <div className="sectionChaco1">
-                <Link to="/Coberturas" className="atras">Volver</Link>
+                    <Link to="/Coberturas" className="atras">
+                        Volver
+                    </Link>
                     <img src={chaco} alt="logo femechaco" />
                     <p>
                         Es la organizacion medica mas grande del Nordeste Argentino,
@@ -51,41 +54,61 @@ const Femechaco = () => {
                     </div>
                     <div className="sec2-parte3">
                         <h2>
-                            <tilde>✔️</tilde> Consultas Médicas
-                            <br /><br />
-                            <tilde>✔️</tilde> Análisis Bioquímicos
-                            <br /><br />
-                            <tilde>✔️</tilde> 40% Descuento en Farmacias
-                            <br /><br />
-                            <tilde>✔️</tilde> Internación Clínica y Quirúrgica
-                            <br /><br />
-                            <tilde>✔️</tilde> Óptica
-                            <br /><br />
-                            <tilde>✔️</tilde> Ortodoncia
+                            <img src={tildeAzul} alt="tilde azul" /> Consultas Médicas
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Análisis Bioquímicos
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> 40% Descuento en
+                            Farmacias
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Internación Clínica y
+                            Quirúrgica
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Óptica
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Ortodoncia
                         </h2>
                         <h2>
-                            <tilde>✔️</tilde> Odontología
-                            <br /><br />
-                            <tilde>✔️</tilde> Fonoudiología
-                            <br /><br />
-                            <tilde>✔️</tilde> Kinesiología
-                            <br /><br />
-                            <tilde>✔️</tilde> Alta Complejidad
-                            <br /><br />
-                            <tilde>✔️</tilde> Asistencia al Viajero
-                            <br /><br />
-                            <tilde>✔️</tilde> Servicio de Emergencias Médicas
+                            <img src={tildeAzul} alt="tilde azul" /> Odontología
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Fonoudiología
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Kinesiología
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Alta Complejidad
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Asistencia al Viajero
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Servicio de Emergencias
+                            Médicas
                         </h2>
                         <h2>
-                            <tilde>✔️</tilde> Servicio Odontológico Móvil
-                            <br /><br />
-                            <tilde>✔️</tilde> Plan Materno Infantil
-                            <br /><br />
-                            <tilde>✔️</tilde> Exámentes preescolares para el niño
-                            <br /><br />
-                            <tilde>✔️</tilde> Vacunas antigripales
-                            <br /><br />
-                            <tilde>✔️</tilde> Cobertura de Embarazo y Parto
+                            <img src={tildeAzul} alt="tilde azul" /> Servicio Odontológico
+                            Móvil
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Plan Materno Infantil
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Exámentes preescolares
+                            para el niño
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Vacunas antigripales
+                            <br />
+                            <br />
+                            <img src={tildeAzul} alt="tilde azul" /> Cobertura de Embarazo y
+                            Parto
                         </h2>
                     </div>
                 </div>
@@ -94,7 +117,9 @@ const Femechaco = () => {
                         Para más información, ver la cartilla completa y prestaciones
                         disponibles.
                     </h2>
-                    <Link to="/Contactanos" className="linkChaco">CLICK AQUÍ</Link>
+                    <Link to="/Contactanos" className="linkChaco">
+                        CLICK AQUÍ
+                    </Link>
                 </div>
             </div>
         </div>

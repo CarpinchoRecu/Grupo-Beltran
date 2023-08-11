@@ -16,7 +16,9 @@
     "react-hook-form": "^7.45.2",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.0",
+    "react-slick": "^0.29.0",
     "sass": "^1.63.4",
+    "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.7.20"
   },
   "devDependencies": {
