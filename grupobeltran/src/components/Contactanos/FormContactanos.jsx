@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styleFormContactanos from "./styleFormContactanos.scss";
-import logo from "../Footer/assetsFooter/logo2.jpeg";
+import logo from "../Footer/assetsFooter/logo2.png";
 import Swal from "sweetalert2";
 import { FaCheck, FaTimes } from "react-icons/fa";
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import styleFormTrabajo from "./styleFormTrabajo.scss";
-import logo from "../Footer/assetsFooter/logo2.jpeg";
+import logo from "../Footer/assetsFooter/logo2.png";
 import axios from "axios";
 
 const FormTrabajo = () => {

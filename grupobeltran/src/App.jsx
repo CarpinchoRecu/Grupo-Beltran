@@ -1,5 +1,5 @@
 import style from "./style.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation  } from "react-router-dom";
 import Header from "./components/header/Header.jsx";
 import Inicio from "./components/Inicio/Inicio.jsx";
 import Coberturas from "./components/Coberturas/Coberturas.jsx";
@@ -15,31 +15,43 @@ import Ospida from "./components/Coberturas/Opciones/Ospida/Ospida.jsx";
 import SancorSalud from "./components/Coberturas/Opciones/Sancor/SancorSalud.jsx";
 import Visitar from "./components/Coberturas/Opciones/Visitar/Visitar.jsx";
 import Assistencial from "./components/Coberturas/Opciones/Assistencial/Assistencial.jsx";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <ScrollToTop/>
       <Routes>
         {/* routeo de error */}
         <Route path="*" element={<Inicio />} />
 
         {/* routeo de paginas principales */}
-        <Route path="/Inicio" element={<Inicio />} />
-        <Route path="/Coberturas" element={<Coberturas />} />
-        <Route path="/Trabajo" element={<Trabajo />} />
-        <Route path="/Contactanos" element={<Contactanos />} />
-        <Route path="/Nosotros" element={<Nosotros />} />
+        <Route path="/Inicio" element={<Inicio />} key="Inicio" />
+        <Route path="/Coberturas" element={<Coberturas />} key="Coberturas" />
+        <Route path="/Trabajo" element={<Trabajo />} key="Trabajo" />
+        <Route path="/Contactanos" element={<Contactanos />} key="Contactanos" />
+        <Route path="/Nosotros" element={<Nosotros />} key="Nosotros" />
 
         {/* routeo de formulario trabajo */}
-        <Route path="/FormTrabajo" element={<FormTrabajo />} />
+        <Route path="/FormularioTrabajo" element={<FormTrabajo />} key="FormularioTrabajo" />
 
         {/* routeo de coberturas */}
-        <Route path="/Femechaco" element={<Femechaco/>} />
-        <Route path="/Ospida" element={<Ospida/>} />
-        <Route path="/SancorSalud" element={<SancorSalud/>} />
-        <Route path="/Visitar" element={<Visitar/>} />
-        <Route path="/Assistencial" element={<Assistencial/>} />
+        <Route path="/Femechaco" element={<Femechaco />} key="Femechaco" />
+        <Route path="/Ospida" element={<Ospida />} key="Ospida" />
+        <Route path="/SancorSalud" element={<SancorSalud />} key="SancorSalud" />
+        <Route path="/Visitar" element={<Visitar />} key="Visitar" />
+        <Route path="/Assistencial" element={<Assistencial />} key="Assistencial" />
 
       </Routes>
 

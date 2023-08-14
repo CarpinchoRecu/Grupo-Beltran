@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useRef, useEffect } from "react";
 
 const Femechaco = () => {
-    const animateRefs = [
+    const animateChacoRefs = [
         useRef(null),
         useRef(null),
         useRef(null),
@@ -19,12 +19,12 @@ const Femechaco = () => {
     ];
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
+        const observerChaco = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add("activado");
-                        observer.unobserve(entry.target);
+                        observerChaco.unobserve(entry.target);
                     }
                 });
             },
@@ -33,25 +33,25 @@ const Femechaco = () => {
             }
         );
 
-        animateRefs.forEach((ref) => {
+        animateChacoRefs.forEach((ref) => {
             if (ref.current) {
-                observer.observe(ref.current);
+                observerChaco.observe(ref.current);
             }
         });
 
         return () => {
-            animateRefs.forEach((ref) => {
+            animateChacoRefs.forEach((ref) => {
                 if (ref.current) {
-                    observer.unobserve(ref.current);
+                    observerChaco.unobserve(ref.current);
                 }
             });
         };
-    }, [animateRefs]);
+    }, [animateChacoRefs]);
 
     return (
         <div className="op">
             <div className="femechaco">
-                <div className="sectionChaco1" ref={animateRefs[0]}>
+                <div className="sectionChaco1" ref={animateChacoRefs[0]}>
                     <img src={chaco} alt="logo femechaco" />
                     <p>
                         Es la organizacion medica mas grande del Nordeste Argentino,
@@ -61,37 +61,47 @@ const Femechaco = () => {
                 </div>
                 <div className="sectionChaco2">
                     <div className="sec2-parte1">
-                        <h1 ref={animateRefs[1]}>PLANES DE PREPAGA</h1>
+                        <div className="titlePlanes" ref={animateChacoRefs[1]}>
+                            <h1>PLANES DE PREPAGA</h1>
+                        </div>
                         <div className="planesChaco">
-                            <div className="plan" ref={animateRefs[2]}>
-                                <h2 >
-                                    <img src={flechita} alt="flechita azul" />
-                                    <azulp>F100</azulp> de <azul>4</azul> a <azul>21</azul> años.
-                                </h2>
+                            <div className="contenedorPlan" ref={animateChacoRefs[2]}>
+                                <div className="plan" >
+                                    <h2>
+                                        <img src={flechita} alt="flechita azul" />
+                                        <azulp>F100</azulp> de <azul>4</azul> a <azul>21</azul>{" "}
+                                        años.
+                                    </h2>
+                                </div>
                             </div>
-                            <div className="plan" ref={animateRefs[3]}>
-                                <h2>
-                                    <img src={flechita} alt="flechita azul" />
-                                    <azulp>F200</azulp> de <azul>22</azul> a <azul>59</azul> años.
-                                </h2>
+                            <div className="contenedorPlan" ref={animateChacoRefs[3]}>
+                                <div className="plan" >
+                                    <h2>
+                                        <img src={flechita} alt="flechita azul" />
+                                        <azulp>F200</azulp> de <azul>22</azul> a <azul>59</azul>{" "}
+                                        años.
+                                    </h2>
+                                </div>
                             </div>
-                            <div className="plan" ref={animateRefs[4]}>
-                                <h2>
-                                    <img src={flechita} alt="flechita azul" />
-                                    <azulp>F300</azulp> de <azul>22</azul> a <azul>59</azul> años
-                                    y grupo familiar.
-                                </h2>
+                            <div className="contenedorPlan" ref={animateChacoRefs[4]}>
+                                <div className="plan" >
+                                    <h2>
+                                        <img src={flechita} alt="flechita azul" />
+                                        <azulp>F300</azulp> de <azul>22</azul> a <azul>59</azul>{" "}
+                                        años y grupo familiar.
+                                    </h2>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="sec2-parte2" ref={animateRefs[5]}>
+                    <div className="sec2-parte2" ref={animateChacoRefs[5]}>
                         <h2>PMO</h2>
                         <h2>
                             <azul>P</azul>lan <azul>M</azul>edico <azul>O</azul>bligatorio
                         </h2>
-                        <img src={tilde} alt="tilde verde" ref={animateRefs[6]} />
+                        <img src={tilde} alt="tilde verde" ref={animateChacoRefs[6]} />
                     </div>
-                    <div className="sec2-parte3" ref={animateRefs[7]}>
+                    <div className="sec2-parte3" ref={animateChacoRefs[7]}>
                         <h2>
                             <img src={tildeAzul} alt="tilde azul" /> Consultas Médicas
                             <br />

@@ -4,7 +4,7 @@ import logoig from "./assetsFooter/logoig.jpeg";
 import logotw from "./assetsFooter/logotw.jpeg";
 import logowp from "./assetsFooter/logowp.jpeg";
 import logoemail from "./assetsFooter/logoemail.jpeg";
-import logo2 from "./assetsFooter/logo2.jpeg";
+import logo2 from "./assetsFooter/logo2.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

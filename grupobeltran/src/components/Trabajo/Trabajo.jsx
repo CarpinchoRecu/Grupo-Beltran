@@ -12,7 +12,7 @@ const Trabajo = () => {
                     <h2>¡En AsesSalud te damos esa opurtunidad!</h2>
                     <div className="circulo">
                         <h1>Hace <strong>CLICK</strong> aca</h1>
-                        <Link className="linkTrabajo" to="/FormTrabajo"><img src={flecha} alt="flecha" /></Link>
+                        <Link className="linkTrabajo" to="/FormularioTrabajo"><img src={flecha} alt="flecha" /></Link>
                         <h2>Completa el formulario para formar parte de nuestra empresa.</h2>
                     </div>
                     <div className="frase">

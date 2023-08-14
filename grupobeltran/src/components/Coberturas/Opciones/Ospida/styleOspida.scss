@@ -15,10 +15,12 @@
         gap: 4rem;
         height: 32rem;
         opacity: 0;
-        transition: 2s ease-in;
+        transition: 2s ease;
+        scale: 0.8;
 
-        &.activado{
-opacity: 1;
+        &.activado {
+            opacity: 1;
+            scale: 1;
         }
 
         img {
@@ -42,7 +44,7 @@ opacity: 1;
         grid-template-columns: 1fr 1fr;
         gap: 3rem;
         margin-bottom: 4rem;
-        
+
         .sec2-parte1 {
             grid-area: parte1;
             transition: 2s ease;
@@ -59,18 +61,17 @@ opacity: 1;
                 text-align: center;
                 font-size: 32px;
                 padding: 1rem;
-                transition: transform 1s ease;
-
             }
-
         }
 
         .sec2-parte2 {
             grid-area: parte2;
-            transition: 2s ease-in-out;
+            transition: 2s ease;
             opacity: 0;
+            scale: 0;
 
             &.activado {
+                scale: 1;
                 opacity: 1;
             }
 
@@ -98,7 +99,7 @@ opacity: 1;
             align-items: center;
             justify-content: center;
             gap: 3rem;
-            transition: 2s ease-in-out;
+            transition: 2s ease;
             opacity: 0;
 
             &.activado {
@@ -198,7 +199,6 @@ opacity: 1;
 
 @media (max-width: 810px) {
     .ospida {
-
         .sectionOspida1 {
             gap: 3rem;
             height: 30rem;
@@ -303,7 +303,6 @@ opacity: 1;
 
 @media (max-width: 470px) {
     .ospida {
-
         .sectionOspida1 {
             height: 18rem;
             gap: 2rem;
