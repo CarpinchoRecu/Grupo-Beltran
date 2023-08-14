@@ -120,45 +120,34 @@
     }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 530px) {
     .coberturas {
-        height: 76rem;
+        height: 80rem;
 
         .contenedorCoberturas {
-            gap: 4rem;
-            width: 23rem;
+            width: 18rem;
 
             .cobertura {
+
                 img {
-                    height: 160px;
+                    height: 180px;
                 }
             }
         }
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 400px) {
     .coberturas {
-        height: 83rem;
+        height: 70rem;
 
         .contenedorCoberturas {
-            gap: 3rem;
-            width: 16rem;
+            width: 15rem;
 
             .cobertura {
-                width: 15rem;
-                height: 12rem;
-                margin-top: 1rem;
 
                 img {
-                    height: 110px;
-                    scale: 1.6;
-                }
-
-                &:hover {
-                    img {
-                        scale: 1;
-                    }
+                    height: 160px;
                 }
             }
         }

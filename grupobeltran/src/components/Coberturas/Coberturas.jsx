@@ -4,28 +4,28 @@ import assistencial from "./assetsCoberturas/logoAssistencial.png";
 import sancor from "./assetsCoberturas/logoSancor.png";
 import visitar from "./assetsCoberturas/logoVisitar.png";
 import chaco from "./assetsCoberturas/logoFemechaco.png"
-import { Link } from "react-router-dom";
+import DelayLink from "../../hooks/delayLink.jsx";
 
 const Coberturas = () => {
     return (
         <div className="op">
             <div className="coberturas">
                 <div className="contenedorCoberturas">
-                    <Link className="cobertura" to="/Ospida">
-                        <img  src={ospida} alt="logo de ospida" />
-                    </Link>
-                    <Link className="cobertura" to="/SancorSalud">
-                        <img src={sancor} alt="logo de sancor" />
-                    </Link>
-                    <Link className="cobertura" to="/Visitar">
-                        <img src={visitar} alt="logo de visitar" />
-                    </Link>
-                    <Link className="cobertura" to="/Assistencial">
-                        <img src={assistencial} alt="logo de assistencial" />
-                    </Link>
-                    <Link className="cobertura" to="/Femechaco">
-                        <img src={chaco} alt="logo de femechaco" />
-                    </Link>
+                    <DelayLink className="cobertura" to="/Ospida" delay={600}>
+                        <img src={ospida} alt="logo ospida" />
+                    </DelayLink>
+                    <DelayLink className="cobertura" to="/SancorSalud" delay={600}>
+                        <img src={sancor} alt="logo sancorsalud" />
+                    </DelayLink>
+                    <DelayLink className="cobertura" to="/Visitar" delay={600}>
+                        <img src={visitar} alt="logo visitar" />
+                    </DelayLink>
+                    <DelayLink className="cobertura" to="/Assistencial" delay={600}>
+                        <img src={assistencial} alt="logo ospida" />
+                    </DelayLink>
+                    <DelayLink className="cobertura" to="/Femechaco" delay={600}>
+                        <img src={chaco} alt="logo ospida" />
+                    </DelayLink>
                 </div>
             </div>
         </div>

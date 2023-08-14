@@ -34,7 +34,7 @@ function App() {
       <ScrollToTop/>
       <Routes>
         {/* routeo de error */}
-        <Route path="*" element={<Inicio />} />
+        <Route path="*" element={<Error404 />} />
 
         {/* routeo de paginas principales */}
         <Route path="/Inicio" element={<Inicio />} key="Inicio" />
