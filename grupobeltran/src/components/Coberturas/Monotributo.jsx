@@ -1,15 +1,14 @@
-import styleCoberturas from "./styleCoberturas.scss";
+import stylemonotributo from "./styleMonotributo.scss";
 import ospida from "./assetsCoberturas/logoOspida.png";
-import assistencial from "./assetsCoberturas/logoAssistencial.png";
 import sancor from "./assetsCoberturas/logoSancor.png";
 import visitar from "./assetsCoberturas/logoVisitar.png";
 import chaco from "./assetsCoberturas/logoFemechaco.png"
 import DelayLink from "../../hooks/DelayLink.jsx";
 
-const Coberturas = () => {
+const Monotributo = () => {
     return (
         <div className="op">
-            <div className="coberturas">
+            <div className="monotributo">
                 <div className="contenedorCoberturas">
                     <DelayLink className="cobertura" to="/Coberturas/Ospida" delay={600}>
                         <img src={ospida} alt="logo ospida" />
@@ -20,9 +19,6 @@ const Coberturas = () => {
                     <DelayLink className="cobertura" to="/Coberturas/Visitar" delay={600}>
                         <img src={visitar} alt="logo visitar" />
                     </DelayLink>
-                    <DelayLink className="cobertura" to="/Coberturas/Assistencial" delay={600}>
-                        <img src={assistencial} alt="logo ospida" />
-                    </DelayLink>
                     <DelayLink className="cobertura" to="/Coberturas/Femechaco" delay={600}>
                         <img src={chaco} alt="logo ospida" />
                     </DelayLink>
@@ -32,4 +28,4 @@ const Coberturas = () => {
     );
 };
 
-export default Coberturas;
+export default Monotributo;

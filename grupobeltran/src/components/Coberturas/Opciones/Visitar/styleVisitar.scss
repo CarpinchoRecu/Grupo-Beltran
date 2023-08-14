@@ -25,27 +25,96 @@
     p{
         font-size: 25px;
     }
+}
 
-    h2{
-        font-size: 26px;
-
-        verde{
-            color: #19711b;
+@media (max-width: 1150px) {
+    .visitar{
+        height: 40rem;
+        gap: 2rem;
+    
+        img{
+            height: 160px;
+            scale: 2;
+        }
+    
+        h1{
+            font-size: 30px;
+            width: 800px;
+        }
+    
+        p{
+            font-size: 25px;
+            width: 700px;
+            text-align: center;
         }
     }
+}
 
-    .linkVisitar {
-        text-decoration: none;
-        border-radius: 20px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #19711b;
-        padding: 10px;
-        transition: 0.4s ease;
+@media (max-width: 850px) {
+    .visitar{
+        height: 40rem;
+        gap: 2rem;
+    
+        img{
+            height: 150px;
+            scale: 2;
+        }
+    
+        h1{
+            font-size: 22px;
+            width: 600px;
+        }
+    
+        p{
+            font-size: 20px;
+            width: 500px;
+            text-align: center;
+        }
+    }
+}
 
-        &:hover {
-            scale: 1.2;
+@media (max-width: 700px) {
+    .visitar{
+        height: 32rem;
+        gap: 1rem;
+    
+        img{
+            height: 120px;
+            scale: 2;
+        }
+    
+        h1{
+            font-size: 18px;
+            width: 350px;
+        }
+    
+        p{
+            font-size: 14px;
+            width: 300px;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .visitar{
+        height: 32rem;
+        gap: 1rem;
+    
+        img{
+            height: 110px;
+            scale: 2;
+        }
+    
+        h1{
+            font-size: 15px;
+            width: 290px;
+        }
+    
+        p{
+            font-size: 12px;
+            width: 280px;
+            text-align: center;
         }
     }
 }

@@ -28,3 +28,113 @@
         text-align: center;
     }
 }
+
+@media (max-width: 1350px) {
+    .nosotros{
+        gap: 3rem;
+        height: 33rem;
+    
+        img{
+            height: 90px;
+        }
+    
+        p{
+            font-size: 22px;
+            width: 1000px;
+            text-align: center;
+            font-weight: bold;
+        }
+    
+        h2{
+            font-size: 19px;
+            width: 600px;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 1050px) {
+    .nosotros{
+        gap: 3rem;
+        height: 33rem;
+    
+        img{
+            height: 80px;
+        }
+    
+        p{
+            font-size: 18px;
+            width: 700px;
+        }
+    
+        h2{
+            font-size: 16px;
+            width: 500px;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .nosotros{
+        gap: 2rem;
+        height: 30rem;
+    
+        img{
+            height: 75px;
+        }
+    
+        p{
+            font-size: 16px;
+            width: 550px;
+        }
+    
+        h2{
+            font-size: 14px;
+            width: 400px;
+            text-align: center;
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    .nosotros{
+        gap: 2rem;
+        height: 26rem;
+    
+        img{
+            height: 70px;
+        }
+    
+        p{
+            font-size: 14px;
+            width: 450px;
+        }
+    
+        h2{
+            font-size: 12px;
+            width: 350px;
+        }
+    }
+}
+
+@media (max-width: 470px) {
+    .nosotros{
+        gap: 1.5rem;
+        height: 28rem;
+    
+        img{
+            height: 60px;
+        }
+    
+        p{
+            font-size: 15px;
+            width: 280px;
+        }
+    
+        h2{
+            font-size: 12px;
+            width: 200px;
+        }
+    }
+}

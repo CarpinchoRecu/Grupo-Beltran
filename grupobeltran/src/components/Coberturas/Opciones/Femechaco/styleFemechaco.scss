@@ -76,7 +76,7 @@
                     transform: translateX(-50%);
                     transition: 1.4s ease;
 
-                    &.activado{
+                    &.activado {
                         transform: translateX(0);
                     }
 
@@ -120,6 +120,7 @@
 
                 .contenedorPlan:nth-child(2) {
                     transition: 1.8s ease;
+
                     .plan {
                         width: 32%;
                     }
@@ -127,6 +128,7 @@
 
                 .contenedorPlan:nth-child(3) {
                     transition: 2.2s ease;
+
                     .plan {
                         width: 49%;
                     }
@@ -196,13 +198,11 @@
             width: 50%;
             padding: 1rem;
             border-radius: 20px;
+            transition: 3s ease;
             opacity: 0;
-            transition: 2s ease;
-            scale: 0;
 
             &.activado {
                 opacity: 1;
-                scale: 1;
             }
 
             h2 {
@@ -241,6 +241,413 @@
 
             &:hover {
                 scale: 1.2;
+            }
+        }
+    }
+}
+
+@media (max-width: 1300px) {
+    .femechaco {
+        gap: 1rem;
+
+        .sectionChaco1 {
+            height: 22rem;
+
+            img {
+                height: 60px;
+            }
+
+            p {
+                font-size: 25px;
+                width: 550px;
+            }
+        }
+
+        .sectionChaco2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+
+            .sec2-parte1 {
+                order: 2;
+                grid-area: parte1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+
+                .titlePlanes {
+                    transform: translateX(0);
+                    opacity: 0;
+                    transition: 2s ease;
+
+                    &.activado {
+                        opacity: 1;
+                    }
+
+                    h1 {
+                        font-size: 35px;
+                        width: 390px;
+                        padding: 1rem;
+                        border-radius: 20px;
+                    }
+                }
+
+                .planesChaco {
+                    .contenedorPlan {
+                        transform: translateX(0);
+                        opacity: 0;
+                        scale: 0.8;
+                        transition: 2.4s ease;
+
+                        &.activado {
+                            scale: 1;
+                            opacity: 1;
+                        }
+
+                        .plan {
+                            width: auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+
+                            &:hover {
+                                background-color: #1073c456;
+                                transform: translateX(0);
+                                scale: 1.2;
+                            }
+                        }
+                    }
+
+                    .contenedorPlan:nth-child(2) {
+                        transition: 2.8s ease;
+
+                        .plan {
+                            width: auto;
+                        }
+                    }
+
+                    .contenedorPlan:nth-child(3) {
+                        transition: 3.2s ease;
+
+                        .plan {
+                            width: auto;
+                        }
+                    }
+                }
+            }
+
+            .sec2-parte2 {
+                order: 1;
+                width: 250px;
+                height: 180px;
+                transition: 3s ease-in-out;
+
+                h2 {
+                    top: 1.8rem;
+                    font-size: 36px;
+                }
+
+                img {
+                    height: 65px;
+                    top: 0.8rem;
+                    left: 7rem;
+                }
+            }
+
+            .sec2-parte3 {
+                order: 3;
+                height: 22rem;
+                align-items: center;
+                width: 90%;
+
+                h2 {
+                    font-size: 19px;
+
+                    img {
+                        height: 11px;
+                    }
+                }
+            }
+        }
+
+        .btnChaco {
+            h2 {
+                font-size: 20px;
+                width: 400px;
+            }
+
+            .linkChaco {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .femechaco {
+        .sectionChaco1 {
+            height: 18rem;
+            gap: 2.5rem;
+
+            img {
+                height: 55px;
+            }
+
+            p {
+                font-size: 20px;
+                width: 450px;
+            }
+        }
+
+        .sectionChaco2 {
+            gap: 2.5rem;
+
+            .sec2-parte1 {
+                .titlePlanes {
+                    h1 {
+                        font-size: 30px;
+                        width: 320px;
+                        padding: 0.7rem;
+                    }
+                }
+
+                .planesChaco {
+                    .contenedorPlan {
+                        .plan {
+                            h2 {
+                                font-size: 20px;
+
+                                azulp {
+                                    font-size: 30px;
+                                }
+
+                                img {
+                                    height: 17px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sec2-parte2 {
+                width: 200px;
+                height: 150px;
+
+                h2 {
+                    top: 1.4rem;
+                    font-size: 30px;
+                }
+
+                img {
+                    height: 50px;
+                    top: 0.4rem;
+                    left: 6rem;
+                }
+            }
+
+            .sec2-parte3 {
+                height: 20rem;
+
+                h2 {
+                    font-size: 15px;
+
+                    img {
+                        height: 10px;
+                    }
+                }
+            }
+        }
+
+        .btnChaco {
+            h2 {
+                font-size: 18px;
+            }
+
+            .linkChaco {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .femechaco {
+        .sectionChaco1 {
+            img {
+                height: 50px;
+            }
+
+            p {
+                font-size: 16px;
+                width: 340px;
+            }
+        }
+
+        .sectionChaco2 {
+            .sec2-parte1 {
+                gap: 1.5rem;
+                .titlePlanes {
+                    h1 {
+                        font-size: 20px;
+                        width: 200px;
+                        padding: 0.6rem;
+                    }
+                }
+
+                .planesChaco {
+                    .contenedorPlan {
+                        .plan {
+                            h2 {
+                                font-size: 15px;
+
+                                azulp {
+                                    font-size: 20px;
+                                }
+
+                                img {
+                                    height: 11px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sec2-parte2 {
+                border-radius: 20px;
+                width: 170px;
+                height: 130px;
+
+                h2 {
+                    top: 1rem;
+                    font-size: 25px;
+                }
+
+                img {
+                    height: 40px;
+                    top: 0.4rem;
+                    left: 5rem;
+                }
+            }
+
+            .sec2-parte3 {
+                width: auto;
+                height: 17rem;
+                padding: 0.5rem;
+
+                h2 {
+                    font-size: 11px;
+
+                    img {
+                        height: 9px;
+                    }
+                }
+            }
+        }
+
+        .btnChaco {
+            h2 {
+                font-size: 14px;
+                width: 300px;
+            }
+
+            .linkChaco {
+                font-size: 10px;
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    .femechaco {
+        gap: 0.5rem;
+        .sectionChaco1 {
+            height: 13rem;
+            img {
+                height: 36px;
+            }
+
+            p {
+                font-size: 12px;
+                width: 280px;
+            }
+        }
+
+        .sectionChaco2 {
+            gap: 1rem;
+            .sec2-parte1 {
+                gap: 1rem;
+                .titlePlanes {
+                    h1 {
+                        font-size: 14px;
+                        width: 150px;
+                        border-radius: 10px;
+                    }
+                }
+
+                .planesChaco {
+                    .contenedorPlan {
+                        .plan {
+                            h2 {
+                                font-size: 12px;
+
+                                azulp {
+                                    font-size: 16px;
+                                }
+
+                                img {
+                                    height: 8px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .sec2-parte2 {
+                border-radius: 20px;
+                width: 120px;
+                height: 90px;
+
+                h2 {
+                    top: 0.6rem;
+                    font-size: 16px;
+                    width: 110px;
+                }
+
+                img {
+                    height: 30px;
+                    top: 0.4rem;
+                    left: 3.5rem;
+                }
+            }
+
+            .sec2-parte3 {
+                width: auto;
+                height: 15rem;
+
+                h2 {
+                    font-size: 9px;
+
+                    img {
+                        height: 9px;
+                    }
+                }
+            }
+        }
+
+        .btnChaco {
+            h2 {
+                font-size: 12px;
+                width: 260px;
+            }
+
+            .linkChaco {
+                font-size: 9px;
             }
         }
     }

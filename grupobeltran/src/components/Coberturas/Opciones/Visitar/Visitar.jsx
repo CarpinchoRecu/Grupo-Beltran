@@ -1,6 +1,6 @@
 import styleVisitar from "./styleVisitar.scss";
 import visitar from "../../assetsCoberturas/logoVisitar.png";
-import { Link } from "react-router-dom";
+import BtnInfo from "../../../../hooks/BtnInfo.jsx";
 const Visitar = () => {
     return (
         <div className="op">
@@ -14,13 +14,7 @@ const Visitar = () => {
                     "Una empresa de salud que atiende las necesidades de sus clientes en
                     forma profesional, confiable y eficiente".
                 </p>
-                <h2>
-                    Para <verde>más información</verde> , ver la cartilla completa y prestaciones
-                    disponibles.
-                </h2>
-                <Link to="/Contactanos" className="linkVisitar">
-                    CLICK AQUÍ
-                </Link>
+                <BtnInfo to="/Contactanos" delay={200}/>
             </div>
         </div>
     );

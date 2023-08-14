@@ -1,4 +1,4 @@
-.coberturas {
+.monotributo {
     height: 50rem;
     background-image: url("./assetsCoberturas/fondoCoberturas.jpg");
     display: flex;
@@ -10,7 +10,7 @@
 
     .contenedorCoberturas {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: 1rem;
         border-radius: 2rem;
         height: 15rem;
@@ -48,7 +48,7 @@
 }
 
 @media (max-width: 1550px) {
-    .coberturas {
+    .monotributo {
         height: 40rem;
 
         .contenedorCoberturas {
@@ -67,7 +67,7 @@
 }
 
 @media (max-width: 1250px) {
-    .coberturas {
+    .monotributo {
         height: 40rem;
 
         .contenedorCoberturas {
@@ -86,7 +86,7 @@
 }
 
 @media (max-width: 820px) {
-    .coberturas {
+    .monotributo {
         height: 90rem;
 
         .contenedorCoberturas {
@@ -121,7 +121,7 @@
 }
 
 @media (max-width: 530px) {
-    .coberturas {
+    .monotributo {
         height: 80rem;
 
         .contenedorCoberturas {
@@ -138,7 +138,7 @@
 }
 
 @media (max-width: 400px) {
-    .coberturas {
+    .monotributo {
         height: 70rem;
 
         .contenedorCoberturas {

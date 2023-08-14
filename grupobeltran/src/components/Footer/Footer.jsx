@@ -5,25 +5,16 @@ import logotw from "./assetsFooter/logotw.jpeg";
 import logowp from "./assetsFooter/logowp.jpeg";
 import logoemail from "./assetsFooter/logoemail.jpeg";
 import logo2 from "./assetsFooter/logo2.png";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import DelayLink, { } from "../../hooks/DelayLink.jsx";
 
 const Footer = () => {
-    const [LogoClick, setLogoClick] = useState(false);
-
-    const click = () => {
-        setLogoClick(true);
-        setInterval(() => {
-            window.location.href = "../index.html";
-        }, 500);
-    };
-
     return (
         <footer>
             <div className="titleLogoFooter">
-                <a onClick={click}>
+                <DelayLink to="/Inicio" delay={270}>
                     <img src={logo2} alt="logo" />
-                </a>
+                </DelayLink>
                 <h2>•TODOS LOS DERECHOS RESERVADOS•</h2>
                 <h2>&copy; COPYRIGHT 2023</h2>
             </div>

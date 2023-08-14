@@ -1,6 +1,6 @@
 import styleSancor from "./styleSancor.scss";
 import sancor from "../../assetsCoberturas/logoSancor.png";
-import { Link } from "react-router-dom";
+import BtnInfo from "../../../../hooks/BtnInfo.jsx";
 import ambulancia from "./assetsSancor/ambulancia.png";
 import celular from "./assetsSancor/celular.png";
 import diente from "./assetsSancor/diente.png";
@@ -52,6 +52,7 @@ const SancorSalud = () => {
                     </div>
                 </div>
             <SliderSancor/>
+            <BtnInfo to="/Contactanos" delay={200}/>
             </div>
 
         </div>

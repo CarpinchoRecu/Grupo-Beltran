@@ -15,6 +15,7 @@ import Ospida from "./components/Coberturas/Opciones/Ospida/Ospida.jsx";
 import SancorSalud from "./components/Coberturas/Opciones/Sancor/SancorSalud.jsx";
 import Visitar from "./components/Coberturas/Opciones/Visitar/Visitar.jsx";
 import Assistencial from "./components/Coberturas/Opciones/Assistencial/Assistencial.jsx";
+import Monotributo from "./components/Coberturas/Monotributo.jsx";
 import { useEffect } from "react";
 
 function ScrollToTop() {
@@ -34,11 +35,12 @@ function App() {
       <ScrollToTop/>
       <Routes>
         {/* routeo de error */}
-        <Route path="*" element={<Error404 />} />
+        <Route path="*" element={<Inicio />} />
 
         {/* routeo de paginas principales */}
         <Route path="/Inicio" element={<Inicio />} key="Inicio" />
         <Route path="/Coberturas" element={<Coberturas />} key="Coberturas" />
+        <Route path="/Monotributo" element={<Monotributo />} key="Monotributo" />
         <Route path="/Trabajo" element={<Trabajo />} key="Trabajo" />
         <Route path="/Contactanos" element={<Contactanos />} key="Contactanos" />
         <Route path="/Nosotros" element={<Nosotros />} key="Nosotros" />
@@ -47,11 +49,11 @@ function App() {
         <Route path="/FormularioTrabajo" element={<FormTrabajo />} key="FormularioTrabajo" />
 
         {/* routeo de coberturas */}
-        <Route path="/Femechaco" element={<Femechaco />} key="Femechaco" />
-        <Route path="/Ospida" element={<Ospida />} key="Ospida" />
-        <Route path="/SancorSalud" element={<SancorSalud />} key="SancorSalud" />
-        <Route path="/Visitar" element={<Visitar />} key="Visitar" />
-        <Route path="/Assistencial" element={<Assistencial />} key="Assistencial" />
+        <Route path="/Coberturas/Femechaco" element={<Femechaco />} key="Femechaco" />
+        <Route path="/Coberturas/Ospida" element={<Ospida />} key="Ospida" />
+        <Route path="/Coberturas/SancorSalud" element={<SancorSalud />} key="SancorSalud" />
+        <Route path="/Coberturas/Visitar" element={<Visitar />} key="Visitar" />
+        <Route path="/Coberturas/Assistencial" element={<Assistencial />} key="Assistencial" />
 
       </Routes>
 

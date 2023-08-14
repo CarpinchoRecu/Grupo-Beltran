@@ -3,8 +3,8 @@ import chaco from "../../assetsCoberturas/logoFemechaco.png";
 import flechita from "../../assetsCoberturas/flechaAzul.png";
 import tilde from "../../assetsCoberturas/tickVerde.png";
 import tildeAzul from "../../assetsCoberturas/tickAzul.png";
-import { Link } from "react-router-dom";
 import { useRef, useEffect } from "react";
+import BtnInfo from "../../../../hooks/BtnInfo.jsx";
 
 const Femechaco = () => {
     const animateChacoRefs = [
@@ -161,15 +161,7 @@ const Femechaco = () => {
                         </h2>
                     </div>
                 </div>
-                <div className="btnChaco">
-                    <h2>
-                        Para más información, ver la cartilla completa y prestaciones
-                        disponibles.
-                    </h2>
-                    <Link to="/Contactanos" className="linkChaco">
-                        CLICK AQUÍ
-                    </Link>
-                </div>
+                <BtnInfo to="/Contactanos" delay={200}/>
             </div>
         </div>
     );

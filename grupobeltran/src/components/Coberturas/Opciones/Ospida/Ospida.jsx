@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import styleOspida from "./styleOspida.scss";
 import ospida from "../../assetsCoberturas/logoOspida.png";
 import flechita from "../../assetsCoberturas/flechaVerde.png";
-import { Link } from "react-router-dom";
+import BtnInfo from "../../../../hooks/BtnInfo.jsx";
 
 const Ospida = () => {
     const animateRefs = [useRef(null), useRef(null), useRef(null),useRef(null),];
@@ -103,13 +103,7 @@ const Ospida = () => {
                         </h2>
                     </div>
                     <div className="sec2-parte3" ref={animateRefs[3]}>
-                        <h2>
-                            Para más información, ver la cartilla completa y prestaciones
-                            disponibles.
-                        </h2>
-                        <Link to="/Contactanos" className="linkOspida">
-                            CLICK AQUÍ
-                        </Link>
+                    <BtnInfo to="/Contactanos" delay={200}/>
                     </div>
                 </div>
             </div>

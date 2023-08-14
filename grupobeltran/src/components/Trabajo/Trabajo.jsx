@@ -2,6 +2,7 @@ import styleTrabajo from "./styleTrabajo.scss";
 import FormTrabajo from "./FormTrabajo.jsx";
 import { Link } from "react-router-dom";
 import flecha from "./assetsTrabajo/flecha.png";
+import DelayLink from "../../hooks/DelayLink.jsx";
 
 const Trabajo = () => {
     return (
@@ -12,7 +13,9 @@ const Trabajo = () => {
                     <h2>¡En AsesSalud te damos esa opurtunidad!</h2>
                     <div className="circulo">
                         <h1>Hace <strong>CLICK</strong> aca</h1>
-                        <Link className="linkTrabajo" to="/FormularioTrabajo"><img src={flecha} alt="flecha" /></Link>
+                        <DelayLink className="linkTrabajo" to="/FormularioTrabajo" delay={310}>
+                            <img src={flecha} alt="flecha" />
+                        </DelayLink>
                         <h2>Completa el formulario para formar parte de nuestra empresa.</h2>
                     </div>
                     <div className="frase">
