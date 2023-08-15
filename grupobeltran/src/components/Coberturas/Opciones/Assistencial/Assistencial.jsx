@@ -18,15 +18,15 @@ const Assistencial = () => {
                 </div>
                 <div className="sectionAssistencial2">
                     <div className="sumador">
-                        <Sumador startNumber={0} finalNumber={150} tiempo={30} />
+                        <Sumador startNumber={0} finalNumber={150} tiempo={20} />
                         <h2>Centros Medicos</h2>
                     </div>
                     <div className="sumador">
-                        <Sumador startNumber={0} finalNumber={600} tiempo={6} />
+                        <Sumador startNumber={200} finalNumber={600} tiempo={6} />
                         <h2>Prestadores</h2>
                     </div>
                     <div className="sumador">
-                        <Sumador startNumber={629000} finalNumber={630000} tiempo={0.1} />
+                        <Sumador startNumber={629000} finalNumber={630000} tiempo={4} />
                         <h2>Afiliados</h2>
                     </div>
                 </div>

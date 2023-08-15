@@ -54,7 +54,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2rem;
+        gap: 1.5rem;
         flex-wrap: wrap;
 
         .cardAssis {
@@ -71,7 +71,7 @@
             transition: 0.4s ease;
 
             &:hover {
-                scale: 1.2;
+                scale: 1.15;
             }
 
             h1 {

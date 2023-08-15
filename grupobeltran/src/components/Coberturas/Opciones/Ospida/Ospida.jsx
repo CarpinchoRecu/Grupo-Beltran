@@ -5,7 +5,7 @@ import flechita from "../../assetsCoberturas/flechaVerde.png";
 import BtnInfo from "../../../../hooks/BtnInfo.jsx";
 
 const Ospida = () => {
-    const animateRefs = [useRef(null), useRef(null), useRef(null),useRef(null),];
+    const animateRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -102,9 +102,7 @@ const Ospida = () => {
                             prótesis internas
                         </h2>
                     </div>
-                    <div className="sec2-parte3" ref={animateRefs[3]}>
-                    <BtnInfo to="/Contactanos" delay={200}/>
-                    </div>
+                    <BtnInfo to="/Contactanos" delay={200} />
                 </div>
             </div>
         </div>
