@@ -213,6 +213,7 @@
 
 @media (max-width: 1600px) {
     .sancor {
+        height: 82rem;
         .sectionSancor1 {
             img {
                 height: 200px;
@@ -245,6 +246,10 @@
                     }
                 }
             }
+        }
+
+        .sectionSancor3{
+            display: none;
         }
     }
 }
