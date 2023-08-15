@@ -2,11 +2,12 @@ import styleFooter from "./styleFooter.scss";
 import logofb from "./assetsFooter/logofb.jpeg";
 import logoig from "./assetsFooter/logoig.jpeg";
 import logotw from "./assetsFooter/logotw.jpeg";
-import logowp from "./assetsFooter/logowp.jpeg";
-import logoemail from "./assetsFooter/logoemail.jpeg";
+import logowp from "./assetsFooter/logowp.png";
+import logoemail from "./assetsFooter/logoemail.png";
+import fijo from "./assetsFooter/fijo.png";
 import logo2 from "./assetsFooter/logo2.png";
 import { Link } from "react-router-dom";
-import DelayLink, { } from "../../hooks/DelayLink.jsx";
+import DelayLink from "../../hooks/DelayLink.jsx";
 
 const Footer = () => {
     return (
@@ -37,7 +38,12 @@ const Footer = () => {
             </div>
             <div className="logoContact">
                 <h2>•CONTACTOS•</h2>
+                <h2>•Horario de Atencion de 9:00 a 17:00•</h2>
                 <div className="contact">
+                    <div>
+                        <img src={fijo} alt="Img linea Fija" />
+                        <h2>011 2034-5484</h2>
+                    </div>
                     <div>
                         <a
                             href="https://api.whatsapp.com/send?phone=5491130452581&text=Hola,%20mi%20consulta%20es...

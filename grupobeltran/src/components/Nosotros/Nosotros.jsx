@@ -12,7 +12,8 @@ const Nosotros = () => {
                     Nos interesa que quienes adquieran nuestros servicios, queden conformes con el mismo, por eso una
                     de nuestras políticas de trabajo es la calidad humana de nuestros empleados y un buen ambiente laboral.</p>
                 <h2>Nuestra sede central se encuentra en Rivadavia n°1367, San Nicolás,CABA.
-                    Nuestra linea fija de esta misma es: 0112034-5484.</h2>
+                    <br/>Linea fija: 011 2034-5484.
+                    <br/>El horario de atencion es de 9:00 a 17:00</h2>
             </div>
         </div>
     )

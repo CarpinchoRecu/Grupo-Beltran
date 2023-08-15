@@ -22,11 +22,11 @@ const Assistencial = () => {
                         <h2>Centros Medicos</h2>
                     </div>
                     <div className="sumador">
-                        <Sumador startNumber={200} finalNumber={600} tiempo={6} />
+                        <Sumador startNumber={130} finalNumber={600} tiempo={6} />
                         <h2>Prestadores</h2>
                     </div>
                     <div className="sumador">
-                        <Sumador startNumber={629000} finalNumber={630000} tiempo={4} />
+                        <Sumador startNumber={629200} finalNumber={630000} tiempo={2} />
                         <h2>Afiliados</h2>
                     </div>
                 </div>

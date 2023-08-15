@@ -77,16 +77,21 @@ footer {
                 display: flex;
                 align-items: center;
                 flex-direction: row;
+                gap: 10px;
 
                 a {
                     img {
-                        height: 45px;
+                        height: 40px;
                         transition: 0.3s ease;
 
                         &:hover {
                             scale: 1.2;
                         }
                     }
+                }
+
+                img{
+                    height: 40px;
                 }
 
                 h2 {
@@ -157,12 +162,6 @@ footer {
 
             .contact {
                 div {
-                    a {
-                        img {
-                            height: 40px;
-                        }
-                    }
-
                     h2 {
                         font-size: 14px;
                     }
@@ -219,6 +218,10 @@ footer {
                         }
                     }
 
+                    img{
+                        height: 38px;
+                    }
+
                     h2 {
                         font-size: 13px;
                     }
@@ -261,6 +264,10 @@ footer {
                         img {
                             height: 34px;
                         }
+                    }
+
+                    img{
+                        height: 34px;
                     }
                 }
             }
@@ -315,6 +322,10 @@ footer {
                         img {
                             height: 30px;
                         }
+                    }
+
+                    img{
+                        height: 30px;
                     }
 
                     h2 {
@@ -384,6 +395,10 @@ footer {
                         }
                     }
 
+                    img{
+                        height: 45px;
+                    }
+
                     h2 {
                         font-size: 15px;
                     }
@@ -442,6 +457,10 @@ footer {
                         }
                     }
 
+                    img{
+                        height: 40px;
+                    }
+
                     h2 {
                         font-size: 14px;
                     }
@@ -498,6 +517,10 @@ footer {
                         }
                     }
 
+                    img{
+                        height: 30px;
+                    }
+
                     h2 {
                         font-size: 13px;
                     }
@@ -548,11 +571,6 @@ footer {
 
             .contact {
                 div {
-                    a {
-                        img {
-                            height: 28px;
-                        }
-                    }
 
                     h2 {
                         font-size: 12px;
@@ -608,8 +626,12 @@ footer {
                 div {
                     a {
                         img {
-                            height: 24px;
+                            height: 28px;
                         }
+                    }
+
+                    img{
+                        height: 28px;
                     }
 
                     h2 {
@@ -684,6 +706,10 @@ footer {
                         }
                     }
 
+                    img{
+                        height: 45px;
+                    }
+
                     h2 {
                         font-size: 15px;
                     }
@@ -738,8 +764,12 @@ footer {
                 div {
                     a {
                         img {
-                            height: 36px;
+                            height: 40px;
                         }
+                    }
+
+                    img{
+                        height: 40px;
                     }
 
                     h2 {
@@ -794,8 +824,12 @@ footer {
                 div {
                     a {
                         img {
-                            height: 30px;
+                            height: 35px;
                         }
+                    }
+
+                    img{
+                        height: 35px;
                     }
 
                     h2 {
