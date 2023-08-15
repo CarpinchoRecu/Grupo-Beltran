@@ -3,7 +3,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 83rem;
+    height: 450rem;
 
     .sectionSancor1 {
         display: flex;
@@ -12,6 +12,7 @@
         justify-content: center;
         gap: 3rem;
         height: 33rem;
+
         img {
             height: 250px;
         }
@@ -69,6 +70,145 @@
             }
         }
     }
+
+    .sectionSancor3 {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+
+        .planes {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            height: 38rem;
+            h2 {
+                background-color: #0f49793c;
+                width: 30%;
+                text-align: center;
+                border-radius: 0 20px 20px 0;
+                padding: 1.2rem;
+                font-size: 40px;
+                color: #0F4979;
+            }
+
+            .contenedorBeneficios {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                p {
+                    font-size: 22px;
+                    background-color: #0f49793c;
+                    padding: 1rem;
+                    border-radius: 20px;
+                    width: 60%;
+                    height: 32rem;
+
+                    img {
+                        height: 15px;
+                    }
+                }
+
+            }
+        }
+
+        .planes:nth-child(2){
+            .contenedorBeneficios {
+                p {
+                    font-size: 42px;
+
+                    img {
+                        height: 25px;
+                    }
+                }
+
+            }
+        }
+
+        .planes:nth-child(3){
+            .contenedorBeneficios {
+                p {
+                    font-size: 50px;
+
+                    img {
+                        height: 30px;
+                    }
+                }
+
+            }
+        }
+
+        .planes:nth-child(4){
+            .contenedorBeneficios {
+                p {
+                    font-size: 48px;
+
+                    img {
+                        height: 30px;
+                    }
+                }
+
+            }
+        }
+
+        .planes:nth-child(5){
+            .contenedorBeneficios {
+                p {
+                    font-size: 20px;
+
+                    img {
+                        height: 13px;
+                    }
+                }
+
+            }
+        }
+
+        .planes:nth-child(6){
+            .contenedorBeneficios {
+                p {
+                    font-size: 20px;
+
+                    img {
+                        height: 13px;
+                    }
+                }
+
+            }
+        }
+
+        .planes:nth-child(7){
+            .contenedorBeneficios {
+                p {
+                    font-size: 50px;
+
+                    img {
+                        height: 30px;
+                    }
+                }
+
+            }
+        }
+
+        .planes:nth-child(8){
+            .contenedorBeneficios {
+                gap: 2rem;
+                p {
+                    font-size: 50px;
+                    img {
+                        height: 30px;
+                    }
+                }
+
+                h3{
+                    background-color: #0f49793c;
+                    padding: 1rem;
+                    border-radius: 20px;
+                }
+
+            }
+        }
+    }
 }
 
 @media (max-width: 1600px) {
@@ -112,11 +252,12 @@
 @media (max-width: 1150px) {
     .sancor {
         height: 65rem;
+
         .sectionSancor1 {
             height: 28rem;
             gap: 2rem;
 
-            .atras{
+            .atras {
                 font-size: 16px;
             }
 
@@ -158,11 +299,12 @@
 @media (max-width: 860px) {
     .sancor {
         height: 57rem;
+
         .sectionSancor1 {
             height: 23rem;
             gap: 2rem;
 
-            .atras{
+            .atras {
                 font-size: 15px;
             }
 
@@ -184,11 +326,12 @@
 @media (max-width: 350px) {
     .sancor {
         height: 51rem;
+
         .sectionSancor1 {
             height: 20rem;
             gap: 2rem;
 
-            .atras{
+            .atras {
                 font-size: 15px;
             }
 
@@ -202,4 +345,3 @@
         }
     }
 }
-
