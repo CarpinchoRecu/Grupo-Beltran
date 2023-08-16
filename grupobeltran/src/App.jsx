@@ -33,6 +33,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <ScrollToTop/>
+      <ChatBot/>
       <Routes>
         {/* routeo de error */}
         <Route path="*" element={<Inicio />} />

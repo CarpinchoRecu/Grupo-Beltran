@@ -1,11 +1,12 @@
 import styleChatBot from "./styleChatBot.scss";
 import React, { useRef, useEffect, useState } from "react";
 import imgChat from "./assetsChat/imgChat.png";
+import Logica from "./Logica.jsx";
 
 const ChatBot = () => {
     const chatBtnRef = useRef(null);
     const offcanvasChatRef = useRef(null);
-    const imgChatRef = useRef(null)
+    const imgChatRef = useRef(null);
 
     const [chatOpen, setChatOpen] = useState(false);
 
@@ -37,6 +38,7 @@ const ChatBot = () => {
             document.removeEventListener("mousedown", handleOutsideClick);
         };
     }, [chatOpen]);
+
     return (
         <>
             <div id="chatBot">
@@ -48,7 +50,11 @@ const ChatBot = () => {
                     >
                         <img ref={imgChatRef} src={imgChat} alt="logo del chat" />
                     </div>
-                    <div className={`offcanvasChat ${chatOpen ? "show" : ""}`} ref={offcanvasChatRef}>
+                    <div
+                        className={`offcanvasChat ${chatOpen ? "show" : ""}`}
+                        ref={offcanvasChatRef}
+                    >
+                        <Logica/>
                         <div className="closeBtn" onClick={handleClick}></div>
                     </div>
                 </div>
