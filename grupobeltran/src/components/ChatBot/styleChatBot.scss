@@ -1,74 +1,151 @@
 #chatBot {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 
-    .chatBtn {
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 4rem;
-        height: 4rem;
-        z-index: 30;
-        bottom: 10%;
-        right: 10%;
+  .chatBtn {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    z-index: 30;
+    bottom: 10%;
+    right: 10%;
+    cursor: pointer;
+
+    img {
+      height: 100px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      border-radius: 10px;
+      height: 2px;
+      width: 30px;
+      transition: transform 0.3s ease;
+      transform: translateY(-10px);
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      border-radius: 10px;
+      height: 2px;
+      width: 30px;
+      transition: transform 0.3s ease;
+      transform: translateY(10px);
+    }
+
+    &.close::before {
+      transform: translateY(0) rotate(-45deg);
+      background-color: #000;
+      position: fixed;
+    }
+
+    &.close::after {
+      transform: translateY(0) rotate(45deg);
+      background-color: #000;
+      position: fixed;
+    }
+  }
+
+  .offcanvasChat {
+    position: fixed;
+    top: 80%;
+    right: 5%;
+    width: 500px;
+    height: 100%;
+    background-color: #00000071;
+    padding: 20px;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.6s ease;
+    z-index: 28;
+
+    &.show {
+      transform: translateY(-75%);
+      opacity: 1;
+    }
+
+    #chat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      overflow-y: scroll;
+      height: 600px;
+
+      .bot {
+        width: 75%;
+        background-color: #a09898;
+        padding: 8px;
+        border-radius: 20px 20px 20px 0;
+      }
+
+      .usuario {
+        position: relative;
+        left: 22%;
+        width: 75%;
+        text-align: end;
+        background-color: #e3cccc;
+        padding: 8px;
+        border-radius: 20px 20px 0 20px;
+        transition: 0.5s ease;
         cursor: pointer;
 
-        img{
-            height: 100px;
+        &:hover {
+          background-color: #625a5a;
+        }
+      }
+
+      .respondiendo{
+        display: flex;
+        p{
+          font-size: 60px;
+          animation: respondiendo 9.9s ease infinite;
+        }
+        p:nth-child(2){
+          animation: respondiendo 1.01s ease infinite;
+        }
+        p:nth-child(3){
+          animation: respondiendo 9.9s ease infinite;
+        }
+      }
+
+      @keyframes respondiendo {
+        0%{
+          transform: translateY(0);
+        }
+        50%{
+          transform: translateY(-3px);
+        }
+        100%{
+          transform: translateY(0);
+        }
+      }
+
+      .respondido {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        .bot {
+          display: block;
         }
 
-        &::before {
-            content: "";
-            position: absolute;
-            border-radius: 10px;
-            height: 2px;
-            width: 30px;
-            transition: transform 0.3s ease;
-            transform: translateY(-10px);
-            z-index: 1;
-        }
+        .usuario {
+          display: block;
 
-        &::after {
-            content: "";
-            position: absolute;
-            border-radius: 10px;
-            height: 2px;
-            width: 30px;
-            transition: transform 0.3s ease;
-            transform: translateY(10px);
         }
+        .final {
+          text-align: center;
+          background-color: #e3cccc;
+          padding: 1rem;
+          border-radius: 20px;
+        }
+      }
 
-        &.close::before {
-            transform: translateY(0) rotate(-45deg);
-            background-color: #000;
-            position: fixed;
-        }
 
-        &.close::after {
-            transform: translateY(0) rotate(45deg);
-            background-color: #000;
-            position: fixed;
-        }
     }
-
-    .offcanvasChat {
-        position: fixed;
-        top: 80%;
-        right: 5%;
-        width: 400px;
-        height: 100%;
-        background-color: #00000071;
-        padding: 20px;
-        opacity: 0;
-        transition: transform 0.5s ease, opacity 0.6s ease;
-        z-index: 28;
-    
-        &.show {
-            transform:  translateY(-75%);
-            opacity: 1;
-        }
-    }
-    
-    
+  }
 }

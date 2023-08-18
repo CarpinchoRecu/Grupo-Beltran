@@ -12,32 +12,14 @@ const ChatBot = () => {
 
     const handleClick = () => {
         setChatOpen(!chatOpen);
-    };
 
-    useEffect(() => {
-        const handleOutsideClick = (event) => {
-            if (
-                offcanvasChatRef.current &&
-                !offcanvasChatRef.current.contains(event.target) &&
-                !chatBtnRef.current.contains(event.target)
-            ) {
-                setChatOpen(false);
-            }
-        };
-
-        if (chatOpen) {
-            document.addEventListener("mousedown", handleOutsideClick);
-            imgChatRef.current.style.opacity = 0;
-            imgChatRef.current.style.transition = "0.3s ease";
-        } else {
-            document.removeEventListener("mousedown", handleOutsideClick);
-            imgChatRef.current.style.opacity = 1;
+        if (!chatOpen) {
+            imgChatRef.current.style.display = "none";
         }
-
-        return () => {
-            document.removeEventListener("mousedown", handleOutsideClick);
-        };
-    }, [chatOpen]);
+        if (chatOpen) {
+            imgChatRef.current.style.display = "block";
+        }
+    };
 
     return (
         <>
@@ -54,12 +36,9 @@ const ChatBot = () => {
                         className={`offcanvasChat ${chatOpen ? "show" : ""}`}
                         ref={offcanvasChatRef}
                     >
-                        <Logica/>
+                        <Logica />
                         <div className="closeBtn" onClick={handleClick}></div>
                     </div>
-                </div>
-                <div className="contenedorChat">
-                    <div className="chat"></div>
                 </div>
             </div>
         </>
