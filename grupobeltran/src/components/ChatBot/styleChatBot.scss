@@ -17,110 +17,196 @@
     img {
       height: 100px;
     }
-
-    &::before {
-      content: "";
-      position: absolute;
-      border-radius: 10px;
-      height: 2px;
-      width: 30px;
-      transition: transform 0.3s ease;
-      transform: translateY(-10px);
-      z-index: 1;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      border-radius: 10px;
-      height: 2px;
-      width: 30px;
-      transition: transform 0.3s ease;
-      transform: translateY(10px);
-    }
-
-    &.close::before {
-      transform: translateY(0) rotate(-45deg);
-      background-color: #000;
-      position: fixed;
-    }
-
-    &.close::after {
-      transform: translateY(0) rotate(45deg);
-      background-color: #000;
-      position: fixed;
-    }
   }
 
   .offcanvasChat {
     position: fixed;
     top: 80%;
     right: 5%;
-    width: 500px;
+    width: 450px;
     height: 100%;
-    background-color: #00000071;
-    padding: 20px;
+    border-radius: 12px;
+    background-color: #f4f0f0;
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.6s ease;
     z-index: 28;
+    display: grid;
+    grid-template-rows: 10% 70% 10%;
+    grid-template-areas: "title" "chat" "footer";
 
     &.show {
-      transform: translateY(-75%);
+      transform: translateY(-70%);
       opacity: 1;
     }
 
+    .titleChat {
+      grid-area: title;
+      background-color: #96b19791;
+      padding: 1rem;
+      border-radius: 12px 12px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      h1 {
+        color: #ffffff;
+        font-size: 28px;
+      }
+
+      .closeBtn {
+        cursor: pointer;
+        margin-right: 2rem;
+
+        &::before {
+          content: "";
+          border-radius: 10px;
+          height: 2px;
+          width: 30px;
+          transition: transform 0.3s ease;
+          transform: translateY(-10px);
+          z-index: 1;
+        }
+
+        &::after {
+          content: "";
+          border-radius: 10px;
+          height: 2px;
+          width: 30px;
+          transition: transform 0.3s ease;
+          transform: translateY(10px);
+        }
+
+        &.close::before {
+          transform: translateY(0) rotate(-45deg);
+          background-color: #ffffff;
+          position: fixed;
+        }
+
+        &.close::after {
+          transform: translateY(0) rotate(45deg);
+          background-color: #fff;
+          position: fixed;
+        }
+      }
+    }
+
     #chat {
+      grid-area: chat;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
       overflow-y: scroll;
-      height: 600px;
 
       .bot {
         width: 75%;
-        background-color: #a09898;
         padding: 8px;
-        border-radius: 20px 20px 20px 0;
+        display: flex;
+        align-items: end;
+        justify-content: start;
+
+        img {
+          position: relative;
+          top: 10px;
+          right: 5%;
+          height: 25px;
+          border: #000 1px solid;
+          border-radius: 50%;
+        }
+
+        p {
+          padding: 8px;
+          font-size: 18px;
+          border-radius: 20px 20px 20px 0;
+          background-color: #6a966b99;
+        }
       }
 
       .usuario {
         position: relative;
-        left: 22%;
+        left: 25%;
         width: 75%;
         text-align: end;
-        background-color: #e3cccc;
+        background-color: #6a966b4e;
         padding: 8px;
+        font-size: 18px;
         border-radius: 20px 20px 0 20px;
         transition: 0.5s ease;
         cursor: pointer;
 
+        .LinkChat {
+          text-decoration: none;
+          color: #000;
+        }
+
         &:hover {
-          background-color: #625a5a;
+          background-color: #6a966b99;
         }
       }
 
-      .respondiendo{
+      .respondiendo {
         display: flex;
-        p{
-          font-size: 60px;
-          animation: respondiendo 9.9s ease infinite;
+        gap: 2%;
+
+        img {
+          position: relative;
+          top: 40px;
+          right: 2%;
+          height: 25px;
+          border: #000 1px solid;
+          border-radius: 50%;
         }
-        p:nth-child(2){
-          animation: respondiendo 1.01s ease infinite;
-        }
-        p:nth-child(3){
-          animation: respondiendo 9.9s ease infinite;
+
+        .contenedorDots {
+          width: 65%;
+          border-radius: 20px 20px 20px 0;
+          background-color: #a09898;
+          display: flex;
+          gap: 5px;
+
+          p {
+            position: relative;
+            bottom: 15px;
+            left: 20px;
+            font-size: 40px;
+            scale: 2;
+            animation: respondiendo1 1s ease infinite;
+          }
+
+          p:nth-child(2) {
+            animation: respondiendo2 1s ease infinite;
+          }
+
+          p:nth-child(3) {
+            animation: respondiendo1 1s ease infinite;
+          }
         }
       }
 
-      @keyframes respondiendo {
-        0%{
+      @keyframes respondiendo1 {
+        0% {
+          transform: translateY(-2px);
+        }
+
+        50% {
           transform: translateY(0);
         }
-        50%{
-          transform: translateY(-3px);
+
+        100% {
+          transform: translateY(-2px);
         }
-        100%{
+      }
+
+      @keyframes respondiendo2 {
+        0% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-2px);
+        }
+
+        100% {
           transform: translateY(0);
         }
       }
@@ -129,23 +215,55 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+
         .bot {
-          display: block;
+          display: flex;
+          align-items: end;
+          justify-content: start;
         }
 
         .usuario {
           display: block;
-
         }
+
         .final {
           text-align: center;
-          background-color: #e3cccc;
+          background-color: #726969;
           padding: 1rem;
           border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+
+          p{
+            font-size: 18px;
+          }
+
+          img{
+            height: 40px;
+            cursor: pointer;
+            transition: 0.6s ease;
+
+            &:hover{
+              transform: rotateZ(180deg);
+            }
+          }
         }
       }
+    }
 
+    .footerChat {
+      grid-area: footer;
+      background-color: #96b197;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
 
+      img {
+        height: 50px;
+      }
     }
   }
 }

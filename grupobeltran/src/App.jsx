@@ -47,7 +47,7 @@ function App() {
         <Route path="/Nosotros" element={<Nosotros />} key="Nosotros" />
 
         {/* routeo de formulario trabajo */}
-        <Route path="/FormularioTrabajo" element={<FormTrabajo />} key="FormularioTrabajo" />
+        <Route path="/Trabajo/FormularioTrabajo" element={<FormTrabajo />} key="FormularioTrabajo" />
 
         {/* routeo de coberturas */}
         <Route path="/Coberturas/Femechaco" element={<Femechaco />} key="Femechaco" />

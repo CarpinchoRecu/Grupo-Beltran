@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import data from "./data.js";
 import "./styleChatbot.scss";
+import asis from "../../../favicon/favicon.png";
+import atras from "./assetsChat/atras.png";
+import { Link } from "react-router-dom";
 
 const Logica = () => {
   const [preguntaClickeada, setPreguntaClickeada] = useState(null);
@@ -46,12 +49,19 @@ const Logica = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [preguntaClickeada, preguntaAddClickeada, chatFinalizado]);
+  }, [
+    preguntaClickeada,
+    escribiendo,
+    escribiendoAdd,
+    preguntaAddClickeada,
+    chatFinalizado,
+  ]);
 
   return (
     <>
       <div id="chat" ref={chatContainerRef}>
         <div className="bot">
+          <img src={asis} alt="logo de asis" />
           <p>Hola soy Asis el ChatBot de AsesSalud, ¿En qué puedo ayudarte?</p>
         </div>
         {preguntaClickeada !== null ? (
@@ -72,14 +82,24 @@ const Logica = () => {
         {preguntaClickeada !== null && (
           <>
             {escribiendo ? (
-              <div className="respondiendo">
-                <p>.</p>
-                <p>.</p>
-                <p>.</p>
-              </div>
+                      <div className="respondiendo">
+                      <img src={asis} alt="logo de asis" />
+                      <div className="contenedorDots">
+                        <p>.</p>
+                        <p>.</p>
+                        <p>.</p>
+                      </div>
+                    </div>
             ) : (
               <div className="respondido">
-                <div className="bot" dangerouslySetInnerHTML={{ __html: data[preguntaClickeada].respuesta }} />
+                <div className="bot">
+                  <img src={asis} alt="logo de asis" />
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: data[preguntaClickeada].respuesta,
+                    }}
+                  />
+                </div>
                 {preguntaClickeada === 6 && (
                   <div className="usuario" onClick={apretarPreguntaAdd}>
                     <p>{data[preguntaClickeada].preguntaAdd}</p>
@@ -89,19 +109,29 @@ const Logica = () => {
                   <>
                     {escribiendoAdd ? (
                       <div className="respondiendo">
-                        <p>.</p>
-                        <p>.</p>
-                        <p>.</p>
+                        <img src={asis} alt="logo de asis" />
+                        <div className="contenedorDots">
+                          <p>.</p>
+                          <p>.</p>
+                          <p>.</p>
+                        </div>
                       </div>
                     ) : (
                       <div className="bot">
-                        <p>{data[preguntaClickeada].respuestaARePregunta}</p>
-                      </div>
+                      <img src={asis} alt="logo de asis" />
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: data[preguntaClickeada].respuestaARePregunta,
+                        }}
+                      />
+                    </div>
                     )}
                   </>
                 )}
                 <div className="usuario">
-                  <p>{data[preguntaClickeada].respuestaAdd2}</p>
+                  <Link to="/Contactanos" className="LinkChat">
+                    {data[preguntaClickeada].respuestaAdd2}
+                  </Link>
                 </div>
                 <div className="usuario">
                   <p onClick={finalizarChat}>
@@ -111,7 +141,8 @@ const Logica = () => {
                 {chatFinalizado && (
                   <div className="final">
                     <p>Aquí finaliza el chat con Asis</p>
-                    <button onClick={volverAtras}>Atrás</button>
+                    <p>¿Quieres preguntarme otra cosa?</p>
+                    <img onClick={volverAtras} src={atras} alt="atras" />
                   </div>
                 )}
               </div>
