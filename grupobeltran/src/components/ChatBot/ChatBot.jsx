@@ -170,6 +170,15 @@ const ChatBot = () => {
                                                     }}
                                                 />
                                             </div>
+                                            {preguntaClickeada === 2 && (
+                                                <Link
+                                                    onClick={Minimizar}
+                                                    className="usuario"
+                                                    to="/Coberturas"
+                                                >
+                                                    {data[preguntaClickeada].preguntaAdd}
+                                                </Link>
+                                            )}
                                             {preguntaClickeada === 6 && (
                                                 <div className="usuario" onClick={apretarPreguntaAdd}>
                                                     <p>{data[preguntaClickeada].preguntaAdd}</p>
@@ -198,15 +207,15 @@ const ChatBot = () => {
                                                     )}
                                                 </>
                                             )}
-                                            <div className="usuario">
-                                                <Link
-                                                    onClick={Minimizar}
-                                                    to="/Contactanos"
-                                                    className="LinkChat"
-                                                >
-                                                    {data[preguntaClickeada].respuestaAdd2}
-                                                </Link>
-                                            </div>
+
+                                            <Link
+                                                onClick={Minimizar}
+                                                to="/Contactanos"
+                                                className="usuario"
+                                            >
+                                                {data[preguntaClickeada].respuestaAdd2}
+                                            </Link>
+
                                             <div className="usuario">
                                                 <p onClick={finalizarChat}>
                                                     {data[preguntaClickeada].respuestaAdd1}
@@ -214,7 +223,10 @@ const ChatBot = () => {
                                             </div>
                                             {chatFinalizado && (
                                                 <div className="final">
-                                                    <p>Aquí finaliza el chat con Asis <br />¿Quieres preguntarme otra cosa?</p>
+                                                    <p>
+                                                        Aquí finaliza el chat con Asis <br />
+                                                        ¿Quieres preguntarme otra cosa?
+                                                    </p>
                                                     <img onClick={volverAtras} src={atras} alt="atras" />
                                                 </div>
                                             )}
