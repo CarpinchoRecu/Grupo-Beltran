@@ -7,7 +7,7 @@ const data = [
     FEMECHACO: Una cobertura exclusiva para la provincia de Chaco, diseñada para atender las necesidades de la región.<br><br> 
     Sancor Salud: Una opción nacional con la ventaja de poder personalizar los planes según tus requerimientos.<br><br>
     Assistecial y Visitar: Estos prestadores asistenciales están disponibles en CABA y a nivel nacional respectivamente.<br><br>
-    Si quieres mas informacion sobre nuestras coberturas Toca Aqui`,
+    Si quieres mas informacion sobre nuestras coberturas`,
         respuestaAdd1: "Estoy conforme con la respuesta",
         respuestaAdd2: "Quiero contactarme con un asesor",
     },

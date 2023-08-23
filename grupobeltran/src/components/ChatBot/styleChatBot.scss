@@ -7,32 +7,46 @@
     width: 4rem;
     height: 4rem;
     z-index: 30;
-    bottom: 15%;
-    right: 10%;
+    bottom: 10%;
+    right: 5%;
     cursor: pointer;
 
-    div {
+    .contenedorBtnChat {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-
-      &:hover {
-        h2 {
-          opacity: 1;
-        }
-      }
+      border-radius: 50%;
+      box-shadow: 2px 2px 10px 1px #0000005c;
+      background-color: #6a966be9;
+      height: 80px;
+      width: 80px;
+      transition: 0.3s ease;
 
       img {
-        height: 75px;
+        height: 40px;
+        transition: 0.3s ease;
       }
 
       h2 {
+        color: #fff;
+        position: absolute;
+        scale: 0;
         transition: 0.3s ease;
-        opacity: 0;
-        font-size: 20px;
-        width: 200px;
-        text-align: center;
+        font-size: 25px;
+        top: 29%;
+      }
+
+      &:hover {
+        scale: 1.1;
+
+        h2 {
+          scale: 1;
+        }
+
+        img {
+          scale: 0;
+        }
       }
     }
   }
@@ -109,8 +123,8 @@
         &::after {
           content: "";
           border-radius: 10px;
-          height: 3px;
-          width: 30px;
+          height: 2px;
+          width: 26px;
         }
 
         &.min::after {
@@ -141,7 +155,7 @@
           top: 10px;
           right: 5%;
           height: 25px;
-          border: #000 1px solid;
+          border: #6a966b 1px solid;
           border-radius: 50%;
         }
 
@@ -184,7 +198,7 @@
           top: 40px;
           right: 2%;
           height: 25px;
-          border: #000 1px solid;
+          border: #6a966b 1px solid;
           border-radius: 50%;
         }
 
@@ -202,26 +216,29 @@
             content: "...";
             animation: respondiendo 1s infinite steps(1);
             display: inline-block;
-
           }
         }
-
-
       }
 
       @keyframes respondiendo {
-        0%, 20% {
+
+        0%,
+        20% {
           content: "";
-      }
-      40% {
+        }
+
+        40% {
           content: ".";
-      }
-      60% {
+        }
+
+        60% {
           content: "..";
-      }
-      80%, 100% {
+        }
+
+        80%,
+        100% {
           content: "...";
-      }
+        }
       }
 
       .respondido {
@@ -241,9 +258,9 @@
 
         .final {
           text-align: center;
-          background-color: #6a966b99;
+          background-color: #6a966b;
           padding: 1rem;
-          border-radius: 20px;
+          border-radius: 10px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -251,10 +268,12 @@
 
           p {
             font-size: 18px;
+            color: #fff;
           }
 
           img {
-            height: 40px;
+            margin-top: 5px;
+            height: 30px;
             cursor: pointer;
             transition: 0.6s ease;
 
@@ -276,6 +295,282 @@
 
       img {
         height: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  #chatBot {
+    .chatBtn {
+      right: 8%;
+
+      .contenedorBtnChat {
+        height: 78px;
+        width: 78px;
+
+        img {
+          height: 36px;
+        }
+
+        h2 {
+          font-size: 22px;
+        }
+      }
+    }
+
+    .offcanvasChat {
+      right: 4%;
+      width: 400px;
+      grid-template-rows: 10% 60% 10%;
+
+      &.show {
+        transform: translateY(-60%);
+      }
+
+      .titleChat {
+        h1 {
+          font-size: 22px;
+        }
+
+        .closeBtn {
+          &::before {
+            width: 28px;
+          }
+
+          &::after {
+            width: 28px;
+          }
+        }
+
+        .minBtn {
+          &::after {
+            width: 22px;
+          }
+        }
+      }
+
+      #chat {
+        .bot {
+          width: 70%;
+
+          img {
+            height: 22px;
+          }
+
+          p {
+            font-size: 16px;
+          }
+        }
+
+        .usuario {
+          left: 35%;
+          width: 65%;
+          font-size: 16px;
+        }
+
+        .respondiendo {
+          img {
+            right: 1%;
+            height: 22px;
+          }
+
+          .contenedotDots {
+            width: 50%;
+            height: 40px;
+
+            .dotsEspera::after {
+              bottom: 2.7rem;
+              left: 42%;
+              font-size: 75px;
+            }
+          }
+        }
+
+        .respondido {
+          .final {
+            p {
+              font-size: 16px;
+            }
+
+            img {
+              height: 26px;
+            }
+          }
+        }
+      }
+
+      .footerChat {
+        img {
+          height: 44px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 590px) {
+  #chatBot {
+    .chatBtn {
+      z-index: 100;
+    }
+
+    .offcanvasChat {
+      right: 0%;
+      top: 60%;
+      width: 100%;
+      grid-template-rows: 10% 80% 10%;
+      border-radius: 0;
+      z-index: 99;
+
+      &.show {
+        transform: translateY(-60%);
+      }
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  #chatBot {
+    .chatBtn {
+      right: 12%;
+    }
+
+    .offcanvasChat {
+      .titleChat {
+        h1 {
+          font-size: 18px;
+        }
+
+        .closeBtn {
+          &::before {
+            width: 24px;
+          }
+
+          &::after {
+            width: 24px;
+          }
+        }
+
+        .minBtn {
+          &::after {
+            width: 20px;
+          }
+        }
+      }
+
+      #chat {
+        .bot {
+          width: 80%;
+
+          img {
+            height: 25px;
+          }
+
+          p {
+            font-size: 20px;
+          }
+        }
+
+        .usuario {
+          left: 22%;
+          width: 80%;
+          font-size: 20px;
+        }
+
+        .respondiendo {
+          img {
+            height: 25px;
+          }
+        }
+
+        .respondido {
+          .final {
+            p {
+              font-size: 20px;
+            }
+
+            img {
+              height: 30px;
+            }
+          }
+        }
+      }
+
+      .footerChat {
+        img {
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 330px) {
+  #chatBot {
+    .chatBtn {
+      right: 14%;
+    }
+
+    .offcanvasChat {
+      .titleChat {
+        h1 {
+          font-size: 16px;
+        }
+
+        .closeBtn {
+          &::before {
+            width: 22px;
+          }
+
+          &::after {
+            width: 22px;
+          }
+        }
+
+        .minBtn {
+          &::after {
+            width: 18px;
+          }
+        }
+      }
+
+      #chat {
+        .bot {
+          width: 70%;
+
+          img {
+            height: 20px;
+          }
+
+          p {
+            font-size: 16px;
+          }
+        }
+
+        .usuario {
+          left: 32%;
+          width: 70%;
+          font-size: 16px;
+        }
+
+        .respondiendo {
+          img {
+            height: 20px;
+          }
+        }
+
+        .respondido {
+          .final {
+            p {
+              font-size: 16px;
+            }
+
+            img {
+              height: 24px;
+            }
+          }
+        }
       }
     }
   }

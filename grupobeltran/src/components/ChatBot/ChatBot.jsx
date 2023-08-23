@@ -106,8 +106,8 @@ const ChatBot = () => {
             <div id="chatBot">
                 <div>
                     <div className="chatBtn" ref={chatBtnRef} onClick={Cerrar}>
-                        <div>
-                            <h2>Preguntale tus dudas al asistente Asis</h2>
+                        <div className="contenedorBtnChat">
+                            <h2>Chat</h2>
                             <img ref={imgChatRef} src={imgChat} alt="logo del chat" />
                         </div>
                     </div>
@@ -180,7 +180,9 @@ const ChatBot = () => {
                                                     {escribiendoAdd ? (
                                                         <div className="respondiendo">
                                                             <img src={asis} alt="logo de asis" />
-                                                            <div className="dotsEspera"></div>
+                                                            <div className="contenedotDots">
+                                                                <div className="dotsEspera"></div>
+                                                            </div>
                                                         </div>
                                                     ) : (
                                                         <div className="bot">
@@ -212,8 +214,7 @@ const ChatBot = () => {
                                             </div>
                                             {chatFinalizado && (
                                                 <div className="final">
-                                                    <p>Aquí finaliza el chat con Asis</p>
-                                                    <p>¿Quieres preguntarme otra cosa?</p>
+                                                    <p>Aquí finaliza el chat con Asis <br />¿Quieres preguntarme otra cosa?</p>
                                                     <img onClick={volverAtras} src={atras} alt="atras" />
                                                 </div>
                                             )}
