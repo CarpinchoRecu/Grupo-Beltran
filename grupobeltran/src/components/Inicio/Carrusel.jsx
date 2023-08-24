@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
-import img1 from "./assetsInicio/imgInicio/imgInicio1.jpeg"
+import img1 from "./assetsInicio/imgInicio/imgInicio1.jpeg";
 import img2 from "./assetsInicio/imgInicio/imgInicio2.jpeg";
 import img3 from "./assetsInicio/imgInicio/imgInicio3.jpeg";
 import flecha from "./assetsInicio/flecha.png";
@@ -119,9 +119,19 @@ const Carrusel = () => {
       <div className="slider-contenedor" ref={setSliderRef}>
         {slides.map((slide, index) => (
           <section className="contenido-slider" key={index}>
-            <div className={`contenedorTxt ${paused ? 'pausado' : ''}`}>
-              <h2 className={`texto-entrada ${contador === index ? 'activo' : ''}`}>{slide.content}</h2>
-              <p className={`texto-entrada ${contador === index ? 'activo' : ''}`}>{slide.p}</p>
+            <div className={`contenedorTxt ${paused ? "pausado" : ""}`}>
+              <h2
+                className={`texto-entrada ${contador === index ? "activo" : ""
+                  }`}
+              >
+                {slide.content}
+              </h2>
+              <p
+                className={`texto-entrada ${contador === index ? "activo" : ""
+                  }`}
+              >
+                {slide.p}
+              </p>
               <Link className="linkInicio" to="/Contactanos">
                 +INFO
               </Link>
