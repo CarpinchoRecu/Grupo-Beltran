@@ -4,6 +4,7 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 import styleFormTrabajo from "./styleFormTrabajo.scss";
 import logo from "../Footer/assetsFooter/logo2.png";
 import axios from "axios";
+import InputProvincias from "../../eventsForm/InputProvincias.jsx";
 
 const FormTrabajo = () => {
   // Datos de inputs
@@ -165,100 +166,6 @@ const FormTrabajo = () => {
 
     return errorMessage === "";
   };
-
-  // Mostrar opciones de input provincias (mostrar provincias)
-  const [provincias, setProvincias] = useState([
-    "Caba",
-    "Buenos Aires",
-    "Catamarca",
-    "Chaco",
-    "Chubut",
-    "Córdoba",
-    "Corrientes",
-    "Entre Ríos",
-    "Formosa",
-    "Jujuy",
-    "La Pampa",
-    "La Rioja",
-    "Mendoza",
-    "Misiones",
-    "Neuquén",
-    "Río Negro",
-    "Salta",
-    "San Juan",
-    "San Luis",
-    "Santa Cruz",
-    "Santa Fe",
-    "Santiago del Estero",
-    "Tierra del Fuego",
-    "Tucumán",
-  ]);
-
-  // Mostrar opciones de input provincias (mostrar provincias)
-  useEffect(() => {
-    // Formulario
-    const form = document.getElementById("contactForm");
-    // Input de las Provincias
-    const inputProv = document.getElementById("provincia");
-
-    // Mostrar provincias en input provincias
-    const mostrarOptions = () => {
-      const mensaje = document.getElementById("mensaje");
-      const txtEscrito = inputProv.value.toLowerCase();
-
-      if (txtEscrito === "") {
-        mensaje.style.display = "none";
-        inputProv.style.borderBottomLeftRadius = "20px";
-        inputProv.style.borderBottomRightRadius = "20px";
-        return;
-      }
-
-      inputProv.style.transition = "border-radius 0.3s ease";
-      inputProv.style.borderBottomLeftRadius = "0";
-      inputProv.style.borderBottomRightRadius = "0";
-      mensaje.innerHTML = "";
-
-      const optionExists = provincias.some(function (option) {
-        return option.toLowerCase().startsWith(txtEscrito);
-      });
-
-      if (!optionExists) {
-        inputProv.value = ""; // Vaciar el campo de entrada si no hay coincidencias
-        mensaje.style.display = "none";
-        inputProv.style.borderBottomLeftRadius = "20px";
-        inputProv.style.borderBottomRightRadius = "20px";
-        return;
-      }
-
-      provincias.forEach(function (option) {
-        const minOption = option.toLowerCase();
-
-        if (minOption.indexOf(txtEscrito) !== -1) {
-          const sugerencia = document.createElement("p");
-          sugerencia.textContent = option;
-          sugerencia.addEventListener("click", function () {
-            inputProv.value = option;
-            mensaje.style.display = "none";
-            inputProv.style.borderBottomLeftRadius = "20px";
-            inputProv.style.borderBottomRightRadius = "20px";
-          });
-
-          mensaje.appendChild(sugerencia);
-        }
-      });
-
-      mensaje.style.display = "block";
-    };
-
-    inputProv.addEventListener("input", mostrarOptions);
-
-    mostrarOptions();
-
-    return () => {
-      // Limpiar los event listeners cuando el componente se desmonte
-      inputProv.removeEventListener("input", mostrarOptions);
-    };
-  }, []);
 
   const [formSubmitCount, setFormSubmitCount] = useState(0);
   const [canSubmitForm, setCanSubmitForm] = useState(true);
@@ -514,21 +421,8 @@ const FormTrabajo = () => {
               )}
             </div>
           </div>
-          <div id="prov">
-            <label>Provincia</label>
-            <input
-              type="text"
-              id="provincia"
-              name="provincia"
-              required
-              autoComplete="off"
-            />
-            <div className="contenedorSugerencia">
-              <div>
-                <div id="mensaje"></div>
-              </div>
-            </div>
-          </div>
+<InputProvincias/>
+
           <div>
             <label htmlFor="localidad">Localidad</label>
             <input

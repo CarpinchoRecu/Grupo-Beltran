@@ -4,8 +4,8 @@ import Header from "./components/header/Header.jsx";
 import Inicio from "./components/Inicio/Inicio.jsx";
 import Coberturas from "./components/Coberturas/Coberturas.jsx";
 import Trabajo from "./components/Trabajo/Trabajo.jsx";
-import Contactanos from "./components/contactanos/Contactanos";
-import Nosotros from "./components/Nosotros/Nosotros";
+import Contactanos from "./components/contactanos/Contactanos.jsx";
+import Nosotros from "./components/Nosotros/Nosotros.jsx";
 import Error404 from "./components/Error404/Error404.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import FormTrabajo from "./components/Trabajo/FormTrabajo.jsx";
@@ -17,6 +17,8 @@ import Visitar from "./components/Coberturas/Opciones/Visitar/Visitar.jsx";
 import Assistencial from "./components/Coberturas/Opciones/Assistencial/Assistencial.jsx";
 import Monotributo from "./components/Coberturas/Monotributo.jsx";
 import { useEffect } from "react";
+
+import Contact from "./components/Contactanos/Contact.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,7 +45,7 @@ function App() {
         <Route path="/Coberturas" element={<Coberturas />} key="Coberturas" />
         <Route path="/Monotributo" element={<Monotributo />} key="Monotributo" />
         <Route path="/Trabajo" element={<Trabajo />} key="Trabajo" />
-        <Route path="/Contactanos" element={<Contactanos />} key="Contactanos" />
+        <Route path="/Contactanos" element={<Contact />} key="Contactanos" />
         <Route path="/Nosotros" element={<Nosotros />} key="Nosotros" />
 
         {/* routeo de formulario trabajo */}
