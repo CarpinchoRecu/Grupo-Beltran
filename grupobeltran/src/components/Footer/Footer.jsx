@@ -13,7 +13,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="titleLogoFooter">
-                <DelayLink to="/Inicio" delay={270}>
+                <DelayLink to="/Inicio" delay={350}>
                     <img src={logo2} alt="logo" />
                 </DelayLink>
                 <h2>•TODOS LOS DERECHOS RESERVADOS•</h2>

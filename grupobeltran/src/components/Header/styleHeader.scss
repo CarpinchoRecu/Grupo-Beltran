@@ -145,7 +145,7 @@ header {
                     align-items: center;
                     width: 4rem;
                     height: 4rem;
-                    z-index: 30;
+                    z-index: 104;
                     cursor: pointer;
 
                     &::before {
@@ -157,7 +157,6 @@ header {
                         background-color: #ffffff;
                         transition: transform 0.3s ease;
                         transform: translateY(-10px);
-                        z-index: 1;
                     }
 
                     &::after {
@@ -204,7 +203,7 @@ header {
                     background-color: #ffffffee;
                     padding: 50px 20px;
                     transition: transform 0.6s ease;
-                    z-index: 28;
+                    z-index: 103;
                     display: flex;
                     flex-direction: column;
                     gap: 20px;

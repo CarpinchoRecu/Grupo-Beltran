@@ -61,7 +61,7 @@
     background-color: #f4f0f0;
     opacity: 0;
     transition: transform 0.5s ease, opacity 0.6s ease;
-    z-index: 28;
+    z-index: 30;
     display: grid;
     grid-template-rows: 10% 70% 10%;
     grid-template-areas: "title" "chat" "footer";
@@ -417,7 +417,7 @@
       width: 100%;
       grid-template-rows: 10% 80% 10%;
       border-radius: 0;
-      z-index: 99;
+      z-index: 105;
 
       &.show {
         transform: translateY(-100%);
