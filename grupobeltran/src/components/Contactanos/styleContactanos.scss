@@ -182,16 +182,93 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
+    .contactanosForm {
+        height: 61rem;
+
+        form {
+            width: 500px;
+
+            .logoForm {
+                img {
+                    height: 120px;
+                }
+            }
+
+            .campos {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+
+@media (max-width: 570px) {
     #titleContactos {
         h2 {
             max-width: 350px;
             font-size: 20px;
         }
     }
+
+    .contactanosForm {
+
+        form {
+            width: 400px;
+
+            .logoForm {
+
+                img {
+                    height: 110px;
+                }
+            }
+
+            .campos {
+                div {
+                    label {
+                        font-size: 18px;
+                    }
+
+                    input {
+                        font-size: 16px;
+                        width: 280px;
+                    }
+
+                    .contenedorValidate {
+                        .errorMessageDiv {
+                            font-size: 13px;
+                        }
+
+                        .contendorCheck {
+                            left: 43%;
+                        }
+                    }
+
+                    .contenedorSugerencia {
+                        #mensaje {
+                            width: 280px;
+
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .botonForm {
+
+                button {
+                    padding: 8px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #titleContactos {
         h2 {
             height: 110px;
@@ -199,14 +276,81 @@
             font-size: 18px;
         }
     }
+
+    .contactanosForm {
+        height: 55rem;
+
+        form {
+            gap: 0;
+            width: 350px;
+
+            .logoForm {
+
+                img {
+                    height: 100px;
+                }
+            }
+
+            .campos {
+                div {
+                    label {
+                        font-size: 16px;
+                    }
+
+                    input {
+                        font-size: 14px;
+                        width: 250px;
+                    }
+
+                    .contenedorValidate {
+                        .errorMessageDiv {
+                            font-size: 11px;
+                        }
+
+                        .contendorCheck {
+                            left: 38%;
+                        }
+                    }
+
+                    .contenedorSugerencia {
+                        #mensaje {
+                            width: 250px;
+
+                            p {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .botonForm {
+
+                button {
+                    padding: 7px;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
 }
 
-@media (max-width: 370px) {
+@media (max-width: 375px) {
     #titleContactos {
         h2 {
             height: 100px;
             max-width: 300px;
             font-size: 16px;
+        }
+    }
+
+    .contactanosForm {
+        height: 54rem;
+
+        form {
+            width: 320px;
         }
     }
 }

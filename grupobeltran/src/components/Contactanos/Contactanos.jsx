@@ -9,18 +9,7 @@ const Contactanos = () => {
             type: "text",
             validationType: "nombre",
         },
-        {
-            id: "apellido",
-            label: "Apellido",
-            type: "text",
-            validationType: "apellido",
-        },
-        {
-            id: "edad",
-            label: "Edad",
-            type: "number",
-            validationType: "edad",
-        },
+
         {
             id: "telefono",
             label: "Telefono",
@@ -28,11 +17,24 @@ const Contactanos = () => {
             validationType: "telefono",
         },
         {
+            id: "apellido",
+            label: "Apellido",
+            type: "text",
+            validationType: "apellido",
+        },
+        {
             id: "email",
             label: "Email",
             type: "text",
             validationType: "email",
         },
+        {
+            id: "edad",
+            label: "Edad",
+            type: "number",
+            validationType: "edad",
+        },
+
         {
             id: "provincia",
             label: "Provincia",
@@ -45,18 +47,21 @@ const Contactanos = () => {
             type: "text",
             validationType: "localidad",
         },
-
     ];
 
     return (
         <div className="op">
-            <div  id="titleContactos">
+            <div id="titleContactos">
                 <h2>
                     Para ponerte en contacto con un asesor o recibir más información, por
                     favor completa el siguiente formulario.
                 </h2>
             </div>
-                <FormGenerico fields={fields} className="contactanosForm" servidor="https://expressserver-uclv.onrender.com/" />
+            <FormGenerico
+                fields={fields}
+                className="contactanosForm"
+                servidor="https://expressserver-uclv.onrender.com/"
+            />
         </div>
     );
 };
