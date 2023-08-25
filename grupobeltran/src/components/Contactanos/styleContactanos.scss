@@ -1,7 +1,7 @@
 #titleContactos {
     display: flex;
     justify-content: center;
-    background-color: #D1D4D1;
+    background-color: #d1d4d1;
 
     h2 {
         display: flex;
@@ -15,6 +15,162 @@
     }
 }
 
+.contactanosForm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 43rem;
+
+    form {
+        display: grid;
+        grid-template-areas:
+            "logo"
+            "campos"
+            "boton";
+        width: 750px;
+        padding: 1.3rem;
+        background-color: #a4bea4;
+        border-radius: 13px;
+        gap: 8px;
+        box-shadow: 0 2px 9px rgb(0, 0, 0);
+
+        .logoForm {
+            grid-area: logo;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 100px;
+            }
+        }
+
+        .campos {
+            grid-area: campos;
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+
+                label {
+                    font-size: 20px;
+                }
+
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                }
+
+                input {
+                    font-size: 18px;
+                    padding: 8px;
+                    width: 300px;
+                    border: 0;
+                    background-color: #f0e9e9;
+                    border-radius: 20px;
+                    transition: 0.4s ease;
+
+                    &:hover {
+                        background-color: #5b8a4a;
+                    }
+
+                    &:focus {
+                        outline: none;
+                        background-color: #5b8a4a;
+                    }
+                }
+
+                .contenedorValidate {
+                    width: 270px;
+                    height: 30px;
+                    text-align: center;
+
+                    .errorMessageDiv {
+                        font-size: 14.5px;
+                    }
+
+                    .contendorCheck {
+                        position: relative;
+                        bottom: 100%;
+                        left: 47%;
+                    }
+                }
+
+                .contenedorSugerencia {
+                    margin: -5px;
+
+                    #mensaje {
+                        background-color: #ffffffec;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        padding: 10px;
+                        border: solid 1px;
+                        border-radius: 0px 0px 20px 20px;
+                        width: 300px;
+                        position: absolute;
+                        z-index: 2;
+                        animation: dropdownAnimation 0.4s ease-in-out;
+
+                        p {
+                            font-size: 16px;
+                            cursor: pointer;
+                            width: 180px;
+                            border: solid 1px #00000000;
+                            border-bottom: solid 1px #0000006a;
+                            padding: 5px;
+                            transition: 0.15s ease;
+                            animation: dropdownAnimation 0.4s ease-in-out;
+
+                            &:hover {
+                                scale: 1.07;
+                                border: solid 1px;
+                                border-radius: 7px;
+                                background-color: #a4bea4;
+                            }
+                        }
+                    }
+                }
+
+                @keyframes dropdownAnimation {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(-4px);
+                    }
+
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+
+        .botonForm {
+            grid-area: boton;
+            display: flex;
+            justify-content: center;
+
+            button {
+                border-radius: 28px;
+                padding: 10px;
+                border: 1px solid #00000083;
+                font-size: 18px;
+                transition: 0.3s ease;
+                font-family: "Lovelo";
+
+                &:hover {
+                    background-color: #b4adad;
+                    scale: 1.1;
+                }
+            }
+        }
+    }
+}
 
 @media (max-width: 1050px) {
     #titleContactos {

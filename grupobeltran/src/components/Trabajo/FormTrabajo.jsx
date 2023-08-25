@@ -4,8 +4,6 @@ import { FaCheck, FaTimes } from "react-icons/fa";
 import styleFormTrabajo from "./styleFormTrabajo.scss";
 import logo from "../Footer/assetsFooter/logo2.png";
 import axios from "axios";
-import InputProvincias from "../../eventsForm/InputProvincias.jsx";
-
 const FormTrabajo = () => {
   // Datos de inputs
   const [formData, setFormData] = useState({
@@ -421,7 +419,6 @@ const FormTrabajo = () => {
               )}
             </div>
           </div>
-<InputProvincias/>
 
           <div>
             <label htmlFor="localidad">Localidad</label>

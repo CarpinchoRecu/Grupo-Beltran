@@ -18,8 +18,6 @@ import Assistencial from "./components/Coberturas/Opciones/Assistencial/Assisten
 import Monotributo from "./components/Coberturas/Monotributo.jsx";
 import { useEffect } from "react";
 
-import Contact from "./components/Contactanos/Contact.jsx";
-
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -45,7 +43,7 @@ function App() {
         <Route path="/Coberturas" element={<Coberturas />} key="Coberturas" />
         <Route path="/Monotributo" element={<Monotributo />} key="Monotributo" />
         <Route path="/Trabajo" element={<Trabajo />} key="Trabajo" />
-        <Route path="/Contactanos" element={<Contact />} key="Contactanos" />
+        <Route path="/Contactanos" element={<Contactanos />} key="Contactanos" />
         <Route path="/Nosotros" element={<Nosotros />} key="Nosotros" />
 
         {/* routeo de formulario trabajo */}

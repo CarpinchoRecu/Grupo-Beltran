@@ -47,9 +47,7 @@ export const validateInput = (id, value, validationType) => {
             case "localidad":
             case "domicilio":
             case "provincia":
-                if (value.length < 2) {
-                    return "Este campo debe tener al menos 2 caracteres";
-                } else if (value.length > 20) {
+                if (value.length > 20) {
                     return "Este campo debe tener como máximo 20 caracteres";
                 }
                 break;

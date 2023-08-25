@@ -7,7 +7,7 @@ $heightError: 30px;
 $bottomTilde: 100%;
 $leftTilde: 8rem;
 
-.form-container {
+.contactanosForm {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -16,7 +16,7 @@ $leftTilde: 8rem;
     background-color: #eeffee;
     height: 40rem;
 
-    #contactForm {
+    form {
         display: grid;
         grid-template-areas:
             "img img"

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { validateInput } from "./ValidateInput.jsx";
 import { FaCheck } from "react-icons/fa";
+import Swal from "sweetalert2";
+import logo from "../components/Footer/assetsFooter/logo2.png";
 
-const FormGenerico = ({ fields, typeForm, servidor }) => {
+const FormGenerico = ({ fields, className, servidor }) => {
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
     const [fieldStates, setFieldStates] = useState({});
-    const [provinciaSuggestions, setProvinciaSuggestions] = useState([]);
-    const [searched, setSearched] = useState(false);
+    const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+
     let provincias = [
         "Caba",
         "Buenos Aires",
@@ -35,25 +37,70 @@ const FormGenerico = ({ fields, typeForm, servidor }) => {
         "Tucumán",
     ];
     useEffect(() => {
+        // Input de las Provincias
         const inputProv = document.getElementById("provincia");
 
+        // Mostrar provincias en input provincias
         const mostrarOptions = () => {
+            const mensaje = document.getElementById("mensaje");
             const txtEscrito = inputProv.value.toLowerCase();
-            const suggestions = provincias.filter((option) =>
-                option.toLowerCase().startsWith(txtEscrito)
-            );
 
-            setProvinciaSuggestions(suggestions);
+            if (txtEscrito === "") {
+                mensaje.style.display = "none";
+                inputProv.style.borderBottomLeftRadius = "20px";
+                inputProv.style.borderBottomRightRadius = "20px";
+                return;
+            }
+
+            inputProv.style.transition = "border-radius 0.3s ease";
+            inputProv.style.borderBottomLeftRadius = "0";
+            inputProv.style.borderBottomRightRadius = "0";
+            mensaje.innerHTML = "";
+
+            const optionExists = provincias.some(function (option) {
+                return option.toLowerCase().startsWith(txtEscrito);
+            });
+
+            if (!optionExists) {
+                inputProv.value = ""; // Vaciar el campo de entrada si no hay coincidencias
+                mensaje.style.display = "none";
+                inputProv.style.borderBottomLeftRadius = "20px";
+                inputProv.style.borderBottomRightRadius = "20px";
+                return;
+            }
+
+            provincias.forEach(function (option) {
+                const minOption = option.toLowerCase();
+
+                // Dentro de la función mostrarOptions
+                if (minOption.indexOf(txtEscrito) !== -1) {
+                    const sugerencia = document.createElement("p");
+                    sugerencia.textContent = option;
+                    sugerencia.addEventListener("click", function () {
+                        const inputProv = document.getElementById("provincia");
+                        inputProv.value = option; // Establecer el valor en el campo de provincia
+                        mensaje.style.display = "none";
+                        inputProv.style.borderBottomLeftRadius = "20px";
+                        inputProv.style.borderBottomRightRadius = "20px";
+                        handleChange("provincia", option, "provincia"); // Llamar al handleChange con la provincia seleccionada
+                    });
+
+                    mensaje.appendChild(sugerencia);
+                }
+            });
+
+            mensaje.style.display = "block";
         };
 
-        if (searched) {
-            mostrarOptions();
-        }
+        inputProv.addEventListener("input", mostrarOptions);
+
+        mostrarOptions();
 
         return () => {
+            // Limpiar los event listeners cuando el componente se desmonte
             inputProv.removeEventListener("input", mostrarOptions);
         };
-    }, [searched]);
+    }, []);
 
     const handleChange = (id, value, validationType) => {
         if (validationType === "file") {
@@ -101,6 +148,36 @@ const FormGenerico = ({ fields, typeForm, servidor }) => {
                     [id]: value,
                 }));
             }
+        } else if (id === "provincia") {
+            // Lógica para manejar el input de provincias
+            const txtEscrito = value.toLowerCase();
+            const isValid = value && value.trim() !== "";
+
+            const optionExists = provincias.some(function (option) {
+                return option.toLowerCase().startsWith(txtEscrito);
+            });
+
+            if (!optionExists) {
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    [id]: "Por favor, elige una provincia válida.",
+                }));
+            } else {
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    [id]: isValid ? "" : "Por favor, selecciona una provincia.",
+                }));
+                setFieldStates((prevFieldStates) => ({
+                    ...prevFieldStates,
+                    [id]: {
+                        isValid,
+                    },
+                }));
+                setFormData((prevFormData) => ({
+                    ...prevFormData,
+                    [id]: value,
+                }));
+            }
         } else {
             const errorMessage = validateInput(id, value, validationType);
 
@@ -126,9 +203,86 @@ const FormGenerico = ({ fields, typeForm, servidor }) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        const previousFormInfo = JSON.parse(localStorage.getItem("formInfo")) || {
+            submissionCount: 0,
+            lastSubmissionTime: null,
+        };
+    
+        // Obtener la hora actual
+        const currentTime = new Date().getTime();
+    
+        // Verificar si ha pasado al menos 3 minutos desde el último envío exitoso
+        if (
+            previousFormInfo.lastSubmissionTime &&
+            currentTime - previousFormInfo.lastSubmissionTime < 3 * 60 * 1000
+        ) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Debes esperar al menos 3 minutos antes de enviar otro formulario.",
+            });
+            return;
+        }
+
+        if (previousFormInfo.submissionCount === 2) {
+            previousFormInfo.submissionCount = 0
+        }
+
+        
+        if (previousFormInfo.submissionCount >= 2) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Ya has enviado el formulario dos veces en los últimos 3 minutos.",
+            });
+            return;
+        }
+
+        setSubmitButtonDisabled(true);
+
+        const allFieldsValid = fields.every(
+            (field) => fieldStates[field.id]?.isValid
+        );
+        const allFieldsCompleted = fields.every(
+            (field) => formData[field.id] && formData[field.id].trim() !== ""
+        );
+
+        if (!allFieldsValid) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Por favor, completa todos los campos correctamente.",
+            }).then(() => {
+                setSubmitButtonDisabled(false);
+            });
+            return;
+        }
+
+        if (!allFieldsCompleted) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Por favor, completa todos los campos del formulario.",
+            }).then(() => {
+                setSubmitButtonDisabled(false);
+            });
+            return;
+        }
+
         const formDataToSend = new URLSearchParams(new FormData(event.target));
 
         try {
+            const updatedFormInfo = {
+                submissionCount: previousFormInfo.submissionCount + 1,
+                lastSubmissionTime: currentTime,
+            };
+        
+            // Almacenar la información actualizada en localStorage
+            localStorage.setItem("formInfo", JSON.stringify(updatedFormInfo));
+        
+            // Deshabilitar el botón para evitar envíos repetidos
+            setSubmitButtonDisabled(true);
+
             const response = await fetch(`${servidor}`, {
                 method: "POST",
                 headers: {
@@ -139,94 +293,100 @@ const FormGenerico = ({ fields, typeForm, servidor }) => {
 
             const data = await response.text();
             console.log(data);
-            console.log("se envio el formulario");
+            Swal.fire({
+                icon: "success",
+                title: "Éxito",
+                text: "El formulario se ha enviado correctamente.",
+            }).then(() => {
+                setSubmitButtonDisabled(false);
+            });
         } catch (error) {
             console.log(error);
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Ocurrió un error al enviar el formulario. Por favor, intenta nuevamente.",
+            }).then(() => {
+                setSubmitButtonDisabled(false);
+            });
         }
     };
 
     return (
-        <form className={`${typeForm}`} onSubmit={handleSubmit}>
-            <div> {/* Campo de Provincias */}
-                <label htmlFor="provincia">Provincia</label>
-                <input
-                    type="text"
-                    id="provincia"
-                    name="provincia"
-                    value={formData["provincia"] || ""}
-                    onChange={(e) => {
-                        setSearched(true); // Marcamos que se ha buscado
-                        handleChange("provincia", e.target.value, "provincia");
-                    }}
-                    required
-                    autoComplete="off"
-                />
-                <div id="mensaje">
-                    {provinciaSuggestions.map((suggestion, index) => (
-                        <p
-                            key={index}
-                            onClick={() => {
-                                setFormData((prevFormData) => ({
-                                    ...prevFormData,
-                                    provincia: suggestion,
-                                }));
-                                setProvinciaSuggestions([]); // Limpiar sugerencias
-                                setSearched(false); // Resetear el estado de búsqueda
-                            }}
-                        >
-                            {suggestion}
-                        </p>
+        <div className={`${className}`}>
+            <form onSubmit={handleSubmit}>
+                <div className="logoForm">
+                    <img src={logo} alt="logo de AsesSalud" />
+                </div>
+                <div className="campos">
+                    {fields.map((field) => (
+                        <div key={field.id}>
+                            <label htmlFor={field.id}>{field.label}</label>
+                            {field.type === "file" ? (
+                                <input
+                                    type="file"
+                                    id="file"
+                                    name="file"
+                                    accept=".png"
+                                    onChange={
+                                        (e) =>
+                                            e.target.files.length > 0
+                                                ? handleChange(
+                                                    field.id,
+                                                    e.target.files[0],
+                                                    field.validationType
+                                                )
+                                                : handleChange(field.id, null, field.validationType) // Pasar null si no se seleccionó archivo
+                                    }
+                                    required
+                                />
+                            ) : field.id === "provincia" ? (
+                                <>
+                                    <input
+                                        className="provincia"
+                                        type="text"
+                                        id="provincia"
+                                        name="provincia"
+                                        value={formData["provincia"] || ""}
+                                        onChange={(e) => {
+                                            handleChange("provincia", e.target.value, "provincia");
+                                        }}
+                                        required
+                                    />
+                                    <div className="contenedorSugerencia">
+                                        <div id="mensaje"></div>
+                                    </div>
+                                </>
+                            ) : (
+                                <input
+                                    type={field.type}
+                                    id={field.id}
+                                    name={field.id}
+                                    value={formData[field.id] || ""}
+                                    onChange={(e) =>
+                                        handleChange(field.id, e.target.value, field.validationType)
+                                    }
+                                    required
+                                />
+                            )}
+                            <div className="contenedorValidate">
+                                {errors[field.id] && (
+                                    <div className="errorMessageDiv">
+                                        <p>{errors[field.id]}</p>
+                                    </div>
+                                )}
+                                <div className="contendorCheck">
+                                    {fieldStates[field.id]?.isValid && <FaCheck />}
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
-            </div>
-            {fields.map((field) => (
-                <div key={field.id}>
-                    <label htmlFor={field.id}>{field.label}</label>
-                    {field.type === "file" ? (
-                        <input
-                            type="file"
-                            id="file"
-                            name="file"
-                            accept=".png"
-                            onChange={
-                                (e) =>
-                                    e.target.files.length > 0
-                                        ? handleChange(
-                                            field.id,
-                                            e.target.files[0],
-                                            field.validationType
-                                        )
-                                        : handleChange(field.id, null, field.validationType) // Pasar null si no se seleccionó archivo
-                            }
-                            required
-                        />
-                    ) : (
-                        <input
-                            type={field.type}
-                            id={field.id}
-                            name={field.id}
-                            value={formData[field.id] || ""}
-                            onChange={(e) =>
-                                handleChange(field.id, e.target.value, field.validationType)
-                            }
-                            required
-                            autoComplete="off"
-                        />
-                    )}
-                    <div>
-                        {errors[field.id] && (
-                            <div className="errorMessageDiv">
-                                <p>{errors[field.id]}</p>
-                            </div>
-                        )}
-                        {fieldStates[field.id]?.isValid && (
-                            <FaCheck className="checkIcon" />
-                        )}
-                    </div>
+                <div className="botonForm">
+                    <button disabled={submitButtonDisabled}>enviar</button>
                 </div>
-            ))}
-            <button>enviar</button>
-        </form>
+            </form>
+        </div>
     );
 };
 
