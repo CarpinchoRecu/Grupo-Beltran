@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { validateInput } from "./ValidateInput.jsx";
-import { FaCheck, FaTimes } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 
 const InputProvincias = () => {
     const [formData, setFormData] = useState({});

@@ -1,7 +1,5 @@
-import React from "react";
 import FormGenerico from "../../eventsForm/FormGenerico.jsx";
 import styleContactanos from "./styleFormContactanos.scss";
-import Provincias from "../../eventsForm/InputProvincias.jsx";
 
 const Contact = () => {
     const fields = [
@@ -36,18 +34,17 @@ const Contact = () => {
             validationType: "email",
         },
         {
-            id: "file", // Nuevo campo para el archivo
-            label: "Archivo PNG",
-            type: "file",
-            validationType: "file", // Ajusta el tipo de validación según tu lógica de archivos
+            id: "localidad",
+            label: "localidad",
+            type: "text",
+            validationType: "localidad",
         },
-        
+
     ];
 
     return (
         <div className="form-container">
-            <FormGenerico fields={fields} />
-            <Provincias/>
+            <FormGenerico fields={fields} servidor="https://expressserver-uclv.onrender.com/" />
         </div>
     );
 };
