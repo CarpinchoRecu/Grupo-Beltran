@@ -1,5 +1,7 @@
 export const validateInput = (id, value, validationType) => {
-    value = value.trim();
+    if (typeof value === 'string') {
+        value = value.trim();
+    }
 
     if (value.length === 0) {
         return "Este campo es obligatorio";

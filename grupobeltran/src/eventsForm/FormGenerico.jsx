@@ -3,9 +3,11 @@ import { validateInput } from "./ValidateInput.jsx";
 import { FaCheck } from "react-icons/fa";
 import Swal from "sweetalert2";
 import logo from "../components/Footer/assetsFooter/logo2.png";
+import styleForm from "./styleForm.scss";
 
-const FormGenerico = ({ fields, className, servidor }) => {
-    const [formData, setFormData] = useState({});
+
+const FormGenerico = ({ fields, servidor, tipoDeForm, contentType, customFormData }) => {
+    const [formData, setFormData] = useState({customFormData});
     const [errors, setErrors] = useState({});
     const [fieldStates, setFieldStates] = useState({});
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
@@ -207,14 +209,14 @@ const FormGenerico = ({ fields, className, servidor }) => {
             submissionCount: 0,
             lastSubmissionTime: null,
         };
-    
+
         // Obtener la hora actual
         const currentTime = new Date().getTime();
-    
+
         // Verificar si ha pasado al menos 3 minutos desde el último envío exitoso
         if (
             previousFormInfo.lastSubmissionTime &&
-            currentTime - previousFormInfo.lastSubmissionTime < 3 * 60 * 1000
+            currentTime - previousFormInfo.lastSubmissionTime < 0.1 * 60 * 1000
         ) {
             Swal.fire({
                 icon: "error",
@@ -228,7 +230,7 @@ const FormGenerico = ({ fields, className, servidor }) => {
             previousFormInfo.submissionCount = 0
         }
 
-        
+
         if (previousFormInfo.submissionCount >= 2) {
             Swal.fire({
                 icon: "error",
@@ -240,12 +242,25 @@ const FormGenerico = ({ fields, className, servidor }) => {
 
         setSubmitButtonDisabled(true);
 
-        const allFieldsValid = fields.every(
-            (field) => fieldStates[field.id]?.isValid
-        );
-        const allFieldsCompleted = fields.every(
-            (field) => formData[field.id] && formData[field.id].trim() !== ""
-        );
+        const allFieldsValid = fields.every((field) => {
+            if (fieldStates[field.id]?.isValid) {
+                if (field.validationType === "file") {
+                    return true;
+                } else {
+                    return formData[field.id] && formData[field.id].trim() !== "";
+                }
+            }
+            return false;
+        });
+
+        const allFieldsCompleted = fields.every((field) => {
+            if (field.validationType === "file") {
+                return true;
+            } else {
+                return formData[field.id] && formData[field.id].trim() !== "";
+            }
+        });
+
 
         if (!allFieldsValid) {
             Swal.fire({
@@ -269,30 +284,40 @@ const FormGenerico = ({ fields, className, servidor }) => {
             return;
         }
 
-        const formDataToSend = new URLSearchParams(new FormData(event.target));
+        let formDataToSend
+
+        if (tipoDeForm === true) {
+            formDataToSend = new FormData(event.target);
+        } else {
+            formDataToSend = new URLSearchParams(formData);
+        }
 
         try {
             const updatedFormInfo = {
                 submissionCount: previousFormInfo.submissionCount + 1,
                 lastSubmissionTime: currentTime,
             };
-        
+
             // Almacenar la información actualizada en localStorage
             localStorage.setItem("formInfo", JSON.stringify(updatedFormInfo));
-        
+
             // Deshabilitar el botón para evitar envíos repetidos
             setSubmitButtonDisabled(true);
 
             const response = await fetch(`${servidor}`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Content-Type": contentType,
                 },
                 body: formDataToSend,
             });
 
-            const data = await response.text();
-            console.log(data);
+            if (!response.ok) {
+                const errorMessage = await response.text(); // O response.json() si el servidor devuelve JSON
+                throw new Error(`\nError en el servidor:${response.status}\n${response.statusText}\n${errorMessage}\n`);
+            }
+
+
             Swal.fire({
                 icon: "success",
                 title: "Éxito",
@@ -300,20 +325,23 @@ const FormGenerico = ({ fields, className, servidor }) => {
             }).then(() => {
                 setSubmitButtonDisabled(false);
             });
+            console.log("El formulario se ha enviado correctamente.")
         } catch (error) {
-            console.log(error);
+            console.error(error);
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: "Ocurrió un error al enviar el formulario. Por favor, intenta nuevamente.",
+                text: `Ocurrió un error al enviar el formulario. Por favor, intenta nuevamente. Error: ${error.status}`,
             }).then(() => {
                 setSubmitButtonDisabled(false);
             });
         }
+
+
     };
 
     return (
-        <div className={`${className}`}>
+        <div className={`contenedorForm ${tipoDeForm ? "formTrabajo" : ""}`}>
             <form onSubmit={handleSubmit}>
                 <div className="logoForm">
                     <img src={logo} alt="logo de AsesSalud" />
@@ -353,9 +381,7 @@ const FormGenerico = ({ fields, className, servidor }) => {
                                         }}
                                         required
                                     />
-                                    <div className="contenedorSugerencia">
-                                        <div id="mensaje"></div>
-                                    </div>
+                                    <div id="mensaje"></div>
                                 </>
                             ) : (
                                 <input

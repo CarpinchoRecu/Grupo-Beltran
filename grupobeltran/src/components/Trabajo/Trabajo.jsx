@@ -1,5 +1,4 @@
-import styleTrabajo from "./styleTrabajo.scss";
-import FormTrabajo from "./FormTrabajo.jsx";
+
 import { Link } from "react-router-dom";
 import flecha from "./assetsTrabajo/flecha.png";
 import DelayLink from "../../hooks/DelayLink.jsx";

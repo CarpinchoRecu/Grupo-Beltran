@@ -11,10 +11,10 @@ const Contactanos = () => {
         },
 
         {
-            id: "telefono",
-            label: "Telefono",
+            id: "email",
+            label: "Email",
             type: "text",
-            validationType: "telefono",
+            validationType: "email",
         },
         {
             id: "apellido",
@@ -23,10 +23,10 @@ const Contactanos = () => {
             validationType: "apellido",
         },
         {
-            id: "email",
-            label: "Email",
+            id: "telefono",
+            label: "Telefono",
             type: "text",
-            validationType: "email",
+            validationType: "telefono",
         },
         {
             id: "edad",
@@ -49,6 +49,11 @@ const Contactanos = () => {
         },
     ];
 
+
+
+
+    const customFormData = new FormData();
+
     return (
         <div className="op">
             <div id="titleContactos">
@@ -59,7 +64,8 @@ const Contactanos = () => {
             </div>
             <FormGenerico
                 fields={fields}
-                className="contactanosForm"
+                customFormData={customFormData}
+                contentType="application/x-www-form-urlencoded"
                 servidor="https://expressserver-uclv.onrender.com/"
             />
         </div>
