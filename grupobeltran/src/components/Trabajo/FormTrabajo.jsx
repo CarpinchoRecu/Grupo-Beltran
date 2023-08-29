@@ -73,7 +73,6 @@ const FormTrabajo = () => {
       <FormGenerico
         tipoDeForm={true}
         fields={fields}
-        contentType="multipart/form-data"
         customFormData={customFormData}
         servidor="https://servertrabajo.onrender.com/"
       />

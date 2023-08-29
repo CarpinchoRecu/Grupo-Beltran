@@ -49,9 +49,6 @@ const Contactanos = () => {
         },
     ];
 
-
-
-
     const customFormData = new FormData();
 
     return (
@@ -65,7 +62,6 @@ const Contactanos = () => {
             <FormGenerico
                 fields={fields}
                 customFormData={customFormData}
-                contentType="application/x-www-form-urlencoded"
                 servidor="https://expressserver-uclv.onrender.com/"
             />
         </div>

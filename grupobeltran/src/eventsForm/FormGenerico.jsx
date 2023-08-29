@@ -5,9 +5,13 @@ import Swal from "sweetalert2";
 import logo from "../components/Footer/assetsFooter/logo2.png";
 import styleForm from "./styleForm.scss";
 
-
-const FormGenerico = ({ fields, servidor, tipoDeForm, contentType, customFormData }) => {
-    const [formData, setFormData] = useState({customFormData});
+const FormGenerico = ({
+    fields,
+    servidor,
+    tipoDeForm,
+    customFormData,
+}) => {
+    const [formData, setFormData] = useState({ customFormData });
     const [errors, setErrors] = useState({});
     const [fieldStates, setFieldStates] = useState({});
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
@@ -227,9 +231,8 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, contentType, customFormDat
         }
 
         if (previousFormInfo.submissionCount === 2) {
-            previousFormInfo.submissionCount = 0
+            previousFormInfo.submissionCount = 0;
         }
-
 
         if (previousFormInfo.submissionCount >= 2) {
             Swal.fire({
@@ -242,49 +245,48 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, contentType, customFormDat
 
         setSubmitButtonDisabled(true);
 
-        const allFieldsValid = fields.every((field) => {
-            if (fieldStates[field.id]?.isValid) {
-                if (field.validationType === "file") {
-                    return true;
-                } else {
-                    return formData[field.id] && formData[field.id].trim() !== "";
-                }
-            }
-            return false;
-        });
+        // const allFieldsValid = fields.every((field) => {
+        //     if (fieldStates[field.id]?.isValid) {
+        //         if (field.validationType === "file") {
+        //             return true;
+        //         } else {
+        //             return formData[field.id] && formData[field.id].trim() !== "";
+        //         }
+        //     }
+        //     return false;
+        // });
 
-        const allFieldsCompleted = fields.every((field) => {
-            if (field.validationType === "file") {
-                return true;
-            } else {
-                return formData[field.id] && formData[field.id].trim() !== "";
-            }
-        });
+        // const allFieldsCompleted = fields.every((field) => {
+        //     if (field.validationType === "file") {
+        //         return true;
+        //     } else {
+        //         return formData[field.id] && formData[field.id].trim() !== "";
+        //     }
+        // });
 
+        // if (!allFieldsValid) {
+        //     Swal.fire({
+        //         icon: "error",
+        //         title: "Error",
+        //         text: "Por favor, completa todos los campos correctamente.",
+        //     }).then(() => {
+        //         setSubmitButtonDisabled(false);
+        //     });
+        //     return;
+        // }
 
-        if (!allFieldsValid) {
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "Por favor, completa todos los campos correctamente.",
-            }).then(() => {
-                setSubmitButtonDisabled(false);
-            });
-            return;
-        }
+        // if (!allFieldsCompleted) {
+        //     Swal.fire({
+        //         icon: "error",
+        //         title: "Error",
+        //         text: "Por favor, completa todos los campos del formulario.",
+        //     }).then(() => {
+        //         setSubmitButtonDisabled(false);
+        //     });
+        //     return;
+        // }
 
-        if (!allFieldsCompleted) {
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "Por favor, completa todos los campos del formulario.",
-            }).then(() => {
-                setSubmitButtonDisabled(false);
-            });
-            return;
-        }
-
-        let formDataToSend
+        let formDataToSend;
 
         if (tipoDeForm === true) {
             formDataToSend = new FormData(event.target);
@@ -306,26 +308,24 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, contentType, customFormDat
 
             const response = await fetch(`${servidor}`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": contentType,
-                },
                 body: formDataToSend,
             });
 
             if (!response.ok) {
                 const errorMessage = await response.text(); // O response.json() si el servidor devuelve JSON
-                throw new Error(`\nError en el servidor:${response.status}\n${response.statusText}\n${errorMessage}\n`);
+                throw new Error(
+                    `\nError en el servidor:${response.status}\n${response.statusText}\n${errorMessage}\n`
+                );
             }
-
 
             Swal.fire({
                 icon: "success",
-                title: "Éxito",
-                text: "El formulario se ha enviado correctamente.",
+                title: "Tu formulario se envió correctamente",
+                text: "Pronto nuestros asesores se contactarán contigo.",
             }).then(() => {
                 setSubmitButtonDisabled(false);
             });
-            console.log("El formulario se ha enviado correctamente.")
+            console.log("El formulario se ha enviado correctamente.");
         } catch (error) {
             console.error(error);
             Swal.fire({
@@ -336,8 +336,6 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, contentType, customFormDat
                 setSubmitButtonDisabled(false);
             });
         }
-
-
     };
 
     return (
@@ -409,7 +407,7 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, contentType, customFormDat
                     ))}
                 </div>
                 <div className="botonForm">
-                    <button disabled={submitButtonDisabled}>enviar</button>
+                    <button>enviar</button>
                 </div>
             </form>
         </div>
