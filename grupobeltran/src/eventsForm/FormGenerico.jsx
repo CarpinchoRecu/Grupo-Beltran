@@ -208,6 +208,7 @@ const FormGenerico = ({
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        event.persist()
 
         const previousFormInfo = JSON.parse(localStorage.getItem("formInfo")) || {
             submissionCount: 0,
@@ -245,46 +246,46 @@ const FormGenerico = ({
 
         setSubmitButtonDisabled(true);
 
-        // const allFieldsValid = fields.every((field) => {
-        //     if (fieldStates[field.id]?.isValid) {
-        //         if (field.validationType === "file") {
-        //             return true;
-        //         } else {
-        //             return formData[field.id] && formData[field.id].trim() !== "";
-        //         }
-        //     }
-        //     return false;
-        // });
+        const allFieldsValid = fields.every((field) => {
+            if (fieldStates[field.id]?.isValid) {
+                if (field.validationType === "file") {
+                    return true;
+                } else {
+                    return formData[field.id] && formData[field.id].trim() !== "";
+                }
+            }
+            return false;
+        });
 
-        // const allFieldsCompleted = fields.every((field) => {
-        //     if (field.validationType === "file") {
-        //         return true;
-        //     } else {
-        //         return formData[field.id] && formData[field.id].trim() !== "";
-        //     }
-        // });
+        const allFieldsCompleted = fields.every((field) => {
+            if (field.validationType === "file") {
+                return true;
+            } else {
+                return formData[field.id] && formData[field.id].trim() !== "";
+            }
+        });
 
-        // if (!allFieldsValid) {
-        //     Swal.fire({
-        //         icon: "error",
-        //         title: "Error",
-        //         text: "Por favor, completa todos los campos correctamente.",
-        //     }).then(() => {
-        //         setSubmitButtonDisabled(false);
-        //     });
-        //     return;
-        // }
+        if (!allFieldsValid) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Por favor, completa todos los campos correctamente.",
+            }).then(() => {
+                setSubmitButtonDisabled(false);
+            });
+            return;
+        }
 
-        // if (!allFieldsCompleted) {
-        //     Swal.fire({
-        //         icon: "error",
-        //         title: "Error",
-        //         text: "Por favor, completa todos los campos del formulario.",
-        //     }).then(() => {
-        //         setSubmitButtonDisabled(false);
-        //     });
-        //     return;
-        // }
+        if (!allFieldsCompleted) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Por favor, completa todos los campos del formulario.",
+            }).then(() => {
+                setSubmitButtonDisabled(false);
+            });
+            return;
+        }
 
         let formDataToSend;
 
