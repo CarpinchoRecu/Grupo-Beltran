@@ -41,7 +41,7 @@ export const validateInput = (id, value, validationType) => {
                 break;
             case "email":
                 if (!value.includes("@")) {
-                    return "El email debe contener el símbolo @";
+                    return "El email debe contener @";
                 } else if (value.includes(" ")) {
                     return "Este campo no debe tener espacios intermedios";
                 }
