@@ -5,12 +5,7 @@ import Swal from "sweetalert2";
 import logo from "../components/Footer/assetsFooter/logo2.png";
 import styleForm from "./styleForm.scss";
 
-const FormGenerico = ({
-    fields,
-    servidor,
-    tipoDeForm,
-    customFormData,
-}) => {
+const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
     const [formData, setFormData] = useState({ customFormData });
     const [errors, setErrors] = useState({});
     const [fieldStates, setFieldStates] = useState({});
@@ -207,45 +202,11 @@ const FormGenerico = ({
     };
 
     const handleSubmit = async (event) => {
+        //evitar reinicio de pagina
         event.preventDefault();
-        event.persist()
-
-        const previousFormInfo = JSON.parse(localStorage.getItem("formInfo")) || {
-            submissionCount: 0,
-            lastSubmissionTime: null,
-        };
-
-        // Obtener la hora actual
-        const currentTime = new Date().getTime();
-
-        // Verificar si ha pasado al menos 3 minutos desde el último envío exitoso
-        if (
-            previousFormInfo.lastSubmissionTime &&
-            currentTime - previousFormInfo.lastSubmissionTime < 0.1 * 60 * 1000
-        ) {
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "Debes esperar al menos 3 minutos antes de enviar otro formulario.",
-            });
-            return;
-        }
-
-        if (previousFormInfo.submissionCount === 2) {
-            previousFormInfo.submissionCount = 0;
-        }
-
-        if (previousFormInfo.submissionCount >= 2) {
-            Swal.fire({
-                icon: "error",
-                title: "Error",
-                text: "Ya has enviado el formulario dos veces en los últimos 3 minutos.",
-            });
-            return;
-        }
-
         setSubmitButtonDisabled(true);
 
+        // Validar File
         const allFieldsValid = fields.every((field) => {
             if (fieldStates[field.id]?.isValid) {
                 if (field.validationType === "file") {
@@ -265,6 +226,7 @@ const FormGenerico = ({
             }
         });
 
+        // validar campos antes de enviar
         if (!allFieldsValid) {
             Swal.fire({
                 icon: "error",
@@ -287,38 +249,43 @@ const FormGenerico = ({
             return;
         }
 
+        // juntar datos del formulario
         let formDataToSend;
-
+        //datos para mandar archivos
         if (tipoDeForm === true) {
-            formDataToSend = new FormData(event.target);
+            formDataToSend = new FormData();
+            // Agregar los campos de texto al FormData
+            for (const field of fields) {
+                if (field.validationType !== "file") {
+                    formDataToSend.append(field.id, formData[field.id]);
+                }
+            }
+
+            // Agregar el archivo al FormData
+            if (formData["cv"]) {
+                formDataToSend.append("cv", formData["cv"]);
+            }
         } else {
+            // datos para enviar solo string o numbers
             formDataToSend = new URLSearchParams(formData);
         }
 
         try {
-            const updatedFormInfo = {
-                submissionCount: previousFormInfo.submissionCount + 1,
-                lastSubmissionTime: currentTime,
-            };
-
-            // Almacenar la información actualizada en localStorage
-            localStorage.setItem("formInfo", JSON.stringify(updatedFormInfo));
-
             // Deshabilitar el botón para evitar envíos repetidos
             setSubmitButtonDisabled(true);
-
+            // peticion post con fetch
             const response = await fetch(`${servidor}`, {
                 method: "POST",
                 body: formDataToSend,
             });
-
+            // controlador de errores
             if (!response.ok) {
-                const errorMessage = await response.text(); // O response.json() si el servidor devuelve JSON
+                const errorMessage = await response.text();
                 throw new Error(
                     `\nError en el servidor:${response.status}\n${response.statusText}\n${errorMessage}\n`
                 );
             }
-
+            // alerta con sweetalert
             Swal.fire({
                 icon: "success",
                 title: "Tu formulario se envió correctamente",
@@ -328,6 +295,7 @@ const FormGenerico = ({
             });
             console.log("El formulario se ha enviado correctamente.");
         } catch (error) {
+            // errores
             console.error(error);
             Swal.fire({
                 icon: "error",
@@ -408,7 +376,7 @@ const FormGenerico = ({
                     ))}
                 </div>
                 <div className="botonForm">
-                    <button>enviar</button>
+                    <button disabled={submitButtonDisabled}>enviar</button>
                 </div>
             </form>
         </div>

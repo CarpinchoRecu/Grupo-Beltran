@@ -74,7 +74,7 @@ const FormTrabajo = () => {
         tipoDeForm={true}
         fields={fields}
         customFormData={customFormData}
-        servidor="https://servertrabajo.onrender.com/"
+        servidor="https://servertrabajo.onrender.com"
       />
     </div>
   );
