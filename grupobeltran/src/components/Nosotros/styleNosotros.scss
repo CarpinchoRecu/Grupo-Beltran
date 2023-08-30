@@ -1,4 +1,4 @@
-.nosotros{
+.nosotros {
     background-image: url("./assetsNosotros/fondoNosotros.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -10,19 +10,19 @@
     gap: 4rem;
     height: 45rem;
 
-    img{
+    img {
         scale: 1.6;
         height: 100px;
     }
 
-    p{
+    p {
         font-size: 30px;
         width: 1300px;
         text-align: center;
         font-weight: bold;
     }
 
-    h2{
+    h2 {
         font-size: 28px;
         width: 720px;
         text-align: center;
@@ -33,14 +33,15 @@
 }
 
 @media (max-width: 1350px) {
-    .nosotros{
+    .nosotros {
         gap: 3rem;
-        p{
+
+        p {
             font-size: 28px;
             width: 1200px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 26px;
             width: 650px;
         }
@@ -48,17 +49,17 @@
 }
 
 @media (max-width: 1220px) {
-    .nosotros{
-        img{
+    .nosotros {
+        img {
             height: 95px;
         }
 
-        p{
+        p {
             font-size: 26px;
             width: 1000px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 24px;
             width: 550px;
         }
@@ -66,17 +67,17 @@
 }
 
 @media (max-width: 1050px) {
-    .nosotros{
-        img{
+    .nosotros {
+        img {
             height: 90px;
         }
 
-        p{
+        p {
             font-size: 24px;
             width: 850px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 22px;
             width: 500px;
         }
@@ -84,17 +85,17 @@
 }
 
 @media (max-width: 880px) {
-    .nosotros{
-        img{
+    .nosotros {
+        img {
             height: 85px;
         }
 
-        p{
+        p {
             font-size: 22px;
             width: 700px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 20px;
             width: 450px;
         }
@@ -102,18 +103,19 @@
 }
 
 @media (max-width: 720px) {
-    .nosotros{
+    .nosotros {
         height: 40rem;
-        img{
+
+        img {
             height: 80px;
         }
 
-        p{
+        p {
             font-size: 20px;
             width: 550px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 18px;
             width: 350px;
         }
@@ -121,13 +123,13 @@
 }
 
 @media (max-width: 580px) {
-    .nosotros{
-        p{
+    .nosotros {
+        p {
             font-size: 18px;
             width: 400px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 16px;
             width: 300px;
         }
@@ -135,13 +137,13 @@
 }
 
 @media (max-width: 430px) {
-    .nosotros{
-        p{
+    .nosotros {
+        p {
             font-size: 16px;
             width: 310px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 14px;
             width: 260px;
         }
@@ -149,18 +151,17 @@
 }
 
 @media (max-width: 340px) {
-    .nosotros{
-
-        img{
+    .nosotros {
+        img {
             height: 70px;
         }
 
-        p{
+        p {
             font-size: 14px;
             width: 250px;
         }
-    
-        h2{
+
+        h2 {
             font-size: 12px;
             width: 220px;
         }
