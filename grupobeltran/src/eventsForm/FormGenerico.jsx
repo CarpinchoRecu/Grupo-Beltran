@@ -201,15 +201,15 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
         }
     };
 
-    const [counterSubmit, setCounterSubmit] = useState(0)
-    const cooldownTime = 2 * 60 * 1000; // un minuto
+    const [counterSubmit, setCounterSubmit] = useState(0);
     useEffect(() => {
+        const cooldownTime = 2 * 60 * 1000; // Dos minutos
         const tiempo = setInterval(() => {
-            setCounterSubmit(0)
+            setCounterSubmit(0);
         }, cooldownTime);
 
         return () => clearTimeout(tiempo);
-    }, [setCounterSubmit])
+    }, [setCounterSubmit]);
 
     const handleSubmit = async (event) => {
         //evitar reinicio de pagina
@@ -219,7 +219,7 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
         if (counterSubmit === 2) {
             Swal.fire({
                 icon: "error",
-                title: "Error",
+                title: "Limite de formulario",
                 text: "Envío limitado, puede volver a intentar en 2 minutos. Gracias.",
             }).then(() => {
                 setSubmitButtonDisabled(false);
@@ -281,7 +281,6 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
                     formDataToSend.append(field.id, formData[field.id]);
                 }
             }
-
             // Agregar el archivo al FormData
             if (formData["cv"]) {
                 formDataToSend.append("cv", formData["cv"]);
@@ -313,7 +312,7 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
                 text: "Pronto nuestros asesores se contactarán contigo.",
             }).then(() => {
                 setSubmitButtonDisabled(false);
-                setCounterSubmit(counterSubmit + 1)
+                setCounterSubmit(counterSubmit + 1);
             });
             console.log("El formulario se ha enviado correctamente.");
         } catch (error) {

@@ -1,23 +1,22 @@
 @font-face {
-    font-family: 'Lovelo';
-    src: url('../fonts/Lovelo-Black.otf') format('opentype');
+    font-family: "Lovelo";
+    src: url("../fonts/Lovelo-Black.otf") format("opentype");
 }
 
 @font-face {
-    font-family: 'TT';
-    src: url('../fonts/TT\ Commons\ Light.otf') format('opentype');
+    font-family: "TT";
+    src: url("../fonts/TT\ Commons\ Light.otf") format("opentype");
 }
 
 @font-face {
-    font-family: 'TT Black';
-    src: url('../fonts/TT\ Commons\ Black.otf') format('opentype');
+    font-family: "TT Black";
+    src: url("../fonts/TT\ Commons\ Black.otf") format("opentype");
 }
 
 @font-face {
-    font-family: 'Satisfy';
-    src: url('../fonts/Satisfy-Regular.ttf') format("truetype");
+    font-family: "Satisfy";
+    src: url("../fonts/Satisfy-Regular.ttf") format("truetype");
 }
-
 
 * {
     margin: 0;
@@ -39,7 +38,7 @@
 body {
     animation: animation-pages 1.5s ease;
     opacity: 1;
-    background-color: #eeffee;
+    background-color: #ddf1dd;
 }
 
 .btnInfo {
@@ -74,7 +73,7 @@ body {
     }
 }
 
-.op{
+.op {
     animation: animation-pages 1.5s ease;
     opacity: 1;
 }

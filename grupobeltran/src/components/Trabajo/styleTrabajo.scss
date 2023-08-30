@@ -81,17 +81,26 @@
     }
 }
 
-.formTrabajo{
+.formTrabajo {
     height: 50rem;
-    form{
-        background-color: #f1f4f1;
 
-        input{
-            background-color: #d5cfcf!important;
+    form {
+        background-color: #ffffff;
+
+        input {
+            background-color: #d5cfcf !important;
+
+            &:hover {
+                background-color: #5b8a4a !important;
+            }
+
+            &:focus {
+                outline: none;
+                background-color: #5b8a4a !important;
+            }
         }
     }
 }
-
 
 @media (max-width: 1600px) {
     .titleTrabajo {
@@ -217,7 +226,7 @@
         }
     }
 
-    .formTrabajo{
+    .formTrabajo {
         height: 85rem;
     }
 }
@@ -266,13 +275,13 @@
 }
 
 @media (max-width: 580px) {
-    .formTrabajo{
+    .formTrabajo {
         height: 84rem;
     }
 }
 
 @media (max-width: 570px) {
-    .formTrabajo{
+    .formTrabajo {
         height: 80rem;
     }
 }
@@ -294,6 +303,7 @@
 
         .circulo {
             padding: 1rem;
+
             h1 {
                 font-size: 14px;
             }
@@ -321,7 +331,7 @@
         }
     }
 
-    .formTrabajo{
+    .formTrabajo {
         height: 80rem;
     }
 }
@@ -344,6 +354,7 @@
 
         .circulo {
             padding: 1rem;
+
             h1 {
                 font-size: 20px;
             }
@@ -371,13 +382,13 @@
         }
     }
 
-    .formTrabajo{
+    .formTrabajo {
         height: 78rem;
     }
 }
 
 @media (max-width: 440px) {
-    .formTrabajo{
+    .formTrabajo {
         height: 75rem;
     }
 }
@@ -397,7 +408,6 @@
         }
 
         .circulo {
-
             .linkTrabajo {
                 height: 50px;
                 width: 50px;
@@ -422,4 +432,3 @@
         }
     }
 }
-
