@@ -133,7 +133,7 @@ const ChatBot = () => {
                             <div className="bot">
                                 <img src={asis} alt="logo de asis" />
                                 <p>
-                                    Hola soy Asis el ChatBot de AsesSalud, ¿En qué puedo ayudarte?
+                                    Hola soy el ChatBot de AsesSalud, ¿En qué puedo ayudarte?
                                 </p>
                             </div>
                             {preguntaClickeada !== null ? (
@@ -224,7 +224,7 @@ const ChatBot = () => {
                                             {chatFinalizado && (
                                                 <div className="final">
                                                     <p>
-                                                        Aquí finaliza el chat con Asis <br />
+                                                        Aquí finaliza el chat <br />
                                                         ¿Quieres preguntarme otra cosa?
                                                     </p>
                                                     <img onClick={volverAtras} src={atras} alt="atras" />

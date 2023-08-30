@@ -28,7 +28,6 @@ const data = [
         respuestaAdd1: "Estoy conforme con la respuesta",
         respuestaAdd2: "Quiero contactarme con un asesor",
         preguntaAdd: "Coberturas",
-        respuestaARePregunta: ""
     },
     {
         pregunta: "Mi cobertura",
