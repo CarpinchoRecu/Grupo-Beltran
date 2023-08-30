@@ -314,7 +314,6 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
             }).then(() => {
                 setSubmitButtonDisabled(false);
                 setCounterSubmit(counterSubmit + 1)
-                console.log(counterSubmit)
             });
             console.log("El formulario se ha enviado correctamente.");
         } catch (error) {
@@ -323,7 +322,7 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
             Swal.fire({
                 icon: "error",
                 title: "Error",
-                text: `Ocurrió un error al enviar el formulario. Por favor, intenta nuevamente. Error: ${error.status}`,
+                text: "Ocurrió un error al enviar el formulario. Por favor, intenta nuevamente.",
             }).then(() => {
                 setSubmitButtonDisabled(false);
             });
