@@ -201,10 +201,31 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
         }
     };
 
+    const [counterSubmit, setCounterSubmit] = useState(0)
+    const cooldownTime = 2 * 60 * 1000; // un minuto
+    useEffect(() => {
+        const tiempo = setInterval(() => {
+            setCounterSubmit(0)
+        }, cooldownTime);
+
+        return () => clearTimeout(tiempo);
+    }, [setCounterSubmit])
+
     const handleSubmit = async (event) => {
         //evitar reinicio de pagina
         event.preventDefault();
         setSubmitButtonDisabled(true);
+
+        if (counterSubmit === 2) {
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Envío limitado, puede volver a intentar en 2 minutos. Gracias.",
+            }).then(() => {
+                setSubmitButtonDisabled(false);
+            });
+            return;
+        }
 
         // Validar File
         const allFieldsValid = fields.every((field) => {
@@ -292,6 +313,8 @@ const FormGenerico = ({ fields, servidor, tipoDeForm, customFormData }) => {
                 text: "Pronto nuestros asesores se contactarán contigo.",
             }).then(() => {
                 setSubmitButtonDisabled(false);
+                setCounterSubmit(counterSubmit + 1)
+                console.log(counterSubmit)
             });
             console.log("El formulario se ha enviado correctamente.");
         } catch (error) {
